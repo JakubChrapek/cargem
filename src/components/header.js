@@ -1,20 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 const Header = ({ data }) => {
 
+    const [imgWidth, changeImgWidth] = useState('50%')
+    const [imgWidthDelta, changeImgWidthDelta] = useState('200%')
+
     function handleChange(e){
-        debugger
-        // img width = e.currentTarget.value
+
+        let deltaVal = 100/e.currentTarget.value
+        let val = e.currentTarget.value 
+
+        changeImgWidth(val + "%")
+        changeImgWidthDelta(deltaVal * 100 + '%')
     }
 
     return (
         <Wrapper>
             <Broken bg={data.brokenImage.url} />
-            <RepairedWrapper>
-                <Repaired bg={data.repairedImage.url} />
+            <RepairedWrapper imgWidth={imgWidth}>
+                <Repaired imgWidthDelta={imgWidthDelta} bg={data.repairedImage.url} />
             </RepairedWrapper>
-            <input onChange={(e) => {handleChange(e)}} type="range" min="1" max="100" class="slider" name='slider' id="slider"></input>
+            <input onChange={(e) => {handleChange(e)}} type="range" min="0" max="100" class="slider" name='slider' id="slider"></input>
         </Wrapper>
     )
 }
@@ -30,6 +37,7 @@ const Wrapper = styled.header`
 
     .slider {
         position: absolute;
+        z-index: 2;
         top: 0;
         left: 0;
         right: 0;
@@ -71,29 +79,16 @@ const RepairedWrapper = styled.div`
     overflow: hidden;
     position: relative;
     height: 100%;
-    width: 50%; // value
+    width: ${props => props.imgWidth}; // value
 `
 
 const Repaired = styled.div`
     position: absolute;
     z-index: 1;
     height: 100%;
-    width: 000%; // value
+    width: ${props => props.imgWidthDelta}; // value
     background-image: url(${props => props.bg});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-`
-
-const Line = styled.span`
-    position: absolute;
-    top: 0; 
-    left: 10%; // value
-    width: 2px;
-    height: 100%;
-    background-color: #fff; //change
-
-    &::after{
-
-    }
 `
