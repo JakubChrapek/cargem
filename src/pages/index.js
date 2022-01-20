@@ -1,25 +1,25 @@
-import React, {useEffect} from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Aside from "../components/aside"
-import { theme } from "../constants/theme"
-import { ThemeProvider } from "styled-components"
 import { graphql } from "gatsby"
+import { ThemeContext } from "../HOCs/isBlackTheme"
+import Header from "../components/header"
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
 
+  let isDarkTheme = useContext(ThemeContext) // import for rerender
 
   return (
-    <ThemeProvider theme={theme}>
-      <App>
-        <Aside data={data.datoCmsAside} />
-        <Main>
-
-        </Main>
-      </App>
-    </ThemeProvider>
+    <App>
+      <Aside data={data.datoCmsAside} />
+      <Main>
+        <Header data={data.datoCmsSlider}/>
+      </Main>
+    </App>
   )
 }
 
+export default IndexPage
 
 export const query = graphql`
 query AsideQuery {
@@ -45,13 +45,26 @@ query AsideQuery {
     copyright
     nightModeTitle
   }
+  datoCmsSlider {
+    firstButtonText
+    secondButtonText
+    title {
+      blocks
+      links
+      value
+    }
+    repairedImage {
+      url
+      alt
+    }
+    brokenImage {
+      alt
+      url
+    }
+  }
 }
 
-
 `
-
-export default IndexPage
-
 
 const App = styled.div`
   display: grid;

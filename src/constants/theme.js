@@ -51,8 +51,3 @@ export let theme = {
         }
     }
 }
-
-export const changeTheme = () => {
-    theme.isBlackTheme = !theme.isBlackTheme
-    console.log(theme.isBlackTheme)
-}

@@ -1,9 +1,12 @@
 
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
-import { changeTheme } from "../constants/theme"
+import { ThemeChangeContext } from "../HOCs/isBlackTheme"
 
 const Aside = ({ data }) => {
+
+    let changeColorMode = useContext(ThemeChangeContext)
+
     return (
         <Wrapper>
             <div>
@@ -33,7 +36,7 @@ const Aside = ({ data }) => {
                 </SocialMedia>
                 <ColorTrybe>
                     {data.nightModeTitle}
-                    <div onClick={changeTheme}>
+                    <div onClick={changeColorMode}>
                         <span />
                     </div>
                 </ColorTrybe>
@@ -50,13 +53,14 @@ export default Aside
 const Wrapper = styled.aside`
     padding: 65px 20px 25px 60px;
     box-sizing: border-box;
-    display: fixed;
     height: 100vh;
     width: 100%;
     background: ${props => props.theme.isBlackTheme ? props.theme.black.aside.background : props.theme.white.aside.background};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
 `
 
 const Logo = styled.img`

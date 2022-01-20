@@ -1,35 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import { theme } from "../constants/theme"
+import { ThemeProvider } from "styled-components"
+
+export const ThemeContext = React.createContext()
+export const ThemeChangeContext = React.createContext()
 
 const ThemeWrapper = ({ children }) => {
 
-    const ThemeContext = React.createContext('dark');
-
-    const [isDarkTheme, setIsDarkTheme] = useState("dark")
+    const [isDarkTheme, setIsDarkTheme] = useState(false)
 
     useEffect(() => {
-        if (!localStorage.getItem('isBlack')) {
-            setIsDarkTheme(false)
+        if (localStorage.getItem('isBlack') == 'true') {
+            setIsDarkTheme(true)
         }
     }, [])
 
-    const handleClick = () => {
-        if (localStorage.getItem('isBlack')) {
+    theme.isBlackTheme = isDarkTheme
 
+    const handleClick = () => {
+        if (localStorage.getItem('isBlack') == 'true') {
             localStorage.setItem('isBlack', 'false')
             setIsDarkTheme(false)
-
         } else {
-
             localStorage.setItem('isBlack', 'true')
             setIsDarkTheme(true)
-
         }
     }
 
     return (
-        <ThemeContext.Provider value={isDarkTheme}>
-            {children}
-        </ThemeContext.Provider>
+        <ThemeProvider theme={theme}>
+            <ThemeContext.Provider value={isDarkTheme}>
+                <ThemeChangeContext.Provider value={handleClick}>
+                    {children}
+                </ThemeChangeContext.Provider>
+            </ThemeContext.Provider>
+        </ThemeProvider>
     )
 }
 
