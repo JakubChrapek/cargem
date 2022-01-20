@@ -8,8 +8,8 @@ const Header = ({ data }) => {
 
     function handleChange(e){
 
-        let deltaVal = 100/e.currentTarget.value
-        let val = e.currentTarget.value 
+        let deltaVal = 1000/e.currentTarget.value
+        let val = e.currentTarget.value / 10
 
         changeImgWidth(val + "%")
         changeImgWidthDelta(deltaVal * 100 + '%')
@@ -21,7 +21,7 @@ const Header = ({ data }) => {
             <RepairedWrapper imgWidth={imgWidth}>
                 <Repaired imgWidthDelta={imgWidthDelta} bg={data.repairedImage.url} />
             </RepairedWrapper>
-            <input onChange={(e) => {handleChange(e)}} type="range" min="0" max="100" class="slider" name='slider' id="slider"></input>
+            <input onChange={(e) => {handleChange(e)}} defaultValue='500' type="range" min="0" max="1000" class="slider" name='slider' id="slider"></input>
         </Wrapper>
     )
 }
