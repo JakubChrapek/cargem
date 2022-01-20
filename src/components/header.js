@@ -16,12 +16,12 @@ const Header = ({ data, isDarkTheme }) => {
     }
 
     return (
-        <Wrapper>
+        <Wrapper left={imgWidth}>
             <Broken bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
             <RepairedWrapper imgWidth={imgWidth}>
                 <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
             </RepairedWrapper>
-            <Slider left={imgWidth} onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider" name='slider' id="slider"/>
+            <input onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider"/>
             <TextBox>
                 <StructuredText data={data.title}/>
                 <ButtonsWrapper>
@@ -40,44 +40,44 @@ const Wrapper = styled.header`
     height: 100vh;
     position: relative;
 
-`
-
-const Slider = styled.input`
-    overflow: hidden;
-    position: absolute;
-    z-index: 6;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .0);
-    outline: none;
-    margin: 0;
-    transition: all .2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &::-webkit-slider-thumb {
+    .slider{
+        overflow: hidden;
+        position: absolute;
+        z-index: 6;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         -webkit-appearance: none;
         appearance: none;
-        width: 1px;
-        height: 100vh;
-        background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub}; //change
-        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .0);
+        outline: none;
+        margin: 0;
+        transition: all .2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 1px;
+            height: 100vh;
+            background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub}; //change
+            cursor: pointer;
+        }
+        &::after{
+            content: url(${Slide});
+            top: calc(50% - 26px);
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            left: calc(${props => props.left} - 26px);
+            cursor: pointer;
+        }
     }
-    &::after{
-        content: url(${Slide});
-        top: calc(50% - 26px);
-        position: absolute;
-        width: 52px;
-        height: 52px;
-        left: calc(${props => props.left} - 26px);
-        cursor: pointer;
-    }
+
 `
 
 const Broken = styled.div`
