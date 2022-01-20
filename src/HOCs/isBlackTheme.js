@@ -28,13 +28,11 @@ const ThemeWrapper = ({ children }) => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <ThemeContext.Provider value={isDarkTheme}>
-                <ThemeChangeContext.Provider value={handleClick}>
+        <ThemeContext.Provider value={isDarkTheme}>
+            <ThemeChangeContext.Provider value={handleClick}>
                     {children}
-                </ThemeChangeContext.Provider>
-            </ThemeContext.Provider>
-        </ThemeProvider>
+            </ThemeChangeContext.Provider>
+        </ThemeContext.Provider>
     )
 }
 

@@ -160,7 +160,7 @@ const ColorTrybe = styled.div`
         padding: 2px;
         position: relative;
         border-radius: 50px;
-        background-color:  ${props => props.theme.isBlackTheme ? props.theme.white.text.sub : props.theme.black.text.active};
+        background-color:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.sub};
         transition: .2s linear;
     }
 
@@ -170,7 +170,7 @@ const ColorTrybe = styled.div`
         width: 16px;
         height: 16px;
         position: absolute;
-        left: ${props => props.theme.isBlackTheme ? "2px" : "22px"};
+        left: ${props => props.theme.isBlackTheme ? "22px" : "2px"};
         background-color: ${props =>  props.theme.black.text.main};
         transition: .2s linear;
 

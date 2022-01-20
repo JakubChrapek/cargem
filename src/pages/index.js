@@ -4,18 +4,24 @@ import Aside from "../components/aside"
 import { graphql } from "gatsby"
 import { ThemeContext } from "../HOCs/isBlackTheme"
 import Header from "../components/header"
+import Highlight from "../components/highlight"
+import { theme } from "../constants/theme"
+import { ThemeProvider } from "styled-components"
 
 const IndexPage = ({ data }) => {
 
   let isDarkTheme = useContext(ThemeContext) // import for rerender
 
   return (
-    <App>
-      <Aside data={data.datoCmsAside} />
-      <Main>
-        <Header data={data.datoCmsSlider}/>
-      </Main>
-    </App>
+    <ThemeProvider theme={theme}>
+      <App>
+        <Aside data={data.datoCmsAside} />
+        <Main>
+          <Header data={data.datoCmsSlider} />
+          <Highlight />
+        </Main>
+      </App>
+    </ThemeProvider>
   )
 }
 
