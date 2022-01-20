@@ -51,6 +51,7 @@ const Aside = ({ data }) => {
 export default Aside
 
 const Wrapper = styled.aside`
+    transition: .2s linear;
     padding: 65px 20px 25px 60px;
     box-sizing: border-box;
     height: 100vh;
@@ -159,7 +160,7 @@ const ColorTrybe = styled.div`
         padding: 2px;
         position: relative;
         border-radius: 50px;
-        background-color:  ${props => props.theme.white.text.sub};
+        background-color:  ${props => props.theme.isBlackTheme ? props.theme.white.text.sub : props.theme.black.text.active};
         transition: .2s linear;
     }
 
@@ -169,21 +170,11 @@ const ColorTrybe = styled.div`
         width: 16px;
         height: 16px;
         position: absolute;
-        left: 2px;
-        background-color: ${props => props.theme.black.text.main};
+        left: ${props => props.theme.isBlackTheme ? "2px" : "22px"};
+        background-color: ${props =>  props.theme.black.text.main};
         transition: .2s linear;
 
         
-    }
-
-    &.active{
-        div{
-            background-color: ${props => props.theme.black.text.active};
-        }
-
-        span{
-            left: 22px;
-        }
     }
 
 `

@@ -14,9 +14,9 @@ export let theme = {
         },
         button: {
             static: {
-                border: '#F3F3F3',
-                background: 'transparent',
-                text: '#F3F3F3'
+                border: '#2C8CDA',
+                background: '#2C8CDA',
+                text: '#030405'
             },
             hover: {
                 border: '#2C8CDA',
@@ -39,8 +39,8 @@ export let theme = {
         },
         button: {
             static: {
-                border: '#F3F3F3',
-                background: 'transparent',
+                border: '#2C8CDA',
+                background: '#2C8CDA',
                 text: '#F3F3F3'
             },
             hover: {

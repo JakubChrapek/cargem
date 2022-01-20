@@ -49,8 +49,6 @@ query AsideQuery {
     firstButtonText
     secondButtonText
     title {
-      blocks
-      links
       value
     }
     repairedImage {
