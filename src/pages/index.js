@@ -7,6 +7,7 @@ import Header from "../components/header"
 import Highlight from "../components/highlight"
 import { theme } from "../constants/theme"
 import { ThemeProvider } from "styled-components"
+import Offer from "../components/offer"
 
 const IndexPage = ({ data }) => {
 
@@ -15,10 +16,11 @@ const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <App>
-        <Aside data={data.datoCmsAside} />
+        <Aside isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
         <Main>
-          <Header data={data.datoCmsSlider} />
+          <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
           <Highlight data={data.datoCmsBenefit} />
+          <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
         </Main>
       </App>
     </ThemeProvider>
@@ -50,6 +52,10 @@ query MainQuery {
     }
     copyright
     nightModeTitle
+    logoWhite {
+      alt
+      url
+    }
   }
   datoCmsSlider {
     firstButtonText
@@ -62,6 +68,14 @@ query MainQuery {
       alt
     }
     brokenImage {
+      alt
+      url
+    }
+    repairedImageWhite {
+      alt
+      url
+    }
+    brokeImageWhite {
       alt
       url
     }
@@ -85,9 +99,35 @@ query MainQuery {
       title
     }
   }
+  datoCmsOffer {
+    buttonText
+    title {
+      value
+    }
+    carImg {
+      alt
+      url
+    }
+    carImgWhite {
+      alt
+      url
+    }
+    items {
+      title
+      text {
+        value
+      }
+      icon {
+        alt
+        url
+      }
+      iconWhite {
+        alt
+        url
+      }
+    }
+  }
 }
-
-
 `
 
 const App = styled.div`

@@ -3,14 +3,14 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import { ThemeChangeContext } from "../HOCs/isBlackTheme"
 
-const Aside = ({ data }) => {
+const Aside = ({ data, isDarkTheme }) => {
 
     let changeColorMode = useContext(ThemeChangeContext)
 
     return (
         <Wrapper>
             <div>
-                <Logo src={data.logo.url} alt={data.logo.alt} />
+                <Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} />
                 <Nav>
                     <List>
                         {data.navigation.map((el) => (
@@ -69,7 +69,7 @@ const Logo = styled.img`
 `
 
 const Nav = styled.nav`
-    padding-top: 180px;
+    padding-top: clamp(30px, 15vh, 180px);
 `
 
 const List = styled.ul`

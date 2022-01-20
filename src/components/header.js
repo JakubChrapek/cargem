@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
 import Slide from './../images/slide.png'
 
-const Header = ({ data }) => {
+const Header = ({ data, isDarkTheme }) => {
     const [imgWidth, changeImgWidth] = useState('50%')
     const [imgWidthDelta, changeImgWidthDelta] = useState('200%')
 
@@ -17,9 +17,9 @@ const Header = ({ data }) => {
 
     return (
         <Wrapper>
-            <Broken bg={data.brokenImage.url} />
+            <Broken bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
             <RepairedWrapper imgWidth={imgWidth}>
-                <Repaired imgWidthDelta={imgWidthDelta} bg={data.repairedImage.url} />
+                <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
             </RepairedWrapper>
             <Slider left={imgWidth} onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider" name='slider' id="slider"/>
             <TextBox>
@@ -64,7 +64,7 @@ const Slider = styled.input`
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 2px;
+        width: 1px;
         height: 100vh;
         background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub}; //change
         cursor: pointer;
@@ -123,12 +123,13 @@ const TextBox = styled.div`
     z-index: 10;
     margin: 0 auto;
 
-    p{
+    h1{
         font-size: 48px;
         line-height: 60px;
         margin: 0;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
         transition: .2s linear;
+        text-align: center;
     }
 
 `
@@ -150,6 +151,7 @@ const ButtonsWrapper = styled.div`
         text-decoration: none;
         text-transform: uppercase;
         transition: .2s linear;
+        font-weight: bold;
 
         &.first{
             background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
