@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { theme } from "../constants/theme"
-import { ThemeProvider } from "styled-components"
 
 export const ThemeContext = React.createContext()
 export const ThemeChangeContext = React.createContext()
@@ -10,7 +9,7 @@ const ThemeWrapper = ({ children }) => {
     const [isDarkTheme, setIsDarkTheme] = useState(false)
 
     useEffect(() => {
-        if (localStorage.getItem('isBlack') == 'true') {
+        if (localStorage.getItem('isBlack') === 'true') {
             setIsDarkTheme(true)
         }
     }, [])
@@ -18,7 +17,7 @@ const ThemeWrapper = ({ children }) => {
     theme.isBlackTheme = isDarkTheme
 
     const handleClick = () => {
-        if (localStorage.getItem('isBlack') == 'true') {
+        if (localStorage.getItem('isBlack') === 'true') {
             localStorage.setItem('isBlack', 'false')
             setIsDarkTheme(false)
         } else {

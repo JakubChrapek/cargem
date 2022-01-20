@@ -11,6 +11,7 @@ module.exports = {
         apiToken: process.env.DATOCMS_API_KEY
       }
     },
-    'gatsby-plugin-styled-components'
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-image'
   ]
 }

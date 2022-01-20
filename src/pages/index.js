@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
         <Aside data={data.datoCmsAside} />
         <Main>
           <Header data={data.datoCmsSlider} />
-          <Highlight />
+          <Highlight data={data.datoCmsBenefit} />
         </Main>
       </App>
     </ThemeProvider>
@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-query AsideQuery {
+query MainQuery {
   datoCmsAside {
     navigation {
       linkTitle
@@ -66,13 +66,42 @@ query AsideQuery {
       url
     }
   }
+  datoCmsBenefit {
+    title {
+      value
+    }
+    rightText {
+      value
+    }
+    leftText {
+      value
+    }
+    benefits {
+      icon {
+        alt
+        url
+      }
+      text
+      title
+    }
+  }
 }
+
 
 `
 
 const App = styled.div`
   display: grid;
   grid-template-columns: 367px 1fr;
+          
+  mark{
+    background-color: unset;
+    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+  }
+
+  h1, h2, h3, h4{
+    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+  }
 `
 
 const Main = styled.main`

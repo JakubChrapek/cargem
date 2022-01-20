@@ -130,11 +130,7 @@ const TextBox = styled.div`
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
         transition: .2s linear;
     }
-        
-    mark{
-        background-color: unset;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
-    }
+
 `
 
 const ButtonsWrapper = styled.div`

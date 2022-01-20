@@ -1,4 +1,6 @@
 import "./src/css/normalize.css"
+import "./src/css/layout.css"
+import "@fontsource/lato"
 
 import React from "react"
 import ThemeWrapper from "./src/HOCs/isBlackTheme"
