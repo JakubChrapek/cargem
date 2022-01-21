@@ -39,6 +39,12 @@ const Wrapper = styled.section`
     padding-left: 170px; // change to m auto
     padding-right: 200px;
 
+    h2{
+        margin: 0;
+        font-size: 40px;
+        line-height: 50px;
+    }
+
 `
 
 const Benefits = styled.div`
@@ -78,6 +84,7 @@ const Benefits = styled.div`
 
             h4{
                 margin-left: 8px;
+                font-size: 18px;
             }
         }
 

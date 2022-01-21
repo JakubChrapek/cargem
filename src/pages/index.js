@@ -1,13 +1,14 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import Aside from "../components/aside"
+import Header from "../components/header"
+import Offer from "../components/offer"
+import Price from "../components/price"
+import Highlight from "../components/highlight"
 import { graphql } from "gatsby"
 import { ThemeContext } from "../HOCs/isBlackTheme"
-import Header from "../components/header"
-import Highlight from "../components/highlight"
-import { theme } from "../constants/theme"
 import { ThemeProvider } from "styled-components"
-import Offer from "../components/offer"
+import { theme } from "../constants/theme"
 
 const IndexPage = ({ data }) => {
 
@@ -21,6 +22,7 @@ const IndexPage = ({ data }) => {
           <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
           <Highlight data={data.datoCmsBenefit} />
           <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
+          <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
         </Main>
       </App>
     </ThemeProvider>
@@ -107,7 +109,27 @@ query MainQuery {
       }
     }
   }
+  datoCmsPrice {
+    rightText {
+      value
+    }
+    leftText {
+      value
+    }
+    title {
+      value
+    }
+    tabs {
+      title
+      items {
+        content {
+          value
+        }
+      }
+    }
+  }
 }
+
 `
 
 const App = styled.div`

@@ -47,6 +47,13 @@ const Wrapper = styled.section`
     padding-bottom: 180px; // cennik doesnt need padtop more
     position: relative;
 
+    h2{
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-size: 40px;
+        line-height: 50px;
+    }
+
 `
 
 const Car = styled.img`
