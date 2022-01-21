@@ -1,3 +1,8 @@
 body{
     font-family: lato;
 }
+
+details[open] svg{
+    transform: rotateX(180deg);
+    
+}

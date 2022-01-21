@@ -9,6 +9,8 @@ import { graphql } from "gatsby"
 import { ThemeContext } from "../HOCs/isBlackTheme"
 import { ThemeProvider } from "styled-components"
 import { theme } from "../constants/theme"
+import Faq from "../components/faq"
+import Footer from "../components/footer"
 
 const IndexPage = ({ data }) => {
 
@@ -23,6 +25,8 @@ const IndexPage = ({ data }) => {
           <Highlight data={data.datoCmsBenefit} />
           <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
           <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
+          <Faq data={data.datoCmsFaq} />
+          <Footer data={data.datoCmsFooter}/>
         </Main>
       </App>
     </ThemeProvider>
@@ -74,21 +78,6 @@ query MainQuery {
       url
     }
   }
-  datoCmsBenefit {
-    title {
-      value
-    }
-    rightText {
-      value
-    }
-    leftText {
-      value
-    }
-    benefits {
-      text
-      title
-    }
-  }
   datoCmsOffer {
     buttonText
     title {
@@ -128,7 +117,57 @@ query MainQuery {
       }
     }
   }
+  datoCmsBenefit {
+    title {
+      value
+    }
+    rightText {
+      value
+    }
+    leftText {
+      value
+    }
+    benefits {
+      text
+      title
+    }
+  }
+  datoCmsFaq {
+    title {
+      value
+    }
+    questions {
+      title
+      text
+    }
+    enginePhoto {
+      alt
+      url
+    }
+  }
+  datoCmsFooter {
+    title {
+      value
+    }
+    textContent {
+      value
+    }
+    openTimes {
+      content {
+        value
+      }
+    }
+    openTimeTitle
+    formTitle {
+      value
+    }
+    links {
+      text
+      link
+    }
+  }
 }
+
 
 `
 
@@ -141,8 +180,9 @@ const App = styled.div`
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
   }
 
-  h1, h2, h3, h4{
+  h1, h2{
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+    font-family: 'Krona one';
   }
 `
 

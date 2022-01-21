@@ -114,9 +114,10 @@ const Texts = styled.div`
         padding-right: 160px; // clamp change
     }
 
-    h4{
+    h3{
         font-size: 18px;
         line-height: 26px;
+        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
     }
 
     p{
