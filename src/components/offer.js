@@ -2,16 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import { StructuredText } from "react-datocms";
 import { StaticImage } from "gatsby-plugin-image"
+import { TimingBelt, Door, PaintSpray, Key, AirPump, colors } from "../constants/icons";
 
 const Offer = ({ data, isDarkTheme }) => {
     return (
         <Wrapper>
             <StructuredText data={data.title} />
             <ItemsBox>
-                {data.items.map(el => (
-                    <div>
+                {data.items.map((el, index) => (
+                    <div key={el}>
                         <span>
-                            <img src={isDarkTheme ? el.icon.url : el.iconWhite.url} alt={isDarkTheme ? el.icon.alt : el.iconWhite.alt} />
+                            {(() => {
+                                switch(index) {
+                                    case 0:
+                                        return <TimingBelt color={ isDarkTheme ? colors.white : colors.black} />
+                                    case 1:
+                                        return <Door color={ isDarkTheme ? colors.white : colors.black} />
+                                    case 2:
+                                        return <PaintSpray color={ isDarkTheme ? colors.white : colors.black } />
+                                    case 3:
+                                        return <Key color={ isDarkTheme ? colors.white : colors.black } />
+                                    case 4:
+                                        return <AirPump color={ isDarkTheme ? colors.white : colors.black } />
+                                }
+                            })()}
                             <h3>{el.title}</h3>
                         </span>
                         <StructuredText data={el.text} />

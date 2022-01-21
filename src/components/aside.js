@@ -2,6 +2,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { ThemeChangeContext } from "../HOCs/isBlackTheme"
+import { Home, Car, Price, FAQ, Phone, Facebook, Twiter, Linkedin, Instagram } from "../constants/icons"
 
 const Aside = ({ data, isDarkTheme }) => {
 
@@ -13,10 +14,23 @@ const Aside = ({ data, isDarkTheme }) => {
                 <Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} />
                 <Nav>
                     <List>
-                        {data.navigation.map((el) => (
+                        {data.navigation.map((el, index) => (
                             <ListItem>
                                 <a href="#">
-                                    <img src={el.linkIcon.url} alt={el.linkIcon.alt} />
+                                    {(() => {
+                                        switch (index) {
+                                            case 0:
+                                                return <Home />
+                                            case 1:
+                                                return <Car />
+                                            case 2:
+                                                return <Price />
+                                            case 3:
+                                                return <FAQ />
+                                            case 4:
+                                                return <Phone />
+                                        }
+                                    })()}
                                     {el.linkTitle}
                                 </a>
                             </ListItem>
@@ -26,10 +40,21 @@ const Aside = ({ data, isDarkTheme }) => {
             </div>
             <div>
                 <SocialMedia>
-                    {data.socialMedia.map((el) => (
+                    {data.socialMedia.map((el, index) => (
                         <li>
-                            <a href={el.link}>
-                                <img src={el.icon.url} alt={el.icon.alt} />
+                            <a href={el.link} target="_blank" rel="noreferrer">
+                                {(() => {
+                                    switch (index) {
+                                        case 0:
+                                            return <Instagram />
+                                        case 1:
+                                            return <Facebook />
+                                        case 2:
+                                            return <Twiter />
+                                        case 3:
+                                            return <Linkedin />
+                                    }
+                                })()}
                             </a>
                         </li>
                     ))}
@@ -80,7 +105,7 @@ const List = styled.ul`
 const ListItem = styled.li`
     margin-bottom: clamp(10px, 5vh, 40px);
 
-    img{
+    svg{
         margin-right: 10px;
 
         transition: all .2s linear;
@@ -99,7 +124,7 @@ const ListItem = styled.li`
     }
 
     &:hover{
-        img{
+        svg{
             filter: unset;
         }
 
@@ -109,7 +134,7 @@ const ListItem = styled.li`
     }
 
     &.active{
-        img{
+        svg{
             filter: unset;
         }
 
@@ -131,7 +156,7 @@ const SocialMedia = styled.ul`
         width: 100%;
         height: 100%;
 
-        img{
+        svg{
             margin-right: 24px;
 
             transition: all .2s linear;
@@ -139,7 +164,7 @@ const SocialMedia = styled.ul`
         }
 
         &:hover{
-            img{
+            svg{
                 filter: unset;
             }
         }
@@ -171,7 +196,7 @@ const ColorTrybe = styled.div`
         height: 16px;
         position: absolute;
         left: ${props => props.theme.isBlackTheme ? "22px" : "2px"};
-        background-color: ${props =>  props.theme.black.text.main};
+        background-color: ${props => props.theme.black.text.main};
         transition: .2s linear;
 
         

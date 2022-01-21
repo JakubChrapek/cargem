@@ -34,28 +34,20 @@ query MainQuery {
   datoCmsAside {
     navigation {
       linkTitle
-      linkIcon {
-        alt
-        url
-      }
     }
     logo {
       alt
       url
     }
-    socialMedia {
-      link
-      icon {
-        url
-        alt
-      }
-    }
-    copyright
-    nightModeTitle
     logoWhite {
       alt
       url
     }
+    socialMedia {
+      link
+    }
+    copyright
+    nightModeTitle
   }
   datoCmsSlider {
     firstButtonText
@@ -91,10 +83,6 @@ query MainQuery {
       value
     }
     benefits {
-      icon {
-        alt
-        url
-      }
       text
       title
     }
@@ -117,14 +105,6 @@ query MainQuery {
       text {
         value
       }
-      icon {
-        alt
-        url
-      }
-      iconWhite {
-        alt
-        url
-      }
     }
   }
 }
@@ -146,4 +126,5 @@ const App = styled.div`
 
 const Main = styled.main`
   background: ${props => props.theme.isBlackTheme ? props.theme.black.background : props.theme.white.background};
+  transition: all .2s linear;
 `

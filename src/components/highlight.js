@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
 import { StaticImage } from "gatsby-plugin-image"
+import { Complete } from "../constants/icons";
 
 
 const Highlight = ({ data }) => {
@@ -12,7 +13,7 @@ const Highlight = ({ data }) => {
                 {data.benefits.map((el, index) => (
                     <div key={el} className={'div' + index}>
                         <span>
-                            <img src={el.icon.url} alt={el.icon.alt} />
+                            <Complete />
                             <h4>{el.title}</h4>
                         </span>
                         <p>{el.text}</p>
@@ -100,6 +101,7 @@ const Texts = styled.div`
     justify-content: space-between;
     background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};
     box-shadow: ${props => props.theme.isBlackTheme ? props.theme.black.textBGShadow : props.theme.white.textBGShadow};
+    transition: all .2s linear;
 
     div{
         padding-right: 160px; // clamp change
