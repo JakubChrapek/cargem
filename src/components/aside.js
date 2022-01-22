@@ -149,6 +149,10 @@ const SocialMedia = styled.ul`
     padding: 0;
     margin-bottom: 64px;
 
+    li{
+        margin-right: 24px;
+    }
+
     a{
         display: flex;
         justify-content: center;
@@ -157,8 +161,6 @@ const SocialMedia = styled.ul`
         height: 100%;
 
         svg{
-            margin-right: 24px;
-
             transition: all .2s linear;
             filter: grayscale(100%);
         }

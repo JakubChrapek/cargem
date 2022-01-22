@@ -1,30 +1,44 @@
 import React from "react";
 import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
+import { Phone, colors, Mail, Mark } from './../constants/icons'
 
-const Footer = ({ data }) => {
+const Footer = ({ data, isDarkTheme }) => {
     return (
         <Wrapper>
             <TextBox>
                 <StructuredText data={data.title} />
                 <StructuredText data={data.textContent} />
+                <Links>
+                    {data.links.map((el, index) => (
+                        <a href={el.link}>
+                            {(() => {
+                                switch (index) {
+                                    case 0:
+                                        return <Phone color={isDarkTheme ? colors.white : colors.black} />
+                                    case 1:
+                                        return <Mail color={isDarkTheme ? colors.white : colors.black} />
+                                    case 2:
+                                        return <Mark color={isDarkTheme ? colors.white : colors.black} />
+                                }
+                            })()}
+                            <span>
+                                {el.text}
+                            </span>
+                        </a>
+                    ))}
+                </Links>
+                <OpenTimeTitle>{data.openTimeTitle}</OpenTimeTitle>
+                <OpenTime>
+                    {data.openTimes.map(el => (
+                        <div>
+                            <StructuredText data={el.content} />
+                        </div>
+                    ))}
+                </OpenTime>
             </TextBox>
             <FormBox>
                 <StructuredText data={data.formTitle} />
-                {data.links.map((el, index) => (
-                    <div>
-                        {/* {(() => {
-                            switch (index) {
-                                case 0:
-                                    return <DiscBreak color={isDarkTheme ? colors.white : colors.black} />
-                                case 1:
-                                    return <Piston color={isDarkTheme ? colors.white : colors.black} />
-                                case 2:
-                                    return <Spark color={isDarkTheme ? colors.white : colors.black} />
-                            }
-                        })()} */}
-                    </div>
-                ))}
             </FormBox>
         </Wrapper>
     )
@@ -92,4 +106,68 @@ const TextBox = styled.div`
 const FormBox = styled.div`
     padding-left: 15%;
 
+`
+
+const Links = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+    padding-top: 30px;
+
+    a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        
+        svg{
+            transition: all .2s linear;
+            filter: grayscale(100%);
+            width: 22px;
+        }
+
+        span{
+            margin-left: 8px;
+            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+            transition: .2s linear;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+            
+        &:hover{
+            span{
+                color: ${props => props.theme.white.text.active};
+            }
+
+            svg{
+                filter: unset;
+            }
+        }
+    }
+
+`
+
+const OpenTimeTitle = styled.h4`
+    margin: 24px 0 8px;
+`
+
+const OpenTime = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 64px;
+
+    h6{
+        margin: 0;
+        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    p{
+        margin: 0;
+        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+    }
 `
