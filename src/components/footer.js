@@ -62,14 +62,14 @@ export default Footer
 
 const Wrapper = styled.footer`
 
-    margin-left: clamp(90px, 8vw, 180px);
-    margin-top: clamp(90px, 8vw, 180px);
-    margin-bottom: clamp(90px, 8vw, 180px);
+    margin-left: clamp(90px, 9.31vw, 180px);
+    margin-top: clamp(90px, 9.31vw, 180px);
+    margin-bottom: clamp(90px, 9.31vw, 180px);
     
-    padding-top: 64px;
-    padding-left: 50px;
-    padding-right: 280px;
-    padding-bottom: 64px;
+    padding-top: clamp(32px, 3.33vw, 64px);
+    padding-left: clamp(25px, 2.6vw, 50px);
+    padding-right: clamp(140px, 14.5vw, 280px);
+    padding-bottom: clamp(32px, 3.33vw, 64px);
     box-sizing: border-box;
     border-radius: 12px;
     background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};

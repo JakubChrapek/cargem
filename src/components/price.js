@@ -49,9 +49,9 @@ const Price = ({ data, isDarkTheme }) => {
 export default Price
 
 const Wrapper = styled.section`
-    padding-left: clamp(90px, 8vw, 180px);
-    padding-right: clamp(90px, 8vw, 180px);
-    padding-bottom: clamp(90px, 8vw, 180px);
+    padding-left: clamp(90px, 9.31vw, 180px);
+    padding-right: clamp(90px, 9.31vw, 180px);
+    padding-bottom: clamp(90px, 9.31vw, 180px);
 
     h2{
         margin-top: 0;;
@@ -69,6 +69,12 @@ const TextBox = styled.div`
 
     p{
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        margin: 0;
+    }
+
+    @media (max-width: 1300px) {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 48px;
     }
 `
 

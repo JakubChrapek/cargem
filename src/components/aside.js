@@ -77,7 +77,7 @@ export default Aside
 
 const Wrapper = styled.aside`
     transition: .2s linear;
-    padding: 65px 20px 25px 60px;
+    padding: clamp(32px, 3.33vw, 64px) clamp(32px, 1.04vw, 64px) clamp(32px, 1.3vw, 64px) clamp(32px, 3.1vw, 64px);
     box-sizing: border-box;
     height: 100vh;
     width: 100%;
@@ -94,7 +94,7 @@ const Logo = styled.img`
 `
 
 const Nav = styled.nav`
-    padding-top: clamp(30px, 15vh, 180px);
+    padding-top: clamp(30px, 9.3vw, 180px);
 `
 
 const List = styled.ul`
@@ -208,4 +208,5 @@ const ColorTrybe = styled.div`
 
 const Copyright = styled.p`
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+    margin: 28px 0 0 0;
 `

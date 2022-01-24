@@ -32,8 +32,8 @@ const Faq = ({ data, isDarkTheme }) => {
 export default Faq
 
 const Wrapper = styled.section`
-    padding-left: clamp(90px, 8vw, 180px);
-    padding-right: clamp(240px, 20vw, 480px);
+    padding-left: clamp(90px, 9.31vw, 180px);
+    padding-right: clamp(240px, 25vw, 480px);
     position: relative;
     overflow: hidden;
 

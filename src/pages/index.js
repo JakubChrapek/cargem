@@ -183,7 +183,7 @@ query MainQuery {
 
 const App = styled.div`
   display: grid;
-  grid-template-columns: clamp( 260px, 20vw, 367px ) 1fr;
+  grid-template-columns: clamp( 273px, 19.1vw, 367px ) 1fr;
           
   mark{
     background-color: unset;

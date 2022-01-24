@@ -41,10 +41,10 @@ const Offer = ({ data, isDarkTheme }) => {
 export default Offer
 
 const Wrapper = styled.section`
-    padding-top: clamp(90px, 8vw, 180px);
-    padding-left: clamp(90px, 8vw, 180px);
-    padding-right: clamp(90px, 8vw, 180px);
-    padding-bottom: clamp(90px, 8vw, 180px);
+    padding-top: clamp(90px, 9.31vw, 180px);
+    padding-left: clamp(90px, 9.31vw, 180px);
+    padding-right: clamp(90px, 9.31vw, 180px);
+    padding-bottom: clamp(90px, 9.31vw, 180px);
     position: relative;
 
     h2{
@@ -73,8 +73,8 @@ const Car = styled.img`
 const ItemsBox = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 64px;
-    grid-row-gap: 64px;
+    grid-column-gap: clamp(32px, 3.33vw, 64px);
+    grid-row-gap: clamp(32px, 3.33vw, 64px);
 
     span{
         display: flex;

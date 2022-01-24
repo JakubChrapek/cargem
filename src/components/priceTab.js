@@ -36,7 +36,7 @@ const PriceTab = ({ isDarkTheme, index, title }) => {
 export default PriceTab
 
 const TabWrapper = styled.div`
-    margin-right: clamp(16px, 3.5vw, 64px);
+    margin-right: clamp(16px, 3.33vw, 64px);
     margin-bottom: 24px;
     display: flex;
     flex-direction: column;

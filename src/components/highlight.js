@@ -35,9 +35,9 @@ const Highlight = ({ data }) => {
 export default Highlight
 
 const Wrapper = styled.section`
-    padding-top: clamp(90px, 8vw, 180px);
-    padding-left: clamp(90px, 8vw, 180px);
-    padding-right: clamp(90px, 8vw, 180px);
+    padding-top: clamp(90px, 9.31vw, 180px);
+    padding-left: clamp(90px, 9.31vw, 180px);
+    padding-right: clamp(90px, 9.31vw, 180px);
 
     h2{
         margin: 0;
@@ -104,7 +104,7 @@ const Benefits = styled.div`
 const Texts = styled.div`
     border-radius: 12px;
     box-sizing: border-box;
-    padding: 50px 60px;
+    padding: clamp(27px, 2.81vw, 54px) clamp(31px, 3.22vw, 62px);
     display: flex;
     justify-content: space-between;
     background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};
@@ -112,7 +112,7 @@ const Texts = styled.div`
     transition: all .2s linear;
 
     div{
-        padding-right: clamp(80px, 6vw, 160px);
+        padding-right: clamp(80px, 8vw, 160px);
     }
 
     h3{
