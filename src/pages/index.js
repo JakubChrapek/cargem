@@ -11,6 +11,7 @@ import { ThemeProvider } from "styled-components"
 import { theme } from "../constants/theme"
 import Faq from "../components/faq"
 import Footer from "../components/footer"
+import { Toaster } from "react-hot-toast"
 
 const IndexPage = ({ data }) => {
 
@@ -19,6 +20,10 @@ const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <App>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
         <Aside isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
         <Main>
           <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
@@ -26,7 +31,7 @@ const IndexPage = ({ data }) => {
           <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
           <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
           <Faq data={data.datoCmsFaq} />
-          <Footer data={data.datoCmsFooter}/>
+          <Footer data={data.datoCmsFooter} />
         </Main>
       </App>
     </ThemeProvider>
@@ -163,7 +168,6 @@ query MainQuery {
     }
     links {
       text
-      link
     }
   }
 }

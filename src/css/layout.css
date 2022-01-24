@@ -2,7 +2,11 @@ body{
     font-family: lato;
 }
 
-details[open] svg{
+details svg{
     transform: rotateX(180deg);
+}
+
+details[open] svg{
+    transform: rotateX(0deg);
     
 }

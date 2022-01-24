@@ -80,11 +80,12 @@ const Benefits = styled.div`
 
         span{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
 
             h4{
-                margin-left: 8px;
+                margin: 0 0 8px 8px;
                 font-size: 18px;
+                color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
             }
         }
 
