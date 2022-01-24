@@ -13,17 +13,17 @@ const Offer = ({ data, isDarkTheme }) => {
                     <div key={el}>
                         <span>
                             {(() => {
-                                switch(index) {
+                                switch (index) {
                                     case 0:
-                                        return <TimingBelt color={ isDarkTheme ? colors.white : colors.black} />
+                                        return <TimingBelt color={isDarkTheme ? colors.white : colors.black} />
                                     case 1:
-                                        return <Door color={ isDarkTheme ? colors.white : colors.black} />
+                                        return <Door color={isDarkTheme ? colors.white : colors.black} />
                                     case 2:
-                                        return <PaintSpray color={ isDarkTheme ? colors.white : colors.black } />
+                                        return <PaintSpray color={isDarkTheme ? colors.white : colors.black} />
                                     case 3:
-                                        return <Key color={ isDarkTheme ? colors.white : colors.black } />
+                                        return <Key color={isDarkTheme ? colors.white : colors.black} />
                                     case 4:
-                                        return <AirPump color={ isDarkTheme ? colors.white : colors.black } />
+                                        return <AirPump color={isDarkTheme ? colors.white : colors.black} />
                                 }
                             })()}
                             <h3>{el.title}</h3>
@@ -41,10 +41,10 @@ const Offer = ({ data, isDarkTheme }) => {
 export default Offer
 
 const Wrapper = styled.section`
-    padding-top: 180px; // change to clamp
-    padding-left: 170px; // change to m auto
-    padding-right: 200px;
-    padding-bottom: 180px; // cennik doesnt need padtop more
+    padding-top: clamp(90px, 8vw, 180px);
+    padding-left: clamp(90px, 8vw, 180px);
+    padding-right: clamp(90px, 8vw, 180px);
+    padding-bottom: clamp(90px, 8vw, 180px);
     position: relative;
 
     h2{
@@ -60,6 +60,14 @@ const Car = styled.img`
     position: absolute;
     bottom: 0;
     right: 0;
+    width: clamp( 20%, 30vw, 50%);
+
+    @media (max-width: 1800px) {
+        bottom: 10%;
+    }
+    @media (max-width: 1400px) {
+        bottom: 15%;
+    }
 `
 
 const ItemsBox = styled.div`

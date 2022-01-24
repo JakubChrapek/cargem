@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => {
           <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
           <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
           <Faq data={data.datoCmsFaq} />
-          <Footer data={data.datoCmsFooter} />
+          <Footer isDarkTheme={isDarkTheme} data={data.datoCmsFooter} />
         </Main>
       </App>
     </ThemeProvider>
@@ -169,6 +169,12 @@ query MainQuery {
     links {
       text
     }
+    map{
+      url
+    }
+    mapWhite{
+      url
+    }
   }
 }
 
@@ -177,7 +183,7 @@ query MainQuery {
 
 const App = styled.div`
   display: grid;
-  grid-template-columns: 367px 1fr;
+  grid-template-columns: clamp( 260px, 20vw, 367px ) 1fr;
           
   mark{
     background-color: unset;

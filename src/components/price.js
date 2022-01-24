@@ -49,8 +49,9 @@ const Price = ({ data, isDarkTheme }) => {
 export default Price
 
 const Wrapper = styled.section`
-    padding-left: 170px; // change to m auto
-    padding-right: 200px;
+    padding-left: clamp(90px, 8vw, 180px);
+    padding-right: clamp(90px, 8vw, 180px);
+    padding-bottom: clamp(90px, 8vw, 180px);
 
     h2{
         margin-top: 0;;

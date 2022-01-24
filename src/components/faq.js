@@ -32,9 +32,8 @@ const Faq = ({ data, isDarkTheme }) => {
 export default Faq
 
 const Wrapper = styled.section`
-    margin-top: 180px; // change to clamp
-    padding-left: 170px; // change to m auto
-    padding-right: 480px;
+    padding-left: clamp(90px, 8vw, 180px);
+    padding-right: clamp(240px, 20vw, 480px);
     position: relative;
     overflow: hidden;
 
@@ -98,6 +97,6 @@ const Questions = styled.div`
 const SideImg = styled.img`
     position: absolute;
     right: 0;
-    top: 10%;
+    top: 0;
     transform: translateX(50%);
 `
