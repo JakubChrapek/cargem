@@ -110,5 +110,6 @@ const SideImg = styled.img`
         position: relative;
         transform: unset;
         margin: 0 auto 54px;
+        width: 100%;
     }
 `

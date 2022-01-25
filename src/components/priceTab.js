@@ -103,4 +103,9 @@ const TabWrapper = styled.div`
         margin-right: 48px;
         margin-bottom: 32px;
     }
+
+    @media (max-width: 640px) {
+        margin-right: 24px;
+        margin-bottom: 25px;
+    }
 `

@@ -79,6 +79,9 @@ const Car = styled.img`
         width: 50%;
         bottom: 5%;
     }
+    @media (max-width: 639px) {
+        display: none;
+    }
 `
 
 const ItemsBox = styled.div`

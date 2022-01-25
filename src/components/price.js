@@ -99,6 +99,9 @@ const TextBox = styled.div`
 const TabsChoose = styled.div`
     display: flex;
     flex-wrap: wrap;
+
+    @media (max-width: 640px){
+    }
 `
 
 const TabsContent = styled.div`

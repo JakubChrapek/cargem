@@ -21,10 +21,10 @@ const Header = ({ data, isDarkTheme }) => {
             <RepairedWrapper imgWidth={imgWidth}>
                 <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
             </RepairedWrapper>
-            <input onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider"/>
-            <Placeholder/>
+            <input onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider" />
+            <Placeholder />
             <TextBox>
-                <StructuredText data={data.title}/>
+                <StructuredText data={data.title} />
                 <ButtonsWrapper>
                     <a className="first" href="#">{data.firstButtonText}</a>
                     <a className="second" href="#">{data.secondButtonText}</a>
@@ -86,6 +86,12 @@ const Wrapper = styled.header`
             height: calc(100vh - 260px);
         }
     }
+    @media (max-width: 639px){
+
+        .slider{
+            height: calc(100vh - 360px);
+        }
+    }
 
 `
 
@@ -102,6 +108,9 @@ const Broken = styled.div`
     @media(max-width: 876px){
         height: calc(100vh - 260px);
     }
+    @media (max-width: 639px){
+        height: calc(100vh - 360px);
+    }
 `
 
 const RepairedWrapper = styled.div`
@@ -111,6 +120,9 @@ const RepairedWrapper = styled.div`
     width: ${props => props.imgWidth};
     @media(max-width: 876px){
         height: calc(100vh - 260px);
+    }
+    @media (max-width: 639px){
+        height: calc(100vh - 360px);
     }
 `
 
@@ -125,6 +137,9 @@ const Repaired = styled.div`
     background-repeat: no-repeat;
     @media(max-width: 876px){
         height: calc(100vh - 260px);
+    }
+    @media (max-width: 639px){
+        height: calc(100vh - 360px);
     }
 `
 
@@ -163,6 +178,12 @@ const TextBox = styled.div`
         }
     }
 
+    @media (max-width: 639px){
+        h1{   
+            padding: 0 40px;
+        }
+    }
+
 `
 
 const Placeholder = styled.div`
@@ -173,6 +194,10 @@ const Placeholder = styled.div`
         width: 100%;
         height: calc(100vh - 260px);
     }
+    @media (max-width: 639px){
+        height: calc(100vh - 360px);
+    }
+    
 `
 
 const ButtonsWrapper = styled.div`
@@ -218,4 +243,15 @@ const ButtonsWrapper = styled.div`
     @media (max-width: 876px) {
         margin-bottom: 0;
     }
+
+    @media (max-width: 639px) {
+        grid-template-columns: 1fr;
+        grid-row-gap: 16px;
+
+        a{
+            width: max-content;
+            margin: 0 auto;
+        }
+    }
+
 `

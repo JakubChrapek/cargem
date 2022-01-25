@@ -138,6 +138,10 @@ const Benefits = styled.div`
             }
         }
     }
+
+    @media (max-width: 639px) {
+        grid-template-columns: 1fr 1fr;
+    }
 `
 
 const Texts = styled.div`
