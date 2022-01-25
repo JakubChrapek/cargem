@@ -60,6 +60,11 @@ const Wrapper = styled.section`
         padding-right: 40px;
         padding-bottom: 120px;
     }
+    @media(max-width: 539px){
+        padding-bottom: 70px;
+        padding-right: 32px;
+        padding-left: 32px;
+    }
 
 `
 
@@ -120,6 +125,10 @@ const ItemsBox = styled.div`
     @media (max-width: 876px) {
         grid-template-columns: 1fr 1fr;
     }
+    
+    @media(max-width: 539px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 const Link = styled.a`
@@ -139,5 +148,9 @@ const Link = styled.a`
 
     &:hover{
                 
+    }
+
+    @media(max-width: 539px){
+        margin-top: 35px;
     }
 `

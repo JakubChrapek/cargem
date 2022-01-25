@@ -109,6 +109,14 @@ const Wrapper = styled.footer`
         padding-bottom: 50px;
         padding-top: 55px;
     }
+
+    @media (max-width: 539px){
+        background-color: unset;
+        padding: 0;
+        box-shadow: unset;
+        
+        margin: 60px 32px 80px;
+    }
 `
 
 const Map = styled.a`

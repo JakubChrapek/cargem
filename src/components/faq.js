@@ -9,20 +9,36 @@ const Faq = ({ data }) => {
             <SideImg src={data.enginePhoto.url} alt={data.enginePhoto.alt} />
             <StructuredText data={data.title} />
             <Questions>
-                {data.questions.map(el => (
-                    <details>
-                        <summary itemProp="mainEntity" itemType="https://schema.org/Question">
-                            <span itemProp="name">
-                                {el.title}
-                            </span>
-                            <Arrow />
-                        </summary>
-                        <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                            <span itemProp="text">
-                                {el.text}
-                            </span>
-                        </p>
-                    </details>
+                {data.questions.map((el, index) => (
+                    <>
+                        {index
+                            ? <details>
+                                <summary itemProp="mainEntity" itemType="https://schema.org/Question">
+                                    <span itemProp="name">
+                                        {el.title}&nbsp;<Arrow />
+                                    </span>
+                                </summary>
+                                <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                                    <span itemProp="text">
+                                        {el.text}
+                                    </span>
+                                </p>
+                            </details>
+                            : <details open>
+                                <summary itemProp="mainEntity" itemType="https://schema.org/Question">
+                                    <span itemProp="name">
+                                        {el.title}&nbsp;<Arrow />
+                                    </span>
+                                </summary>
+                                <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                                    <span itemProp="text">
+                                        {el.text}
+                                    </span>
+                                </p>
+                            </details>
+                        }
+
+                    </>
                 ))}
             </Questions>
         </Wrapper>
@@ -47,6 +63,11 @@ const Wrapper = styled.section`
     @media (max-width: 876px) {
         padding-left: 40px;
         padding-right: 40px;
+    }
+
+    @media (max-width: 539px) {
+        padding-right: 32px;
+        padding-left: 32px;
     }
 `
 
@@ -73,8 +94,6 @@ const Questions = styled.div`
     summary{
         list-style: none;
         cursor: pointer;
-        display: flex;
-        align-items: center;
 
         svg{
             transition: all .2s linear;

@@ -92,6 +92,12 @@ const Wrapper = styled.header`
             height: calc(100vh - 360px);
         }
     }
+    @media (max-width: 539px){
+        
+        .slider{
+            height: calc(100vh - 270px);
+        }
+    }
 
 `
 
@@ -111,6 +117,9 @@ const Broken = styled.div`
     @media (max-width: 639px){
         height: calc(100vh - 360px);
     }
+    @media (max-width: 539px){
+        height: calc(100vh - 270px);
+    }
 `
 
 const RepairedWrapper = styled.div`
@@ -123,6 +132,9 @@ const RepairedWrapper = styled.div`
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
+    }
+    @media (max-width: 539px){
+        height: calc(100vh - 270px);
     }
 `
 
@@ -140,6 +152,9 @@ const Repaired = styled.div`
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
+    }
+    @media (max-width: 539px){
+        height: calc(100vh - 270px);
     }
 `
 
@@ -184,6 +199,15 @@ const TextBox = styled.div`
         }
     }
 
+    
+    @media (max-width: 539px) {
+        h1{   
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+    }
+
 `
 
 const Placeholder = styled.div`
@@ -196,6 +220,9 @@ const Placeholder = styled.div`
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
+    }
+    @media (max-width: 539px){
+        height: calc(100vh - 270px);
     }
     
 `
@@ -251,6 +278,11 @@ const ButtonsWrapper = styled.div`
         a{
             width: max-content;
             margin: 0 auto;
+        }
+    }
+    @media (max-width: 539px){
+        a{
+            font-size: 12px;
         }
     }
 

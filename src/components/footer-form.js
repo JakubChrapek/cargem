@@ -34,7 +34,7 @@ const Form = () => {
                 <textarea rows="10" placeholder='Napisz wiadomość...' {...register("question")} />
             </label>
             <label className={errors.accept ? "check error" : "check"}>
-                <input type='checkbox' {...register("accept", {required: true})} />
+                <input type='checkbox' {...register("accept", { required: true })} />
                 <span>Zaakceptuj politykę prywatności</span>
             </label>
             <button type="submit" >WYŚLIJ</button>
@@ -145,6 +145,14 @@ const Wrapper = styled.form`
 
         &:hover{
 
+        }
+    }
+
+    @media (max-width: 539px){
+        label{
+            input{
+                max-width: 100%;
+            }
         }
     }
 `

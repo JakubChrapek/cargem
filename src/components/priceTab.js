@@ -108,4 +108,14 @@ const TabWrapper = styled.div`
         margin-right: 24px;
         margin-bottom: 25px;
     }
+
+    @media(max-width: 539px){
+        margin-right: 20px;
+
+        h4{
+            font-size: 14px;
+            line-height: 20px;
+            max-width: 120px;
+        }
+    }
 `

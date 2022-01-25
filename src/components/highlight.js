@@ -54,6 +54,17 @@ const Wrapper = styled.section`
         padding-left: 40px;
         padding-right: 40px;
     }
+    
+    @media (max-width: 539px){
+        padding-top: 70px;
+        padding-right: 32px;
+        padding-left: 32px;
+
+        h2{
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
 `
 
 const Benefits = styled.div`
@@ -142,6 +153,22 @@ const Benefits = styled.div`
     @media (max-width: 639px) {
         grid-template-columns: 1fr 1fr;
     }
+
+    @media (max-width: 539px){
+        grid-template-columns: 1fr;
+        grid-row-gap: 32px;
+
+        div{
+
+            &.div0, &.div1, &.div2, &.div3{
+                padding: 0;
+            }
+
+            &::after{
+                display: none;
+            }
+        }
+    }
 `
 
 const Texts = styled.div`
@@ -189,5 +216,12 @@ const Texts = styled.div`
             margin-bottom: 0;
             margin-top: 16px;
         }
+    }
+
+    @media (max-width: 539px){
+        padding: 0;
+        background: 0;
+        box-shadow: unset;
+        grid-row-gap: 32px;
     }
 `

@@ -65,6 +65,11 @@ const Wrapper = styled.section`
         padding-right: 40px;
         padding-bottom: 65px;
     }
+    
+    @media(max-width: 539px){
+        padding-right: 32px;
+        padding-left: 32px;
+    }
 `
 
 const TextBox = styled.div`
@@ -93,6 +98,11 @@ const TextBox = styled.div`
         p{
             max-width: 354px;
         }
+    }
+
+    @media(max-width: 539px){
+        grid-row-gap: 24px;
+        margin-bottom: 40px;
     }
 `
 
