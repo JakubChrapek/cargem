@@ -3,9 +3,10 @@ import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { Arrow } from "../constants/icons"
 
-const Faq = ({ data, isDarkTheme }) => {
+const Faq = ({ data }) => {
     return (
-        <Wrapper>
+        <Wrapper id="faq">
+            <SideImg src={data.enginePhoto.url} alt={data.enginePhoto.alt} />
             <StructuredText data={data.title} />
             <Questions>
                 {data.questions.map(el => (
@@ -24,7 +25,6 @@ const Faq = ({ data, isDarkTheme }) => {
                     </details>
                 ))}
             </Questions>
-            <SideImg src={data.enginePhoto.url} alt={data.enginePhoto.alt}/>
         </Wrapper>
     )
 }
@@ -32,7 +32,7 @@ const Faq = ({ data, isDarkTheme }) => {
 export default Faq
 
 const Wrapper = styled.section`
-    padding-left: clamp(90px, 9.31vw, 180px);
+    padding-left: clamp(40px, 9.31vw, 180px);
     padding-right: clamp(240px, 25vw, 480px);
     position: relative;
     overflow: hidden;
@@ -42,6 +42,11 @@ const Wrapper = styled.section`
         margin-bottom: 40px;
         font-size: 40px;
         line-height: 50px;
+    }
+
+    @media (max-width: 876px) {
+        padding-left: 40px;
+        padding-right: 40px;
     }
 `
 
@@ -99,4 +104,11 @@ const SideImg = styled.img`
     right: 0;
     top: 0;
     transform: translateX(50%);
+
+    @media (max-width: 876px) {
+        display: block;
+        position: relative;
+        transform: unset;
+        margin: 0 auto 54px;
+    }
 `

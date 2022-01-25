@@ -8,8 +8,13 @@ const Aside = ({ data, isDarkTheme }) => {
 
     let changeColorMode = useContext(ThemeChangeContext)
 
+    // main
+    // oNas
+    // oferta
+    // faq
+
     return (
-        <Wrapper>
+        <Wrapper className="">
             <div>
                 <Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} />
                 <Nav>
@@ -87,6 +92,22 @@ const Wrapper = styled.aside`
     justify-content: space-between;
     position: sticky;
     top: 0;
+
+    @media (max-width: 1240px) {
+        width: 315px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+        padding: 65px 32px 44px 40px;
+        transform: translateX(-100%);
+        transition: .2s linear;
+
+        &.active{
+            transform: translateX(0);
+        }
+    }
 `
 
 const Logo = styled.img`
@@ -118,6 +139,8 @@ const ListItem = styled.li`
         height: 100%;
         display: flex;
         align-items: center;
+        font-size: 18px;
+        line-height: 26px;
 
         transition: all .2s linear;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.default : props.theme.white.aside.default};

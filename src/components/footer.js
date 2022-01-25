@@ -48,12 +48,16 @@ const Footer = ({ data, isDarkTheme }) => {
                         ))}
                     </OpenTime>
                 </TextBox>
-                <FormBox>
+                <FormBox className="desctop">
                     <StructuredText data={data.formTitle} />
                     <Form />
                 </FormBox>
             </Flex>
             <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
+            <FormBox className="mobile">
+                <StructuredText data={data.formTitle} />
+                <Form />
+            </FormBox>
         </Wrapper>
     )
 }
@@ -62,14 +66,15 @@ export default Footer
 
 const Wrapper = styled.footer`
 
-    margin-left: clamp(90px, 9.31vw, 180px);
-    margin-top: clamp(90px, 9.31vw, 180px);
-    margin-bottom: clamp(90px, 9.31vw, 180px);
+    margin-left: clamp(40px, 9.31vw, 180px);
+    margin-top: clamp(55px, 9.31vw, 180px);
+    margin-bottom: clamp(55px, 9.31vw, 180px);
     
     padding-top: clamp(32px, 3.33vw, 64px);
     padding-left: clamp(25px, 2.6vw, 50px);
     padding-right: clamp(140px, 14.5vw, 280px);
     padding-bottom: clamp(32px, 3.33vw, 64px);
+
     box-sizing: border-box;
     border-radius: 12px;
     background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};
@@ -93,6 +98,17 @@ const Wrapper = styled.footer`
         margin-top: 32px;
         border-radius: 8px;
     }
+
+    @media (max-width: 876px) {
+        margin-top: 160px;
+        margin-left: 40px;
+        margin-bottom: 55px;
+
+        padding-right: 60px;
+        padding-left: 60px;
+        padding-bottom: 50px;
+        padding-top: 55px;
+    }
 `
 
 const Map = styled.a`
@@ -110,6 +126,10 @@ const Map = styled.a`
 const Flex = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 876px){
+        display: block;
+    }
 
 `
 
@@ -140,11 +160,42 @@ const TextBox = styled.div`
         line-height: 20px;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     }
+
+    @media (max-width: 876px){
+        max-width: 387px;
+        padding-right: 0;
+
+        &::after{
+            display: none;
+        }
+    }
 `
 
 const FormBox = styled.div`
     padding-left: 12%;
 
+    &.mobile{
+        display: none;
+    }
+
+    @media (max-width: 876px) {
+
+        padding-left: 0;
+        max-width: 530px;
+
+        &.desctop{
+            display: none;
+        }
+
+        &.mobile{
+            display: block;
+        }
+
+        h3{
+            margin-bottom: 38px;
+            margin-top: 54px;
+        }
+    }
 `
 
 const Links = styled.div`

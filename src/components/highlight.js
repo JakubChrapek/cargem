@@ -7,7 +7,7 @@ import { Complete } from "../constants/icons";
 
 const Highlight = ({ data }) => {
     return (
-        <Wrapper>
+        <Wrapper id="oNas">
             <StructuredText data={data.title} />
             <Benefits>
                 {data.benefits.map((el, index) => (
@@ -35,9 +35,9 @@ const Highlight = ({ data }) => {
 export default Highlight
 
 const Wrapper = styled.section`
-    padding-top: clamp(90px, 9.31vw, 180px);
-    padding-left: clamp(90px, 9.31vw, 180px);
-    padding-right: clamp(90px, 9.31vw, 180px);
+    padding-top: clamp(55px, 9.31vw, 180px);
+    padding-left: clamp(40px, 9.31vw, 180px);
+    padding-right: clamp(40px, 9.31vw, 180px);
 
     h2{
         margin: 0;
@@ -45,10 +45,19 @@ const Wrapper = styled.section`
         line-height: 50px;
     }
 
+    @media (max-width: 876px) {
+        padding-right: 0;
+    }
+
+    @media (max-width: 876px) {
+        padding-top: 120px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 `
 
 const Benefits = styled.div`
-    padding: 42px 0;
+    padding: 42px 0 48px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -98,7 +107,37 @@ const Benefits = styled.div`
         }
     }
 
-    
+    @media (max-width: 876px) {
+        grid-template-columns: 272px 272px;
+        grid-row-gap: 48px;
+
+        div{
+            padding-right: 48px;
+
+            &.div1{
+                padding-left: 48px;
+                padding-right: 0;
+
+                &::after{
+                    display: none;
+                }
+            }
+
+            &.div2{
+                padding-left: 0;
+            }
+
+            &.div3{
+                padding-left: 48px;
+                padding-right: 0;
+            }
+
+            p{
+                max-width: 224px;
+                width: 100%;
+            }
+        }
+    }
 `
 
 const Texts = styled.div`
@@ -125,5 +164,26 @@ const Texts = styled.div`
         font-size: 14px;
         line-height: 20px;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+    }
+
+    @media (max-width: 876px) {
+        display: grid;
+        grid-row-gap: 64px;
+        padding: 57px 0 64px 76px;
+
+        h3{
+            max-width: 387px;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: -8px;
+
+        }
+
+        p{
+            max-width: 387px;
+            width: 100%;
+            margin-bottom: 0;
+            margin-top: 16px;
+        }
     }
 `

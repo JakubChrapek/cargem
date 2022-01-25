@@ -24,15 +24,17 @@ const IndexPage = ({ data }) => {
           position="top-center"
           reverseOrder={false}
         />
-        <Aside isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
-        <Main>
-          <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
-          <Highlight data={data.datoCmsBenefit} />
-          <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
-          <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
-          <Faq data={data.datoCmsFaq} />
-          <Footer isDarkTheme={isDarkTheme} data={data.datoCmsFooter} />
-        </Main>
+        <Container>
+          <Aside isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
+          <Main>
+            <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
+            <Highlight data={data.datoCmsBenefit} />
+            <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
+            <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
+            <Faq data={data.datoCmsFaq} />
+            <Footer isDarkTheme={isDarkTheme} data={data.datoCmsFooter} />
+          </Main>
+        </Container>
       </App>
     </ThemeProvider>
   )
@@ -182,8 +184,10 @@ query MainQuery {
 `
 
 const App = styled.div`
-  display: grid;
-  grid-template-columns: clamp( 273px, 19.1vw, 367px ) 1fr;
+  
+  background: ${props => props.theme.isBlackTheme ? props.theme.black.background : props.theme.white.background};
+  transition: all .2s linear;
+
           
   mark{
     background-color: unset;
@@ -194,9 +198,21 @@ const App = styled.div`
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
     font-family: 'Krona one';
   }
+
+`
+
+const Container = styled.div`
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: clamp( 273px, 19.1vw, 367px ) 1fr;
+  position: relative;
+  
+  @media (max-width: 1240px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const Main = styled.main`
-  background: ${props => props.theme.isBlackTheme ? props.theme.black.background : props.theme.white.background};
-  transition: all .2s linear;
 `

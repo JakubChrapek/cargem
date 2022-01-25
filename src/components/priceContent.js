@@ -11,6 +11,7 @@ const PriceContent = ({ isDarkTheme, index, items }) => {
                     <StructuredText data={el.content} />
                 </div>
             ))}
+            <MoreButton></MoreButton>
         </Grid>
     )
 }
@@ -64,5 +65,28 @@ const Grid = styled.div`
             font-size: 18px;
             line-height: 26px;
         }
+    }
+
+    @media (max-width: 876px) {
+        grid-template-columns: 1fr 1fr;
+
+
+        div{
+            padding: 16px clamp(24px, 6.25vw, 48px) 12px 8px;
+
+            
+            :nth-child(2n){
+                padding: 16px 8px 12px clamp(24px, 6.25vw, 48px);
+                
+            }
+        }
+    }
+`
+
+const MoreButton = styled.button`
+    display: none;
+
+    @media (max-width: 876px) {
+        
     }
 `

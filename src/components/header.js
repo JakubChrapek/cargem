@@ -16,12 +16,13 @@ const Header = ({ data, isDarkTheme }) => {
     }
 
     return (
-        <Wrapper left={imgWidth}>
-            <Broken bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
+        <Wrapper id="main" left={imgWidth}>
+            <Broken bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
             <RepairedWrapper imgWidth={imgWidth}>
-                <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
+                <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
             </RepairedWrapper>
             <input onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider"/>
+            <Placeholder/>
             <TextBox>
                 <StructuredText data={data.title}/>
                 <ButtonsWrapper>
@@ -51,7 +52,7 @@ const Wrapper = styled.header`
         -webkit-appearance: none;
         appearance: none;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         background: rgba(0, 0, 0, .0);
         outline: none;
         margin: 0;
@@ -78,39 +79,57 @@ const Wrapper = styled.header`
         }
     }
 
+    @media (max-width: 876px) {
+        height: auto;
+
+        .slider{
+            height: calc(100vh - 260px);
+        }
+    }
+
 `
 
 const Broken = styled.div`
     position: absolute;
     z-index: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background-image: url(${props => props.bg});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media(max-width: 876px){
+        height: calc(100vh - 260px);
+    }
 `
 
 const RepairedWrapper = styled.div`
     overflow: hidden;
     position: absolute;
-    height: 100%;
+    height: 100vh;
     width: ${props => props.imgWidth};
+    @media(max-width: 876px){
+        height: calc(100vh - 260px);
+    }
 `
 
 const Repaired = styled.div`
     position: absolute;
     z-index: 1;
-    height: 100%;
+    height: 100vh;
     width: ${props => props.imgWidthDelta};
     background-image: url(${props => props.bg});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    @media(max-width: 876px){
+        height: calc(100vh - 260px);
+    }
 `
 
 const TextBox = styled.div`
-    max-width: 680px;
+    max-width: 700px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -132,6 +151,28 @@ const TextBox = styled.div`
         text-align: center;
     }
 
+    @media (max-width: 876px) {
+        position: relative;
+        transform: unset;
+        left: 0;
+        margin-top: 32px;
+
+        h1{
+            font-size: 40px;
+            line-height: 50px;
+        }
+    }
+
+`
+
+const Placeholder = styled.div`
+    display: none;
+
+    @media (max-width: 876px) {
+        display: block;
+        width: 100%;
+        height: calc(100vh - 260px);
+    }
 `
 
 const ButtonsWrapper = styled.div`
@@ -172,5 +213,9 @@ const ButtonsWrapper = styled.div`
                 
             }
         }
+    }
+
+    @media (max-width: 876px) {
+        margin-bottom: 0;
     }
 `

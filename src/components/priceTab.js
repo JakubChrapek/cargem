@@ -52,10 +52,12 @@ const TabWrapper = styled.div`
 
     h4{
         margin: 0;
-        padding: 6px;
+        padding: 6px 0;
         position: relative;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         transition: .2s linear;
+        font-size: 18px;
+        line-height: 26px;
 
         &::after{
             content: "";
@@ -95,5 +97,10 @@ const TabWrapper = styled.div`
                 background-color: ${props => props.theme.black.text.active};
             }
         }
+    }
+
+    @media (max-width: 876px) {
+        margin-right: 48px;
+        margin-bottom: 32px;
     }
 `

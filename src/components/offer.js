@@ -6,7 +6,7 @@ import { TimingBelt, Door, PaintSpray, Key, AirPump, colors } from "../constants
 
 const Offer = ({ data, isDarkTheme }) => {
     return (
-        <Wrapper>
+        <Wrapper id="offerta">
             <StructuredText data={data.title} />
             <ItemsBox>
                 {data.items.map((el, index) => (
@@ -41,10 +41,10 @@ const Offer = ({ data, isDarkTheme }) => {
 export default Offer
 
 const Wrapper = styled.section`
-    padding-top: clamp(90px, 9.31vw, 180px);
-    padding-left: clamp(90px, 9.31vw, 180px);
-    padding-right: clamp(90px, 9.31vw, 180px);
-    padding-bottom: clamp(90px, 9.31vw, 180px);
+    padding-top: clamp(55px, 9.31vw, 180px);
+    padding-left: clamp(40px, 9.31vw, 180px);
+    padding-right: clamp(40px, 9.31vw, 180px);
+    padding-bottom: clamp(55px, 9.31vw, 180px);
     position: relative;
 
     h2{
@@ -54,19 +54,30 @@ const Wrapper = styled.section`
         line-height: 50px;
     }
 
+    @media (max-width: 876px) {
+        padding-top: 55px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 120px;
+    }
+
 `
 
 const Car = styled.img`
     position: absolute;
     bottom: 0;
     right: 0;
-    width: clamp( 20%, 30vw, 50%);
+    width: clamp( 20%, 30vw, 42%);
 
     @media (max-width: 1800px) {
         bottom: 10%;
     }
     @media (max-width: 1400px) {
         bottom: 15%;
+    }
+    @media (max-width: 876px) {
+        width: 50%;
+        bottom: 5%;
     }
 `
 
@@ -89,7 +100,7 @@ const ItemsBox = styled.div`
 
     h6{
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
-        font-size: 16px;
+        font-size: 18px;
         line-height: 26px;
         padding: 16px 0;
         margin: 0;
@@ -101,6 +112,10 @@ const ItemsBox = styled.div`
         line-height: 20px;
         padding: 0;
         margin: 0;
+    }
+
+    @media (max-width: 876px) {
+        grid-template-columns: 1fr 1fr;
     }
 `
 
