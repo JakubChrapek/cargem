@@ -3,41 +3,41 @@ import React, { useContext, useEffect } from "react"
 import styled from "styled-components"
 import { ThemeChangeContext } from "../HOCs/isBlackTheme"
 import { Home, Car, Price, Faq, Phone, Facebook, Twiter, Linkedin, Instagram } from "../constants/icons"
-import { observer } from "../hooks/observer"
 
 const Aside = ({ data, isDarkTheme }) => {
 
     let changeColorMode = useContext(ThemeChangeContext)
 
-    var options = {
-        root: document.querySelector('#main'),
-        rootMargin: '0px',
-        threshold: 1.0
-    }
-
-    var callback = function(entries, observer) {
-        let allNavItems = document.querySelectorAll('.navItem')
-        let currItem = document.querySelector(`#${entries[0].target.id}Nav`)
-
-        for(let i = 0; i < allNavItems.length; i++){
-            allNavItems[i].classList.remove('active')
+    if (typeof document !== `undefined`) {
+        var options = {
+            root: document.querySelector('#main'),
+            rootMargin: '0px',
+            threshold: 1.0
         }
 
-        currItem.classList.add('active')
-        console.log(entries)
+        var callback = function (entries, observer) {
+            let allNavItems = document.querySelectorAll('.navItem')
+            let currItem = document.querySelector(`#${entries[0].target.id}Nav`)
+
+            for (let i = 0; i < allNavItems.length; i++) {
+                allNavItems[i].classList.remove('active')
+            }
+
+            currItem.classList.add('active')
+            console.log(entries)
+        }
+
+        var observer = new IntersectionObserver(callback, options)
+
+
+        useEffect(() => {
+            observer.observe(document.querySelector("#main"))
+            observer.observe(document.querySelector("#oNas"))
+            observer.observe(document.querySelector("#oferta"))
+            observer.observe(document.querySelector("#faq"))
+            observer.observe(document.querySelector("#kontakt"))
+        }, [])
     }
-
-    var observer = new IntersectionObserver(callback, options)
-
-
-    useEffect(() => {
-        observer.observe(document.querySelector("#main"))
-        observer.observe(document.querySelector("#oNas"))
-        observer.observe(document.querySelector("#oferta"))
-        observer.observe(document.querySelector("#faq"))
-        observer.observe(document.querySelector("#kontakt"))
-    }, [])
-
     return (
         <Wrapper className="">
             <div>
@@ -64,7 +64,7 @@ const Aside = ({ data, isDarkTheme }) => {
                         </ListItem>
                         <ListItem className="navItem" id="faqNav">
                             <a href="#faq">
-                                <Faq/>
+                                <Faq />
                                 FAQ
                             </a>
                         </ListItem>
