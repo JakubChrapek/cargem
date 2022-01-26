@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const PriceContent = ({ isDarkTheme, index, items }) => {
 
-    const [itemCount, setItemCount] = useState(items.length)
+    const [itemCount] = useState(items.length)
     const [isMaxCount, setIsMaxCount] = useState(null)
 
     if (typeof window !== `undefined` && isMaxCount === null) {

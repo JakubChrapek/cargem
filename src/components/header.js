@@ -252,7 +252,7 @@ const ButtonsWrapper = styled.div`
             color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
 
             &:hover{
-
+                background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
             }
         }
 
@@ -262,7 +262,7 @@ const ButtonsWrapper = styled.div`
             color: ${props => props.theme.white.text.main};
 
             &:hover{
-                
+                filter: brightness(0.8);
             }
         }
     }

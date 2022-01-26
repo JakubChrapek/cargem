@@ -1,45 +1,79 @@
 
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import styled from "styled-components"
 import { ThemeChangeContext } from "../HOCs/isBlackTheme"
-import { Home, Car, Price, FAQ, Phone, Facebook, Twiter, Linkedin, Instagram } from "../constants/icons"
+import { Home, Car, Price, Faq, Phone, Facebook, Twiter, Linkedin, Instagram } from "../constants/icons"
+import { observer } from "../hooks/observer"
 
 const Aside = ({ data, isDarkTheme }) => {
 
     let changeColorMode = useContext(ThemeChangeContext)
 
-    // main
-    // oNas
-    // oferta
-    // faq
+    var options = {
+        root: document.querySelector('#main'),
+        rootMargin: '0px',
+        threshold: 1.0
+    }
+
+    var callback = function(entries, observer) {
+        let allNavItems = document.querySelectorAll('.navItem')
+        let currItem = document.querySelector(`#${entries[0].target.id}Nav`)
+
+        for(let i = 0; i < allNavItems.length; i++){
+            allNavItems[i].classList.remove('active')
+        }
+
+        currItem.classList.add('active')
+        console.log(entries)
+    }
+
+    var observer = new IntersectionObserver(callback, options)
+
+
+    useEffect(() => {
+        observer.observe(document.querySelector("#main"))
+        observer.observe(document.querySelector("#oNas"))
+        observer.observe(document.querySelector("#oferta"))
+        observer.observe(document.querySelector("#faq"))
+        observer.observe(document.querySelector("#kontakt"))
+    }, [])
 
     return (
         <Wrapper className="">
             <div>
-                <Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} />
+                <a href="#main"><Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} /></a>
                 <Nav>
                     <List>
-                        {data.navigation.map((el, index) => (
-                            <ListItem>
-                                <a href="#">
-                                    {(() => {
-                                        switch (index) {
-                                            case 0:
-                                                return <Home />
-                                            case 1:
-                                                return <Car />
-                                            case 2:
-                                                return <Price />
-                                            case 3:
-                                                return <FAQ />
-                                            case 4:
-                                                return <Phone />
-                                        }
-                                    })()}
-                                    {el.linkTitle}
-                                </a>
-                            </ListItem>
-                        ))}
+                        <ListItem className="navItem" id="mainNav">
+                            <a href="#main">
+                                <Home />
+                                Strona Główna
+                            </a>
+                        </ListItem>
+                        <ListItem className="navItem" id="oNasNav">
+                            <a href="#oNas">
+                                <Car />
+                                O Nas
+                            </a>
+                        </ListItem>
+                        <ListItem className="navItem" id="ofertaNav">
+                            <a href="#oferta">
+                                <Price />
+                                Oferta
+                            </a>
+                        </ListItem>
+                        <ListItem className="navItem" id="faqNav">
+                            <a href="#faq">
+                                <Faq/>
+                                FAQ
+                            </a>
+                        </ListItem>
+                        <ListItem className="navItem" id="kontaktNav">
+                            <a href="#kontakt">
+                                <Phone />
+                                Kontakt
+                            </a>
+                        </ListItem>
                     </List>
                 </Nav>
             </div>
@@ -66,7 +100,7 @@ const Aside = ({ data, isDarkTheme }) => {
                 </SocialMedia>
                 <ColorTrybe>
                     {data.nightModeTitle}
-                    <div onClick={changeColorMode}>
+                    <div tabindex="0" autoFocus='true' onClick={changeColorMode}>
                         <span />
                     </div>
                 </ColorTrybe>
@@ -130,7 +164,11 @@ const ListItem = styled.li`
         margin-right: 10px;
 
         transition: all .2s linear;
-        filter: grayscale(100%);
+
+        path{
+            transition: .2s linear;
+            fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        }
     }
 
     a{
@@ -146,25 +184,30 @@ const ListItem = styled.li`
         color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.default : props.theme.white.aside.default};
     }
 
-    &:hover{
-        svg{
-            filter: unset;
-        }
-
-        a{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
-        }
-    }
-
     &.active{
         svg{
-            filter: unset;
+            path{
+                fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+            }
         }
 
         a{
             color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
         }
     }
+
+    &:hover{
+        svg{
+            path{
+                fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+            }
+        }
+
+        a{
+            color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
+        }
+    }
+
 `
 const SocialMedia = styled.ul`
     list-style: none;
@@ -185,12 +228,17 @@ const SocialMedia = styled.ul`
 
         svg{
             transition: all .2s linear;
-            filter: grayscale(100%);
+            path{
+                transition: .2s linear;
+                fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            }
         }
 
         &:hover{
             svg{
-                filter: unset;
+                path{
+                    fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+                }
             }
         }
     }
@@ -212,6 +260,7 @@ const ColorTrybe = styled.div`
         border-radius: 50px;
         background-color:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.sub};
         transition: .2s linear;
+        cursor: pointer;
     }
 
     span{

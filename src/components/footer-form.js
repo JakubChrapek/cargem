@@ -53,10 +53,6 @@ const Wrapper = styled.form`
     .error{
         input{
             border: 1px solid red;
-
-            &::placeholder{
-                color: red;
-            }
         }
     }  
 
@@ -91,18 +87,11 @@ const Wrapper = styled.form`
 
             &:focus{
                 outline: none;
-                border: 1px solid ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+                border: 1px solid ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
                 color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
 
-                
-                &::placeholder{
-                    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
-                }
             }
 
-            &::placeholder{
-                transition: .2s linear;
-            }
 
         }
 
@@ -144,7 +133,7 @@ const Wrapper = styled.form`
         margin-top: 16px;
 
         &:hover{
-
+            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
         }
     }
 

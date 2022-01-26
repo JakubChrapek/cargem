@@ -15,7 +15,7 @@ const Footer = ({ data, isDarkTheme }) => {
 
 
     return (
-        <Wrapper>
+        <Wrapper id="kontakt">
             <Flex>
                 <TextBox>
                     <StructuredText data={data.title} />
@@ -233,9 +233,6 @@ const Links = styled.div`
 
             
         &:hover{
-            span{
-                color: ${props => props.theme.white.text.active};
-            }
 
             svg{
                 filter: unset;

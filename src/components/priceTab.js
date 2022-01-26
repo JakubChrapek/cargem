@@ -47,7 +47,12 @@ const TabWrapper = styled.div`
 
     svg{
         transition: all .2s linear;
-        filter: grayscale(100%);
+
+        path{
+            transition: .2s linear;
+            fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+
+        }
     }
 
     h4{
@@ -73,22 +78,29 @@ const TabWrapper = styled.div`
 
     }
 
-    &.active{
-        svg{
-            filter: unset;
-        }
-
-        h4{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
-            &::after{
-                background-color: ${props => props.theme.black.text.active};
-            }
-        }
-    }
-
     &:hover{
         svg{
-            filter: unset;
+            path{
+                transition: .2s linear;
+                fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+            }
+        }
+
+        h4{
+            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+        }
+    }
+
+    &.active{
+        svg{
+            path{
+                transition: .2s linear;
+                fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+
+                &.blue{
+                    fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+                }
+            }
         }
 
         h4{
@@ -98,6 +110,8 @@ const TabWrapper = styled.div`
             }
         }
     }
+
+    
 
     @media (max-width: 876px) {
         margin-right: 48px;

@@ -5,6 +5,7 @@ export let theme = {
         lines: '#1B2329',
         textBG: '#040B12',
         textBGShadow: '0px 3px 6px -4px #979DA6',
+        outline: '#66C4FF',
         aside: {
             background: '#03090F',
             active: '#F3F3F3',
@@ -12,6 +13,7 @@ export let theme = {
         },
         text: {
             main: '#F3F3F3',
+            hover: '#DCE0E8',
             sub: '#A6A9B3',
             active: '#2C8CDA'
         },
@@ -23,7 +25,7 @@ export let theme = {
             },
             hover: {
                 border: '#2C8CDA',
-                background: '#2C8CDA',
+                background: '#2161A6',
                 text: '#030405'
             }
         }
@@ -33,6 +35,7 @@ export let theme = {
         lines: '#EDEFF2',
         textBG: '#EDEFF2',
         textBGShadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)',
+        outline: '#2161A6',
         aside: {
             background: '#EDEFF2',
             active: '#030405',
@@ -40,6 +43,7 @@ export let theme = {
         },
         text: {
             main: '#030405',
+            hover: '#4C5F6B',
             sub: '#4C5F6B',
             active: '#2C8CDA'
         },
@@ -51,7 +55,7 @@ export let theme = {
             },
             hover: {
                 border: '#2C8CDA',
-                background: '#2C8CDA',
+                background: '#2161A6',
                 text: '#F3F3F3'
             }
         }

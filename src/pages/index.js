@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <App>
+      <App id="main">
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -45,9 +45,6 @@ export default IndexPage
 export const query = graphql`
 query MainQuery {
   datoCmsAside {
-    navigation {
-      linkTitle
-    }
     logo {
       alt
       url
@@ -188,7 +185,10 @@ const App = styled.div`
   background: ${props => props.theme.isBlackTheme ? props.theme.black.background : props.theme.white.background};
   transition: all .2s linear;
 
-          
+  *{
+    outline-width: 0.01em;
+    outline-color: ${props => props.theme.isBlackTheme ? props.theme.black.outline: props.theme.white.outline}; 
+  }
   mark{
     background-color: unset;
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
