@@ -4,43 +4,46 @@ import styled from "styled-components"
 import { ThemeChangeContext } from "../HOCs/isBlackTheme"
 import { Home, Car, Price, Faq, Phone, Facebook, Twiter, Linkedin, Instagram } from "../constants/icons"
 
-const Aside = ({ data, isDarkTheme }) => {
+const Aside = ({ data, isDarkTheme, setMenuState }) => {
 
     let changeColorMode = useContext(ThemeChangeContext)
 
-    if (typeof document !== `undefined`) {
-        var options = {
-            root: document.querySelector('#main'),
-            rootMargin: '0px',
-            threshold: 1.0
-        }
+    // if (typeof document !== `undefined`){
+    //     var options = {
+    //         root: document.querySelector('#main'),
+    //         rootMargin: '0px',
+    //         threshold: 1.0
+    //     }
 
-        var callback = function (entries, observer) {
-            let allNavItems = document.querySelectorAll('.navItem')
-            let currItem = document.querySelector(`#${entries[0].target.id}Nav`)
+    //     var callback = function(entries, observer) {
+    //         let allNavItems = document.querySelectorAll('.navItem')
+    //         let currItem = document.querySelector(`#${entries[0].target.id}Nav`)
 
-            for (let i = 0; i < allNavItems.length; i++) {
-                allNavItems[i].classList.remove('active')
-            }
+    //         for(let i = 0; i < allNavItems.length; i++){
+    //             allNavItems[i].classList.remove('active')
+    //         }
 
-            currItem.classList.add('active')
-            console.log(entries)
-        }
+    //         currItem.classList.add('active')
+    //         console.log(entries)
+    //     }
 
-        var observer = new IntersectionObserver(callback, options)
+    //     var observer = new IntersectionObserver(callback, options)
 
 
-        useEffect(() => {
-            observer.observe(document.querySelector("#main"))
-            observer.observe(document.querySelector("#oNas"))
-            observer.observe(document.querySelector("#oferta"))
-            observer.observe(document.querySelector("#faq"))
-            observer.observe(document.querySelector("#kontakt"))
-        }, [])
-    }
+    //     useEffect(() => {
+    //         observer.observe(document.querySelector("#main"))
+    //         observer.observe(document.querySelector("#oNas"))
+    //         observer.observe(document.querySelector("#oferta"))
+    //         observer.observe(document.querySelector("#faq"))
+    //         observer.observe(document.querySelector("#kontakt"))
+    //     }, [])
+    // }
+
     return (
-        <Wrapper className="">
+        <Wrapper className="" id="aside">
+
             <div>
+                <CloseNav onClick={setMenuState} />
                 <a href="#main"><Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} /></a>
                 <Nav>
                     <List>
@@ -141,6 +144,10 @@ const Wrapper = styled.aside`
         &.active{
             transform: translateX(0);
         }
+    }
+
+    div{
+        position: relative;
     }
 `
 
@@ -281,4 +288,42 @@ const ColorTrybe = styled.div`
 const Copyright = styled.p`
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     margin: 28px 0 0 0;
+    font-size: 14px;
+`
+
+const CloseNav = styled.div`
+    @media (min-width: 1240px) {
+        display: none;
+    }
+
+    position: absolute !important;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    &::after{
+        width: 20px;
+        height: 2px;
+        content: "";
+        transform: rotateZ(45deg);
+        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 45%;
+    }
+
+    &::before{
+        width: 20px;
+        height: 2px;
+        content: "";
+        transform: rotateZ(-45deg);
+        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 45%;
+    }
 `

@@ -95,13 +95,20 @@ const ItemsBox = styled.div`
     grid-column-gap: clamp(32px, 3.33vw, 64px);
     grid-row-gap: clamp(32px, 3.33vw, 64px);
 
+    svg{
+        width: 40px;
+        height: 40px;
+    }
+
     span{
-        display: flex;
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        grid-column-gap: 8px;
         align-items: center;
     }
 
     h3{
-        margin: 0 0 0 8px;
+        margin: 0;
         font-size: 24px;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
     }

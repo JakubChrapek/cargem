@@ -17,6 +17,14 @@ const IndexPage = ({ data }) => {
 
   let isDarkTheme = useContext(ThemeContext) // import for rerender
 
+  function setMenuState() {
+    if (document.getElementById('aside').classList.contains('active')) {
+        document.getElementById('aside').classList.remove('active')
+    } else {
+        document.getElementById('aside').classList.add('active')
+    }
+}
+
   return (
     <ThemeProvider theme={theme}>
       <App id="main">
@@ -25,7 +33,8 @@ const IndexPage = ({ data }) => {
           reverseOrder={false}
         />
         <Container>
-          <Aside isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
+          <OpenNav onClick={setMenuState}><span/></OpenNav>
+          <Aside setMenuState={setMenuState} isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
           <Main>
             <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
             <Highlight data={data.datoCmsBenefit} />
@@ -215,4 +224,50 @@ const Container = styled.div`
 `
 
 const Main = styled.main`
+`
+
+const OpenNav = styled.div`
+    @media (min-width: 1240px) {
+        display: none;
+    }
+
+    z-index: 100;
+    position: absolute !important;
+    left: 32px;
+    top: 35px;
+    width: 20px;
+    height: 18px;
+    cursor: pointer;
+
+    &::after{
+        width: 20px;
+        height: 2px;
+        content: "";
+        background-color: ${props => props.theme.black.text.main};
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 100%;
+    }
+
+    &::before{
+        width: 20px;
+        height: 2px;
+        content: "";
+        background-color: ${props => props.theme.black.text.main};
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+    }
+
+    span{
+        width: 20px;
+        height: 2px;
+        background-color: ${props => props.theme.black.text.main};
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 50%;
+    }
 `

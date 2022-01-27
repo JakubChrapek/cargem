@@ -96,6 +96,10 @@ const Wrapper = styled.header`
         
         .slider{
             height: calc(100vh - 270px);
+
+            &::after{
+                zoom: .6;
+            }
         }
     }
 
