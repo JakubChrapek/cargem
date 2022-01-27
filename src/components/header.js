@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
 import Slide from './../images/slide.png'
 
+
 const Header = ({ data, isDarkTheme }) => {
     const [imgWidth, changeImgWidth] = useState('50%')
     const [imgWidthDelta, changeImgWidthDelta] = useState('200%')
+
 
     function handleChange(e) {
         let deltaVal = 1000 / e.currentTarget.value
@@ -65,7 +67,7 @@ const Wrapper = styled.header`
             appearance: none;
             width: 1px;
             height: 100vh;
-            background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub}; //change
+            background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             cursor: pointer;
         }
         &::after{
@@ -83,7 +85,31 @@ const Wrapper = styled.header`
         height: auto;
 
         .slider{
-            height: calc(100vh - 260px);
+            height: calc(100vh - 280px);
+        }
+
+        &::after{
+            display: ${props => props.theme.isBlackTheme ? 'auto' : 'none'};
+            content: "";
+            position: absolute;
+            z-index: 100;
+            left: 0;
+            right: 0;
+            bottom: 210px;
+            height: 100px;
+            background: linear-gradient(360deg, #030405 0%, #030405 11.72%, rgba(3, 4, 5, 0) 20.1%);
+        }
+
+        &::before{
+            display: ${props => props.theme.isBlackTheme ? 'auto' : 'none'};
+            content: "";
+            position: absolute;
+            z-index: 1000;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100px;
+            background: linear-gradient(180deg, #030405 0%, #030405 11.72%, rgba(3, 4, 5, 0) 20.1%);
         }
     }
     @media (max-width: 639px){
@@ -91,15 +117,30 @@ const Wrapper = styled.header`
         .slider{
             height: calc(100vh - 360px);
         }
+
+        &::after{
+            bottom: 325px;
+        }
     }
     @media (max-width: 539px){
         
         .slider{
-            height: calc(100vh - 270px);
+            height: calc(100vh - 280px);
 
             &::after{
                 zoom: .6;
             }
+        }
+
+        &::after{
+            bottom: 230px;
+        }
+    }
+
+    @media (max-width: 436px){
+        
+        &::after{
+            bottom: 260px;
         }
     }
 
@@ -116,13 +157,13 @@ const Broken = styled.div`
     background-repeat: no-repeat;
 
     @media(max-width: 876px){
-        height: calc(100vh - 260px);
+        height: calc(100vh - 280px);
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
     }
     @media (max-width: 539px){
-        height: calc(100vh - 270px);
+        height: calc(100vh - 280px);
     }
 `
 
@@ -132,13 +173,13 @@ const RepairedWrapper = styled.div`
     height: 100vh;
     width: ${props => props.imgWidth};
     @media(max-width: 876px){
-        height: calc(100vh - 260px);
+        height: calc(100vh - 280px);
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
     }
     @media (max-width: 539px){
-        height: calc(100vh - 270px);
+        height: calc(100vh - 280px);
     }
 `
 
@@ -152,13 +193,13 @@ const Repaired = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     @media(max-width: 876px){
-        height: calc(100vh - 260px);
+        height: calc(100vh - 280px);
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
     }
     @media (max-width: 539px){
-        height: calc(100vh - 270px);
+        height: calc(100vh - 280px);
     }
 `
 
@@ -177,10 +218,11 @@ const TextBox = styled.div`
     margin: 0 auto;
 
     h1{
+        background-color: rgba(0, 0, 0, .2);
         font-size: 48px;
         line-height: 60px;
         margin: 0;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.black.text.main};
         transition: .2s linear;
         text-align: center;
     }
@@ -194,6 +236,7 @@ const TextBox = styled.div`
         h1{
             font-size: 40px;
             line-height: 50px;
+            ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main}
         }
     }
 
@@ -220,13 +263,13 @@ const Placeholder = styled.div`
     @media (max-width: 876px) {
         display: block;
         width: 100%;
-        height: calc(100vh - 260px);
+        height: calc(100vh - 280px);
     }
     @media (max-width: 639px){
         height: calc(100vh - 360px);
     }
     @media (max-width: 539px){
-        height: calc(100vh - 270px);
+        height: calc(100vh - 280px);
     }
     
 `

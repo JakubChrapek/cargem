@@ -19,11 +19,11 @@ const IndexPage = ({ data }) => {
 
   function setMenuState() {
     if (document.getElementById('aside').classList.contains('active')) {
-        document.getElementById('aside').classList.remove('active')
+      document.getElementById('aside').classList.remove('active')
     } else {
-        document.getElementById('aside').classList.add('active')
+      document.getElementById('aside').classList.add('active')
     }
-}
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
           reverseOrder={false}
         />
         <Container>
-          <OpenNav onClick={setMenuState}><span/></OpenNav>
+          <OpenNav onClick={setMenuState}><span /></OpenNav>
           <Aside setMenuState={setMenuState} isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
           <Main>
             <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
@@ -196,7 +196,7 @@ const App = styled.div`
 
   *{
     outline-width: 0.01em;
-    outline-color: ${props => props.theme.isBlackTheme ? props.theme.black.outline: props.theme.white.outline}; 
+    outline-color: ${props => props.theme.isBlackTheme ? props.theme.black.outline : props.theme.white.outline}; 
   }
   mark{
     background-color: unset;
@@ -231,19 +231,21 @@ const OpenNav = styled.div`
         display: none;
     }
 
-    z-index: 100;
-    position: absolute !important;
+    z-index: 10000;
+    position: fixed !important;
     left: 32px;
     top: 35px;
     width: 20px;
     height: 18px;
     cursor: pointer;
+    mix-blend-mode: exclusion;
 
     &::after{
         width: 20px;
         height: 2px;
         content: "";
         background-color: ${props => props.theme.black.text.main};
+        mix-blend-mode: exclusion;
         position: absolute;
         right: 0;
         left: 0;
@@ -255,6 +257,7 @@ const OpenNav = styled.div`
         height: 2px;
         content: "";
         background-color: ${props => props.theme.black.text.main};
+        mix-blend-mode: exclusion;
         position: absolute;
         right: 0;
         left: 0;
@@ -265,9 +268,19 @@ const OpenNav = styled.div`
         width: 20px;
         height: 2px;
         background-color: ${props => props.theme.black.text.main};
+        mix-blend-mode: exclusion;
         position: absolute;
         right: 0;
         left: 0;
         top: 50%;
+    }
+
+    @media (max-width: 876px){
+      left: 10px;
+    }
+
+    
+    @media (max-width: 539px){
+      left: 6px;
     }
 `

@@ -4,7 +4,7 @@ export let theme = {
         background: '#020405',
         lines: '#1B2329',
         textBG: '#040B12',
-        textBGShadow: '0px 3px 6px -4px #979DA6',
+        textBGShadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15);',
         outline: '#66C4FF',
         aside: {
             background: '#03090F',

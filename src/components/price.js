@@ -8,19 +8,6 @@ const Price = ({ data, isDarkTheme }) => {
 
     const [choosenIndex, setChooseIndex] = useState("0")
 
-    useEffect(() => {
-        let tabs = document.getElementsByClassName('tab')
-        let tabsContent = document.getElementsByClassName('tabContent')
-        for (let i = 0; i < tabs.length; i++) {
-            if (i == choosenIndex) {
-                tabs[i].classList.add('active')
-                tabsContent[i].classList.add('active')
-            } else {
-                tabs[i].classList.remove('active')
-                tabsContent[i].classList.remove('active')
-            }
-        }
-    }, [choosenIndex, isDarkTheme])
 
     return (
         <Wrapper>
@@ -32,13 +19,13 @@ const Price = ({ data, isDarkTheme }) => {
             <TabsChoose>
                 {data.tabs.map((el, index) => (
                     <span onClick={() => { setChooseIndex(index) }}>
-                        <PriceTab isDarkTheme={isDarkTheme} index={index} title={el.title} />
+                        <PriceTab choosenIndex={choosenIndex} isDarkTheme={isDarkTheme} index={index} title={el.title} />
                     </span>
                 ))}
             </TabsChoose>
-            <TabsContent>
+            <TabsContent >
                 {data.tabs.map((el, index) => (
-                    <PriceContent isDarkTheme={isDarkTheme} index={index} items={el.items} />
+                    <PriceContent choosenIndex={choosenIndex} isDarkTheme={isDarkTheme} index={index} items={el.items} />
                 ))}
 
             </TabsContent>

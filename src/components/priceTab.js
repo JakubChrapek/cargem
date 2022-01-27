@@ -2,12 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { DiscBreak, Piston, Spark, Suspension, Filter, Door, Verified, AirPump, colors } from "../constants/icons";
 
-const PriceTab = ({ isDarkTheme, index, title }) => {
-
-
+const PriceTab = ({ isDarkTheme, index, title, choosenIndex }) => {
 
     return (
-        <TabWrapper id={'tab' + index} className='tab'>
+        <TabWrapper id={'tab' + index} className={`${choosenIndex == index ? 'active' : null} tab`}>
             {(() => {
                 switch (index) {
                     case 0:

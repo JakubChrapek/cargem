@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { StructuredText } from "react-datocms";
 import styled from "styled-components";
 
-const PriceContent = ({ isDarkTheme, index, items }) => {
+const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
 
     const [itemCount] = useState(items.length)
     const [isMaxCount, setIsMaxCount] = useState(null)
@@ -12,7 +12,7 @@ const PriceContent = ({ isDarkTheme, index, items }) => {
     }
 
     return (
-        <Grid id={'tabContent' + index} className="tabContent">
+        <Grid id={'tabContent' + index} className={`${choosenIndex == index ? 'active' : null} tabContent`}>
             {items.map((el, index) => (
                 <>
                     {isMaxCount
