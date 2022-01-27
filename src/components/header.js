@@ -1,30 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
-import Slide from './../images/slide.png'
 import { Link } from "react-scroll"
+import Slider from "./header-slider";
 
 
 const Header = ({ data, isDarkTheme }) => {
-    const [imgWidth, changeImgWidth] = useState('50%')
-    const [imgWidthDelta, changeImgWidthDelta] = useState('200%')
-
-
-    function handleChange(e) {
-        let deltaVal = 1000 / e.currentTarget.value
-        let val = e.currentTarget.value / 10
-
-        changeImgWidth(val + "%")
-        changeImgWidthDelta(deltaVal * 100 + '%')
-    }
 
     return (
-        <Wrapper id="header" left={imgWidth}>
-            <Broken bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
-            <RepairedWrapper imgWidth={imgWidth}>
-                <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
-            </RepairedWrapper>
-            <input onChange={(e) => { handleChange(e) }} defaultValue='500' type="range" min="0" max="1000" class="slider" />
+        <Wrapper id="header">
+            <Slider data={data} isDarkTheme={isDarkTheme}/>
             <Placeholder />
             <TextBox>
                 <StructuredText data={data.title} />
@@ -44,43 +29,7 @@ const Wrapper = styled.header`
     height: 100vh;
     position: relative;
 
-    .slider{
-        overflow: hidden;
-        position: absolute;
-        z-index: 6;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        -webkit-appearance: none;
-        appearance: none;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, .0);
-        outline: none;
-        margin: 0;
-        transition: all .2s;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 1px;
-            height: 100vh;
-            background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
-            cursor: pointer;
-        }
-        &::after{
-            content: url(${Slide});
-            top: calc(50% - 26px);
-            position: absolute;
-            width: 52px;
-            height: 52px;
-            left: calc(${props => props.left} - 26px);
-            cursor: pointer;
-        }
-    }
+    
 
     @media (max-width: 876px) {
         height: auto;
@@ -147,62 +96,6 @@ const Wrapper = styled.header`
 
 `
 
-const Broken = styled.div`
-    position: absolute;
-    z-index: 0;
-    height: 100vh;
-    width: 100%;
-    background-image: url(${props => props.bg});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    @media(max-width: 876px){
-        height: calc(100vh - 280px);
-    }
-    @media (max-width: 639px){
-        height: calc(100vh - 360px);
-    }
-    @media (max-width: 539px){
-        height: calc(100vh - 280px);
-    }
-`
-
-const RepairedWrapper = styled.div`
-    overflow: hidden;
-    position: absolute;
-    height: 100vh;
-    width: ${props => props.imgWidth};
-    @media(max-width: 876px){
-        height: calc(100vh - 280px);
-    }
-    @media (max-width: 639px){
-        height: calc(100vh - 360px);
-    }
-    @media (max-width: 539px){
-        height: calc(100vh - 280px);
-    }
-`
-
-const Repaired = styled.div`
-    position: absolute;
-    z-index: 1;
-    height: 100vh;
-    width: ${props => props.imgWidthDelta};
-    background-image: url(${props => props.bg});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    @media(max-width: 876px){
-        height: calc(100vh - 280px);
-    }
-    @media (max-width: 639px){
-        height: calc(100vh - 360px);
-    }
-    @media (max-width: 539px){
-        height: calc(100vh - 280px);
-    }
-`
 
 const TextBox = styled.div`
     max-width: 700px;
