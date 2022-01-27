@@ -53,7 +53,8 @@ const Footer = ({ data, isDarkTheme }) => {
                     <Form />
                 </FormBox>
             </Flex>
-            <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2474.513902904872!2d21.979884415775853!3d51.668735779661986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4718a1cc9f0aefcf%3A0xe5275eb73a5fb27b!2sMechanika%20pojazdowa%20%22AIR%22!5e0!3m2!1sru!2spl!4v1643293605900!5m2!1sru!2spl" allowfullscreen="" loading="lazy"></iframe>
+            {/* <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} /> */}
             <FormBox className="mobile">
                 <StructuredText data={data.formTitle} />
                 <Form />

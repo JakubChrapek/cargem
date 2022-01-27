@@ -43,10 +43,9 @@ const Wrapper = styled.div`
         appearance: none;
         width: 100%;
         height: 100vh;
-        background: rgba(0, 0, 0, .0);
+        background-color: ${props => props.theme.isBlackTheme ? "transparent" : "#00000050"};
         outline: none;
         margin: 0;
-        transition: all .2s;
         display: flex;
         justify-content: center;
         align-items: center;

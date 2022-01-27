@@ -210,7 +210,11 @@ const App = styled.div`
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
   }
 
-  h1, h2{
+  h1{
+    font-family: 'Krona one';
+  }
+
+  h2{
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
     font-family: 'Krona one';
   }
