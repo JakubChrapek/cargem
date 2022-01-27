@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
 import Slide from './../images/slide.png'
+import { Link } from "react-scroll"
 
 
 const Header = ({ data, isDarkTheme }) => {
@@ -18,7 +19,7 @@ const Header = ({ data, isDarkTheme }) => {
     }
 
     return (
-        <Wrapper id="main" left={imgWidth}>
+        <Wrapper id="header" left={imgWidth}>
             <Broken bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
             <RepairedWrapper imgWidth={imgWidth}>
                 <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
@@ -28,8 +29,8 @@ const Header = ({ data, isDarkTheme }) => {
             <TextBox>
                 <StructuredText data={data.title} />
                 <ButtonsWrapper>
-                    <a className="first" href="#">{data.firstButtonText}</a>
-                    <a className="second" href="#">{data.secondButtonText}</a>
+                    <Link className="first" smooth={true} to="oferta">{data.firstButtonText}</Link>
+                    <Link className="second" smooth={true} to="kontakt">{data.secondButtonText}</Link>
                 </ButtonsWrapper>
             </TextBox>
         </Wrapper>
@@ -218,7 +219,6 @@ const TextBox = styled.div`
     margin: 0 auto;
 
     h1{
-        background-color: rgba(0, 0, 0, .2);
         font-size: 48px;
         line-height: 60px;
         margin: 0;
@@ -236,7 +236,7 @@ const TextBox = styled.div`
         h1{
             font-size: 40px;
             line-height: 50px;
-            ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main}
+            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
         }
     }
 
@@ -296,7 +296,8 @@ const ButtonsWrapper = styled.div`
         &.first{
             background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
             border: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+            color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.black.button.static.text};
+            box-shadow: 0px 3px 6px -4px #979DA6;
 
             &:hover{
                 background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
@@ -307,6 +308,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.theme.black.text.main};
             border: ${props => props.theme.black.text.main};
             color: ${props => props.theme.white.text.main};
+            box-shadow: 0px 3px 6px -4px #979DA6;
 
             &:hover{
                 filter: brightness(0.8);

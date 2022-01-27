@@ -38,8 +38,10 @@ const IndexPage = ({ data }) => {
           <Main>
             <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
             <Highlight data={data.datoCmsBenefit} />
-            <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
-            <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
+            <div id="oferta">
+              <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
+              <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
+            </div>
             <Faq data={data.datoCmsFaq} />
             <Footer isDarkTheme={isDarkTheme} data={data.datoCmsFooter} />
           </Main>
@@ -198,6 +200,11 @@ const App = styled.div`
     outline-width: 0.01em;
     outline-color: ${props => props.theme.isBlackTheme ? props.theme.black.outline : props.theme.white.outline}; 
   }
+
+  a{
+    cursor: pointer;
+  }
+
   mark{
     background-color: unset;
     color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};

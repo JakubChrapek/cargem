@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react"
 import styled from "styled-components"
 import { ThemeChangeContext } from "../HOCs/isBlackTheme"
 import { Home, Car, Price, Faq, Phone, Facebook, Twiter, Linkedin, Instagram } from "../constants/icons"
+import { Link } from "react-scroll"
 
 const Aside = ({ data, isDarkTheme, setMenuState }) => {
 
@@ -48,34 +49,34 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
                 <Nav>
                     <List>
                         <ListItem className="navItem" id="mainNav">
-                            <a href="#main">
+                            <Link activeClass="active" spy={true} smooth={true} to="header">
                                 <Home />
                                 Strona Główna
-                            </a>
+                            </Link>
                         </ListItem>
                         <ListItem className="navItem" id="oNasNav">
-                            <a href="#oNas">
+                            <Link activeClass="active" spy={true} smooth={true} to="oNas">
                                 <Car />
                                 O Nas
-                            </a>
+                            </Link>
                         </ListItem>
                         <ListItem className="navItem" id="ofertaNav">
-                            <a href="#oferta">
+                            <Link activeClass="active" spy={true} smooth={true} to="oferta">
                                 <Price />
                                 Oferta
-                            </a>
+                            </Link>
                         </ListItem>
                         <ListItem className="navItem" id="faqNav">
-                            <a href="#faq">
+                            <Link activeClass="active" spy={true} smooth={true} to="faq">
                                 <Faq />
                                 FAQ
-                            </a>
+                            </Link>
                         </ListItem>
                         <ListItem className="navItem" id="kontaktNav">
-                            <a href="#kontakt">
+                            <Link activeClass="active" spy={true} smooth={true} to="kontakt">
                                 <Phone />
                                 Kontakt
-                            </a>
+                            </Link>
                         </ListItem>
                     </List>
                 </Nav>
@@ -189,31 +190,30 @@ const ListItem = styled.li`
 
         transition: all .2s linear;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.default : props.theme.white.aside.default};
-    }
 
-    &.active{
-        svg{
-            path{
-                fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+        &.active{
+            svg{
+                path{
+                    fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+                }
             }
-        }
 
-        a{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
-        }
+        color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
     }
 
-    &:hover{
-        svg{
-            path{
-                fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+        &:hover{
+            svg{
+                path{
+                    fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+                }
             }
-        }
 
-        a{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
+        color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
+            
         }
     }
+
+    
 
 `
 const SocialMedia = styled.ul`

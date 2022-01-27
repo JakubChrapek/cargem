@@ -6,7 +6,7 @@ import { TimingBelt, Door, PaintSpray, Key, AirPump, colors } from "../constants
 
 const Offer = ({ data, isDarkTheme }) => {
     return (
-        <Wrapper id="oferta">
+        <Wrapper>
             <StructuredText data={data.title} />
             <ItemsBox>
                 {data.items.map((el, index) => (
@@ -152,6 +152,7 @@ const Link = styled.a`
     background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
     border: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
     color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+    box-shadow: 0px 3px 6px -4px #979DA6;
 
     &:hover{
         background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

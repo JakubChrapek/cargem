@@ -38,7 +38,6 @@ export default Price
 const Wrapper = styled.section`
     padding-left: clamp(40px, 9.31vw, 180px);
     padding-right: clamp(40px, 9.31vw, 180px);
-    padding-bottom: clamp(55px, 9.31vw, 180px);
 
     h2{
         margin-top: 0;;
