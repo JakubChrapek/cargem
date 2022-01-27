@@ -2,15 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.cargem.eu`
   },
-  plugins: [
-    {
-      resolve: 'gatsby-source-datocms',
-      options: {
-        apiToken: process.env.DATOCMS_API_KEY
-      }
-    },
-    'gatsby-plugin-styled-components'
-  ]
+  plugins: ['gatsby-plugin-styled-components']
 }
