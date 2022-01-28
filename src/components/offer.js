@@ -84,6 +84,10 @@ const Car = styled.img`
         width: 50%;
         bottom: 5%;
     }
+    @media (max-width: 768px) {
+        width: 55%;
+        bottom: 10%;
+    }
     @media (max-width: 639px) {
         display: none;
     }
@@ -131,6 +135,8 @@ const ItemsBox = styled.div`
 
     @media (max-width: 876px) {
         grid-template-columns: 1fr 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 48px;
     }
     
     @media(max-width: 539px) {

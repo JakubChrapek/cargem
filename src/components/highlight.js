@@ -121,6 +121,7 @@ const Benefits = styled.div`
     @media (max-width: 876px) {
         grid-template-columns: 272px 272px;
         grid-row-gap: 48px;
+        padding-bottom: 48px;
 
         div{
             padding-right: 48px;

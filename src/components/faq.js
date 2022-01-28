@@ -118,6 +118,10 @@ const Questions = styled.div`
             font-size: 14px;
             line-height: 20px;
         }
+
+        @media (max-width: 876px) {
+            margin-top: 16px;
+        }
     }
 `
 
