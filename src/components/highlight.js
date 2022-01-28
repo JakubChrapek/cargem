@@ -35,9 +35,9 @@ const Highlight = ({ data }) => {
 export default Highlight
 
 const Wrapper = styled.section`
-    padding-top: clamp(55px, 9.31vw, 180px);
-    padding-left: clamp(40px, 9.31vw, 180px);
-    padding-right: clamp(40px, 9.31vw, 180px);
+    padding-top: clamp(55px, 8.6vw, 167px);
+    padding-left: clamp(55px, 8.6vw, 167px);
+    padding-right: clamp(55px, 8.6vw, 167px);
 
     h2{
         margin: 0;
@@ -68,12 +68,12 @@ const Wrapper = styled.section`
 `
 
 const Benefits = styled.div`
-    padding: 42px 0 48px;
+    padding: 42px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
     div{
-        padding: 0 clamp(10px, 2vw, 40px) ;
+        padding: 0 clamp(24px, 2.5vw, 48px) ;
         position: relative;
 
         &::after{   

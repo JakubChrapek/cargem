@@ -36,8 +36,8 @@ const Price = ({ data, isDarkTheme }) => {
 export default Price
 
 const Wrapper = styled.section`
-    padding-left: clamp(40px, 9.31vw, 180px);
-    padding-right: clamp(40px, 9.31vw, 180px);
+    padding-left: clamp(55px, 8.6vw, 167px);
+    padding-right: clamp(55px, 8.6vw, 167px);
 
     h2{
         margin-top: 0;;
@@ -62,7 +62,7 @@ const TextBox = styled.div`
     display: grid;
     grid-template-columns: 350px 350px;
     grid-column-gap: 64px;
-    margin-bottom: 60px;
+    margin-bottom: 54px;
 
     p{
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};

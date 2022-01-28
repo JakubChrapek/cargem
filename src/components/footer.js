@@ -67,7 +67,7 @@ export default Footer
 
 const Wrapper = styled.footer`
 
-    margin-left: clamp(40px, 9.31vw, 180px);
+    margin-left: clamp(55px, 8.6vw, 167px);
     margin-top: clamp(55px, 9.31vw, 180px);
     margin-bottom: clamp(55px, 9.31vw, 180px);
     
@@ -156,17 +156,22 @@ const TextBox = styled.div`
         background-color: ${props => props.theme.isBlackTheme ? props.theme.black.lines : props.theme.white.lines};
     }
 
-    
+    h2{
+        margin-bottom: 46px;
+    }
 
     h4{
         font-size: 18px;
         line-height: 26px;
+        margin: 0;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
     }
 
     p{
         font-size: 14px;
         line-height: 20px;
+        margin-top: 8px;
+        margin-bottom: 24px;
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     }
 
@@ -211,7 +216,7 @@ const Links = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
-    padding-top: 30px;
+    margin-top: 38px;
 
     a{
         display: flex;
@@ -244,7 +249,7 @@ const Links = styled.div`
 `
 
 const OpenTimeTitle = styled.h4`
-    margin: 24px 0 8px;
+    margin: 24px 0 8px !important;
 `
 
 const OpenTime = styled.div`

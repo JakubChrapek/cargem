@@ -63,7 +63,7 @@ const Grid = styled.div`
 
     div{
         padding-right: clamp(50px, 5.2vw, 100px);
-        padding-top: 20px;
+        padding-top: 16px;
         padding-bottom: 20px;
         padding-left: 0;
         position: relative;

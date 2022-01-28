@@ -9,7 +9,7 @@ const Header = ({ data, isDarkTheme }) => {
 
     return (
         <Wrapper id="header">
-            <Slider data={data} isDarkTheme={isDarkTheme}/>
+            <Slider data={data} isDarkTheme={isDarkTheme} />
             <Placeholder />
             <TextBox>
                 <StructuredText data={data.title} />
@@ -29,23 +29,14 @@ const Wrapper = styled.header`
     height: 100vh;
     position: relative;
 
-    
-
-    @media (max-width: 876px) {
-        height: auto;
-
-        .slider{
-            height: calc(100vh - 280px);
-        }
-
-        &::after{
+    &::after{
             display: ${props => props.theme.isBlackTheme ? 'auto' : 'none'};
             content: "";
             position: absolute;
             z-index: 100;
             left: 0;
             right: 0;
-            bottom: 210px;
+            bottom: 0;
             height: 100px;
             background: linear-gradient(360deg, #030405 0%, #030405 11.72%, rgba(3, 4, 5, 0) 20.1%);
         }
@@ -61,6 +52,21 @@ const Wrapper = styled.header`
             height: 100px;
             background: linear-gradient(180deg, #030405 0%, #030405 11.72%, rgba(3, 4, 5, 0) 20.1%);
         }
+
+    
+
+    @media (max-width: 876px) {
+        height: auto;
+
+        .slider{
+            height: calc(100vh - 280px);
+        }
+
+        &::after{
+            bottom: 210px;
+        }
+
+        
     }
     @media (max-width: 639px){
 

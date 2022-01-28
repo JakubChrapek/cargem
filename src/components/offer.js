@@ -42,8 +42,8 @@ export default Offer
 
 const Wrapper = styled.section`
     padding-top: clamp(55px, 9.31vw, 180px);
-    padding-left: clamp(40px, 9.31vw, 180px);
-    padding-right: clamp(40px, 9.31vw, 180px);
+    padding-left: clamp(55px, 8.6vw, 167px);
+    padding-right: clamp(55px, 8.6vw, 167px);
     padding-bottom: clamp(55px, 9.31vw, 180px);
     position: relative;
 

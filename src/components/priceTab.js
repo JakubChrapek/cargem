@@ -35,7 +35,7 @@ export default PriceTab
 
 const TabWrapper = styled.div`
     margin-right: clamp(16px, 3.33vw, 64px);
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -113,7 +113,6 @@ const TabWrapper = styled.div`
 
     @media (max-width: 876px) {
         margin-right: 48px;
-        margin-bottom: 32px;
     }
 
     @media (max-width: 640px) {

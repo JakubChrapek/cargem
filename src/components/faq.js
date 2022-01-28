@@ -49,7 +49,7 @@ export default Faq
 
 const Wrapper = styled.section`
     padding-top: clamp(55px, 9.31vw, 180px);
-    padding-left: clamp(40px, 9.31vw, 180px);
+    padding-left: clamp(55px, 8.6vw, 167px);
     padding-right: clamp(240px, 25vw, 480px);
     position: relative;
     overflow: hidden;
@@ -111,6 +111,8 @@ const Questions = styled.div`
     }
 
     p{
+        margin: 8px 0 0 0;
+
         span{
             color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             font-size: 14px;
