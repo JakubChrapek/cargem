@@ -17,6 +17,7 @@
   "dependencies": {
     "@fontsource/krona-one": "^4.5.1",
     "@fontsource/lato": "^4.5.0",
+    "axios": "^0.25.0",
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^14.2.0",
     "gatsby": "^4.5.3",

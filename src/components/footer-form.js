@@ -1,40 +1,61 @@
 import React from 'react'
-import { useForm } from "react-hook-form";
-import toast from 'react-hot-toast';
-import styled from 'styled-components';
+import { useForm } from "react-hook-form"
+import toast from 'react-hot-toast'
+import styled from 'styled-components'
+import axios from 'axios'
 
 const Form = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = data => {
-        toast("Hello World")
+        axios.post('/', {
+            "form-name": 'contact-form',
+            "firstName": data.firstName,
+            "eMail": data.eMail,
+            "phone": data.phone,
+            "question": data.question,
+            "accept": data.accept,
+        }, {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).then(res => {
+            toast("Dziękujemy. Odezwiemy się wkrótce.", {
+                icon: '✅'
+            })
+
+        }).catch(error => {
+            toast('Coś poszło nie tak.', {
+                icon: '❌'
+            })
+        })
     }
 
 
 
     return (
-        <Wrapper onSubmit={handleSubmit(onSubmit)}>
+        <Wrapper onSubmit={handleSubmit(onSubmit)} data-netlify="true" nam="contact-form">
             <label className={errors.firstName && "error"}>
                 <span>Imie</span>
-                <input placeholder='Dariusz' {...register("firstName", { required: true })} />
+                <input name="firstName" placeholder='Dariusz' {...register("firstName", { required: true })} />
                 <p className='errorText'>{errors.firstName && "Proszę wpisać imię"}</p>
             </label>
             <label className={errors.eMail && "error"}>
                 <span>E-mail</span>
-                <input placeholder='przykladowymail@gmail.com' {...register("eMail", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />
+                <input name="eMail" placeholder='przykladowymail@gmail.com' {...register("eMail", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />
                 <p className='errorText'>{errors.eMail && "Proszę wpisać poprawny Email"}</p>
             </label>
             <label className={errors.phone && "error"}>
                 <span>Telefon</span>
-                <input placeholder='512566344' {...register("phone", { required: true, pattern: /^\d+$/ })} />
+                <input name="phone" placeholder='512566344' {...register("phone", { required: true, pattern: /^\d+$/ })} />
                 <p className='errorText'>{errors.phone && "Proszę wpisać numer w postaci 9 liczb bez spacji i znaków specjalnych"}</p>
             </label>
             <label>
                 <span>Szczegóły</span>
-                <textarea rows="10" placeholder='Napisz wiadomość...' {...register("question")} />
+                <textarea name="question" rows="10" placeholder='Napisz wiadomość...' {...register("question")} />
             </label>
             <label className={errors.accept ? "check error" : "check"}>
-                <input type='checkbox' {...register("accept", { required: true })} />
+                <input name="accept" type='checkbox' {...register("accept", { required: true })} />
                 <span>Zaakceptuj politykę prywatności</span>
             </label>
             <button type="submit" >WYŚLIJ</button>
