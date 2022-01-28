@@ -129,7 +129,8 @@ const MoreButton = styled.div`
         button{
             margin: 0 auto;
             text-align: center;
-            padding: 16px 64px;
+            padding: 10px 24px;
+            font-size: 12px;
             border-radius: 8px;
             text-decoration: none;
             text-transform: uppercase;
@@ -146,7 +147,8 @@ const MoreButton = styled.div`
         }
 
         p{
-            max-width: 108px;
+            max-width: 190px;
+            font-size: 14px !important;
             margin: 0 auto 16px !important;
             padding-bottom: 6px;
             position: relative;

@@ -152,7 +152,7 @@ const Wrapper = styled.form`
         box-shadow: 0px 3px 6px -4px #979DA6;
         width: 185px;
         cursor: pointer;
-        margin-top: 16px;
+        margin-top: 32px;
 
         &:hover{
             background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

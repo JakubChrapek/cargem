@@ -166,5 +166,7 @@ const Link = styled.a`
 
     @media(max-width: 539px){
         margin-top: 35px;
+        font-size: 12px;
+        width: 186px;
     }
 `

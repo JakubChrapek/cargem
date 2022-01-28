@@ -48,7 +48,7 @@ const Faq = ({ data }) => {
 export default Faq
 
 const Wrapper = styled.section`
-    padding-top: clamp(55px, 9.31vw, 180px);
+    padding-top: clamp(48px, 9.31vw, 180px);
     padding-left: clamp(55px, 8.6vw, 167px);
     padding-right: clamp(240px, 25vw, 480px);
     position: relative;
@@ -135,7 +135,14 @@ const SideImg = styled.img`
         display: block;
         position: relative;
         transform: unset;
-        margin: 0 auto 54px;
+        margin: 0 auto;
+        top: 0;
+        padding-bottom: 54px;
         width: 100%;
+    }
+
+    @media (max-width: 539px) {
+        padding-bottom: 34px;
+
     }
 `

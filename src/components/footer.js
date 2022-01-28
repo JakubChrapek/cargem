@@ -53,8 +53,7 @@ const Footer = ({ data, isDarkTheme }) => {
                     <Form />
                 </FormBox>
             </Flex>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2474.513902904872!2d21.979884415775853!3d51.668735779661986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4718a1cc9f0aefcf%3A0xe5275eb73a5fb27b!2sMechanika%20pojazdowa%20%22AIR%22!5e0!3m2!1sru!2spl!4v1643293605900!5m2!1sru!2spl" allowfullscreen="" loading="lazy"></iframe>
-            {/* <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} /> */}
+            <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
             <FormBox className="mobile">
                 <StructuredText data={data.formTitle} />
                 <Form />
@@ -130,6 +129,15 @@ const Map = styled.a`
     background-repeat: no-repeat;
     border-radius: 8px;
     margin-top: 64px;
+
+    @media (max-width: 876px){
+        margin-top: 54px;
+    }
+
+    @media (max-width: 539px) {
+        margin-top: 44px;
+         
+    }
 `
 
 const Flex = styled.div`
@@ -208,6 +216,13 @@ const FormBox = styled.div`
         h3{
             margin-bottom: 38px;
             margin-top: 54px;
+            font-weight: 500;
+        }
+    }
+ 
+    @media (max-width: 539px) {
+        h3{
+            margin: 40px 0 28px;
         }
     }
 `
@@ -270,5 +285,10 @@ const OpenTime = styled.div`
         font-size: 14px;
         line-height: 20px;
         font-weight: 500;
+    }
+
+    @media (max-width: 539px) {
+        grid-template-columns: 1fr;
+        grid-row-gap: 8px;
     }
 `
