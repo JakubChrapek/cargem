@@ -14,12 +14,11 @@ const ThemeWrapper = ({ children }) => {
         }
     }, [])
 
-    if (localStorage.getItem('isBlack') === 'true'){
+    if (localStorage.getItem('isBlack') === 'true') {
         theme.isBlackTheme = true
     } else {
         theme.isBlackTheme = false
     }
-    
 
     const handleClick = () => {
         if (localStorage.getItem('isBlack') === 'true') {

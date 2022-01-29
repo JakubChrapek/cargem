@@ -8,12 +8,12 @@ import Slider from "./header-slider";
 const Header = ({ data, isDarkTheme }) => {
 
     return (
-        <Wrapper id="header">
+        <Wrapper isDarkTheme={isDarkTheme} id="header">
             <Slider data={data} isDarkTheme={isDarkTheme} />
             <Placeholder />
-            <TextBox>
+            <TextBox isDarkTheme={isDarkTheme}>
                 <StructuredText data={data.title} />
-                <ButtonsWrapper>
+                <ButtonsWrapper isDarkTheme={isDarkTheme}>
                     <Link className="first" smooth={true} to="oferta">{data.firstButtonText}</Link>
                     <Link className="second" smooth={true} to="kontakt">{data.secondButtonText}</Link>
                 </ButtonsWrapper>
@@ -30,7 +30,7 @@ const Wrapper = styled.header`
     position: relative;
 
     &::after{
-        display: ${props => props.theme.isBlackTheme ? 'auto' : 'none'};
+        display: ${props => props.isDarkTheme ? 'auto' : 'none'};
         content: "";
         position: absolute;
         z-index: 100;
@@ -42,7 +42,7 @@ const Wrapper = styled.header`
     }
 
     &::before{
-        display: ${props => props.theme.isBlackTheme ? 'auto' : 'none'};
+        display: ${props => props.isDarkTheme ? 'auto' : 'none'};
         content: "";
         position: absolute;
         z-index: 1000;
@@ -121,7 +121,7 @@ const TextBox = styled.div`
         font-size: 48px;
         line-height: 60px;
         margin: 0;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.black.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.black.text.main};
         transition: .2s linear;
         text-align: center;
     }
@@ -135,7 +135,7 @@ const TextBox = styled.div`
         h1{
             font-size: 40px;
             line-height: 50px;
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
         }
     }
 
@@ -193,13 +193,13 @@ const ButtonsWrapper = styled.div`
         font-weight: bold;
 
         &.first{
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
-            border: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.black.button.static.text};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
+            border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
+            color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.black.button.static.text};
             box-shadow: 0px 3px 6px -4px #979DA6;
 
             &:hover{
-                background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
+                background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
             }
         }
 

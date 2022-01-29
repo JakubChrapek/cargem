@@ -12,6 +12,7 @@ import { theme } from "../constants/theme"
 import Faq from "../components/faq"
 import Footer from "../components/footer"
 import { Toaster } from "react-hot-toast"
+import Loader from "../components/loader"
 
 const IndexPage = ({ data }) => {
 
@@ -27,7 +28,8 @@ const IndexPage = ({ data }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <App id="main">
+      <App isDarkTheme={isDarkTheme} id="main">
+        {/* <Loader isDarkTheme={isDarkTheme} /> */}
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -37,12 +39,12 @@ const IndexPage = ({ data }) => {
           <Aside setMenuState={setMenuState} isDarkTheme={isDarkTheme} data={data.datoCmsAside} />
           <Main>
             <Header isDarkTheme={isDarkTheme} data={data.datoCmsSlider} />
-            <Highlight data={data.datoCmsBenefit} />
+            <Highlight isDarkTheme={isDarkTheme} data={data.datoCmsBenefit} />
             <div id="oferta">
               <Offer isDarkTheme={isDarkTheme} data={data.datoCmsOffer} />
               <Price isDarkTheme={isDarkTheme} data={data.datoCmsPrice} />
             </div>
-            <Faq data={data.datoCmsFaq} />
+            <Faq isDarkTheme={isDarkTheme} data={data.datoCmsFaq} />
             <Footer isDarkTheme={isDarkTheme} data={data.datoCmsFooter} />
           </Main>
         </Container>
@@ -193,12 +195,12 @@ query MainQuery {
 
 const App = styled.div`
   
-  background: ${props => props.theme.isBlackTheme ? props.theme.black.background : props.theme.white.background};
+  background: ${props => props.isDarkTheme ? props.theme.black.background : props.theme.white.background};
   transition: all .2s linear;
 
   *{
     outline-width: 0.01em;
-    outline-color: ${props => props.theme.isBlackTheme ? props.theme.black.outline : props.theme.white.outline}; 
+    outline-color: ${props => props.isDarkTheme ? props.theme.black.outline : props.theme.white.outline}; 
   }
 
   a{
@@ -207,7 +209,7 @@ const App = styled.div`
 
   mark{
     background-color: unset;
-    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+    color: ${props => props.isDarkTheme ? props.theme.black.text.active : props.theme.white.text.active};
   }
 
   h1{
@@ -215,7 +217,7 @@ const App = styled.div`
   }
 
   h2{
-    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+    color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
     font-family: 'Krona one';
   }
 

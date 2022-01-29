@@ -5,11 +5,11 @@ import { StaticImage } from "gatsby-plugin-image"
 import { Complete } from "../constants/icons";
 
 
-const Highlight = ({ data }) => {
+const Highlight = ({ data, isDarkTheme }) => {
     return (
         <Wrapper id="oNas">
             <StructuredText data={data.title} />
-            <Benefits>
+            <Benefits isDarkTheme={isDarkTheme}>
                 {data.benefits.map((el, index) => (
                     <div key={el} className={'div' + index}>
                         <span>
@@ -20,7 +20,7 @@ const Highlight = ({ data }) => {
                     </div>
                 ))}
             </Benefits>
-            <Texts>
+            <Texts isDarkTheme={isDarkTheme}>
                 <div>
                     <StructuredText data={data.leftText} />
                 </div>
@@ -83,7 +83,7 @@ const Benefits = styled.div`
             top: 0;
             bottom: 0;
             width: 1px;
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.lines : props.theme.white.lines};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.lines : props.theme.white.lines};
         }
 
         &.div0{
@@ -105,12 +105,12 @@ const Benefits = styled.div`
             h4{
                 margin: 0 0 8px 8px;
                 font-size: 18px;
-                color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+                color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
             }
         }
 
         p{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             font-size: 14px;
             line-height: 20px;
             margin-top: 8px;
@@ -178,8 +178,8 @@ const Texts = styled.div`
     padding: clamp(27px, 2.81vw, 54px) clamp(31px, 3.22vw, 62px);
     display: flex;
     justify-content: space-between;
-    background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};
-    box-shadow: ${props => props.theme.isBlackTheme ? props.theme.black.textBGShadow : props.theme.white.textBGShadow};
+    background-color: ${props => props.isDarkTheme ? props.theme.black.textBG : props.theme.white.textBG};
+    box-shadow: ${props => props.isDarkTheme ? props.theme.black.textBGShadow : props.theme.white.textBGShadow};
     transition: all .2s linear;
 
     div{
@@ -189,13 +189,13 @@ const Texts = styled.div`
     h3{
         font-size: 18px;
         line-height: 26px;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
     }
 
     p{
         font-size: 14px;
         line-height: 20px;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     }
 
     @media (max-width: 876px) {

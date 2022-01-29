@@ -10,38 +10,38 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
     let changeColorMode = useContext(ThemeChangeContext)
 
     return (
-        <Wrapper className="" id="aside">
+        <Wrapper className="" id="aside" isDarkTheme={isDarkTheme}>
 
             <div>
-                <CloseNav onClick={setMenuState} />
+                <CloseNav isDarkTheme={isDarkTheme} onClick={setMenuState} />
                 <a href="#main"><Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} /></a>
                 <Nav>
                     <List>
-                        <ListItem className="navItem" id="mainNav">
+                        <ListItem isDarkTheme={isDarkTheme} className="navItem" id="mainNav">
                             <Link activeClass="active" spy={true} smooth={true} to="header">
                                 <Home />
                                 Strona Główna
                             </Link>
                         </ListItem>
-                        <ListItem className="navItem" id="oNasNav">
+                        <ListItem isDarkTheme={isDarkTheme} className="navItem" id="oNasNav">
                             <Link activeClass="active" spy={true} smooth={true} to="oNas">
                                 <Car />
                                 O Nas
                             </Link>
                         </ListItem>
-                        <ListItem className="navItem" id="ofertaNav">
+                        <ListItem isDarkTheme={isDarkTheme} className="navItem" id="ofertaNav">
                             <Link activeClass="active" spy={true} smooth={true} to="oferta">
                                 <Price />
                                 Oferta
                             </Link>
                         </ListItem>
-                        <ListItem className="navItem" id="faqNav">
+                        <ListItem isDarkTheme={isDarkTheme} className="navItem" id="faqNav">
                             <Link activeClass="active" spy={true} smooth={true} to="faq">
                                 <Faq />
                                 FAQ
                             </Link>
                         </ListItem>
-                        <ListItem className="navItem" id="kontaktNav">
+                        <ListItem isDarkTheme={isDarkTheme} className="navItem" id="kontaktNav">
                             <Link activeClass="active" spy={true} smooth={true} to="kontakt">
                                 <Phone />
                                 Kontakt
@@ -51,7 +51,7 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
                 </Nav>
             </div>
             <div>
-                <SocialMedia>
+                <SocialMedia isDarkTheme={isDarkTheme}>
                     {data.socialMedia.map((el, index) => (
                         <li>
                             <a href={el.link} target="_blank" rel="noreferrer">
@@ -71,13 +71,13 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
                         </li>
                     ))}
                 </SocialMedia>
-                <ColorTrybe>
+                <ColorTrybe isDarkTheme={isDarkTheme}>
                     {data.nightModeTitle}
-                    <div tabindex="0" autoFocus='true' onClick={changeColorMode}>
+                    <div tabindex="0" onClick={changeColorMode}>
                         <span />
                     </div>
                 </ColorTrybe>
-                <Copyright>
+                <Copyright isDarkTheme={isDarkTheme}>
                     {data.copyright}
                 </Copyright>
             </div>
@@ -93,7 +93,7 @@ const Wrapper = styled.aside`
     box-sizing: border-box;
     height: 100vh;
     width: 100%;
-    background: ${props => props.theme.isBlackTheme ? props.theme.black.aside.background : props.theme.white.aside.background};
+    background: ${props => props.isDarkTheme ? props.theme.black.aside.background : props.theme.white.aside.background};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -144,7 +144,7 @@ const ListItem = styled.li`
 
         path{
             transition: .2s linear;
-            fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            fill: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         }
     }
 
@@ -158,26 +158,26 @@ const ListItem = styled.li`
         line-height: 26px;
 
         transition: all .2s linear;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.default : props.theme.white.aside.default};
+        color: ${props => props.isDarkTheme ? props.theme.black.aside.default : props.theme.white.aside.default};
 
         &.active{
             svg{
                 path{
-                    fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+                    fill:  ${props => props.isDarkTheme ? props.theme.black.text.active : props.theme.white.text.active};
                 }
             }
 
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
+        color: ${props => props.isDarkTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
     }
 
         &:hover{
             svg{
                 path{
-                    fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+                    fill:  ${props => props.isDarkTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
                 }
             }
 
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
+        color: ${props => props.isDarkTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
             
         }
     }
@@ -206,14 +206,14 @@ const SocialMedia = styled.ul`
             transition: all .2s linear;
             path{
                 transition: .2s linear;
-                fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+                fill:  ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             }
         }
 
         &:hover{
             svg{
                 path{
-                    fill:  ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+                    fill:  ${props => props.isDarkTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
                 }
             }
         }
@@ -222,7 +222,7 @@ const SocialMedia = styled.ul`
 `
 
 const ColorTrybe = styled.div`
-    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};  
+    color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};  
     display: flex;
     align-items: center;
 
@@ -234,7 +234,7 @@ const ColorTrybe = styled.div`
         padding: 2px;
         position: relative;
         border-radius: 50px;
-        background-color:  ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.sub};
+        background-color:  ${props => props.isDarkTheme ? props.theme.black.text.active : props.theme.white.text.sub};
         transition: .2s linear;
         cursor: pointer;
     }
@@ -245,7 +245,7 @@ const ColorTrybe = styled.div`
         width: 16px;
         height: 16px;
         position: absolute;
-        left: ${props => props.theme.isBlackTheme ? "22px" : "2px"};
+        left: ${props => props.isDarkTheme ? "22px" : "2px"};
         background-color: ${props => props.theme.black.text.main};
         transition: .2s linear;
 
@@ -255,7 +255,7 @@ const ColorTrybe = styled.div`
 `
 
 const Copyright = styled.p`
-    color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+    color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     margin: 28px 0 0 0;
     font-size: 14px;
 `
@@ -277,7 +277,7 @@ const CloseNav = styled.div`
         height: 2px;
         content: "";
         transform: rotateZ(45deg);
-        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        background-color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
         position: absolute;
         right: 0;
         left: 0;
@@ -289,7 +289,7 @@ const CloseNav = styled.div`
         height: 2px;
         content: "";
         transform: rotateZ(-45deg);
-        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        background-color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
         position: absolute;
         right: 0;
         left: 0;

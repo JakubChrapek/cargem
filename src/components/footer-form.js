@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import styled from 'styled-components'
 import axios from 'axios'
 
-const Form = () => {
+const Form = ({ isDarkTheme }) => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = data => {
@@ -34,7 +34,7 @@ const Form = () => {
 
 
     return (
-        <Wrapper onSubmit={handleSubmit(onSubmit)} data-netlify="true" nam="contact-form">
+        <Wrapper isDarkTheme={isDarkTheme} onSubmit={handleSubmit(onSubmit)} data-netlify="true" nam="contact-form">
             <label className={errors.firstName && "error"}>
                 <span>Imie</span>
                 <input name="firstName" placeholder='Dariusz' {...register("firstName", { required: true })} />
@@ -89,7 +89,7 @@ const Wrapper = styled.form`
         margin-bottom: 16px;
 
         span{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             margin-bottom: 2px;
         }
 
@@ -100,16 +100,16 @@ const Wrapper = styled.form`
 
         input, textarea{
             border-radius: 8px;
-            border: 1px solid ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            border: 1px solid ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             background-color: transparent;
             padding: 16px 24px;
             transition: .2s linear;
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
 
             &:focus{
                 outline: none;
-                border: 1px solid ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
-                color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+                border: 1px solid ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+                color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
 
             }
 
@@ -146,16 +146,16 @@ const Wrapper = styled.form`
         text-transform: uppercase;
         transition: .2s linear;
         font-weight: bold;
-        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
-        border: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+        background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
+        border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
+        color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
         box-shadow: 0px 3px 6px -4px #979DA6;
         width: 185px;
         cursor: pointer;
         margin-top: 32px;
 
         &:hover{
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
         }
     }
 

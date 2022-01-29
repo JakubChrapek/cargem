@@ -5,7 +5,7 @@ import { DiscBreak, Piston, Spark, Suspension, Filter, Door, Verified, AirPump, 
 const PriceTab = ({ isDarkTheme, index, title, choosenIndex }) => {
 
     return (
-        <TabWrapper id={'tab' + index} className={`${choosenIndex == index ? 'active' : null} tab`}>
+        <TabWrapper isDarkTheme={isDarkTheme} id={'tab' + index} className={`${choosenIndex == index ? 'active' : null} tab`}>
             {(() => {
                 switch (index) {
                     case 0:
@@ -48,7 +48,7 @@ const TabWrapper = styled.div`
 
         path{
             transition: .2s linear;
-            fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            fill: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
 
         }
     }
@@ -57,7 +57,7 @@ const TabWrapper = styled.div`
         margin: 0;
         padding: 6px 0;
         position: relative;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         transition: .2s linear;
         font-size: 18px;
         line-height: 26px;
@@ -70,7 +70,7 @@ const TabWrapper = styled.div`
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.background : props.theme.white.background};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.background : props.theme.white.background};
             transition: .2s linear;
         }
 
@@ -80,12 +80,12 @@ const TabWrapper = styled.div`
         svg{
             path{
                 transition: .2s linear;
-                fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+                fill: ${props => props.isDarkTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
             }
         }
 
         h4{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
         }
     }
 
@@ -93,16 +93,16 @@ const TabWrapper = styled.div`
         svg{
             path{
                 transition: .2s linear;
-                fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+                fill: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
 
                 &.blue{
-                    fill: ${props => props.theme.isBlackTheme ? props.theme.black.text.active : props.theme.white.text.active};
+                    fill: ${props => props.isDarkTheme ? props.theme.black.text.active : props.theme.white.text.active};
                 }
             }
         }
 
         h4{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
             &::after{
                 background-color: ${props => props.theme.black.text.active};
             }

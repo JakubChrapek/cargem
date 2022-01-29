@@ -12,7 +12,7 @@ const Price = ({ data, isDarkTheme }) => {
     return (
         <Wrapper>
             <StructuredText data={data.title} />
-            <TextBox>
+            <TextBox isDarkTheme={isDarkTheme}>
                 <StructuredText data={data.leftText} />
                 <StructuredText data={data.rightText} />
             </TextBox>
@@ -65,7 +65,7 @@ const TextBox = styled.div`
     margin-bottom: 54px;
 
     p{
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         margin: 0;
         font-size: 14px;
         line-height: 20px;

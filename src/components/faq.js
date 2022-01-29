@@ -3,12 +3,12 @@ import { StructuredText } from "react-datocms"
 import styled from "styled-components"
 import { Arrow } from "../constants/icons"
 
-const Faq = ({ data }) => {
+const Faq = ({ data, isDarkTheme }) => {
     return (
         <Wrapper id="faq">
             <SideImg src={data.enginePhoto.url} alt={data.enginePhoto.alt} />
             <StructuredText data={data.title} />
-            <Questions>
+            <Questions isDarkTheme={isDarkTheme}>
                 {data.questions.map((el, index) => (
                     <>
                         {index
@@ -87,7 +87,7 @@ const Questions = styled.div`
             right: 0;
             width: 100%;
             height: 1px;
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.lines : props.theme.white.lines};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.lines : props.theme.white.lines};
         }
     }
 
@@ -102,7 +102,7 @@ const Questions = styled.div`
         }
 
         span{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
             font-size: 24px;
             line-height: 32px;
             font-weight: 500;
@@ -114,7 +114,7 @@ const Questions = styled.div`
         margin: 8px 0 0 0;
 
         span{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             font-size: 14px;
             line-height: 20px;
         }

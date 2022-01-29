@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll'
 import { LogoBottom, LogoMiddle, LogoTop, LogoName, colors } from '../constants/icons'
 import { theme } from './../constants/theme'
 
-const Loader = ({children}) => {
+const Loader = ({ isDarkTheme }) => {
     useEffect(() => {
         scroll.scrollToTop()
         setTimeout(() => {
@@ -17,10 +17,9 @@ const Loader = ({children}) => {
 
     }, [])
 
-    
+
     return (
-        <>
-        <Wrapper id="Loader" theme={theme}>
+        <Wrapper isDarkTheme={isDarkTheme} id="Loader" theme={theme}>
             <div>
                 <LogoTop />
                 <LogoMiddle />
@@ -28,8 +27,6 @@ const Loader = ({children}) => {
             </div>
             <LogoName color={theme.isBlackTheme ? colors.white : colors.black} />
         </Wrapper>
-        {children}
-        </>
     )
 }
 
@@ -41,7 +38,7 @@ const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background: ${props => props.theme.isBlackTheme ? props.theme.black.aside.background : props.theme.white.aside.background};
+    background: ${props => props.isDarkTheme ? props.theme.black.aside.background : props.theme.white.aside.background};
     transition: .5s linear;
     z-index: 100000;
     display: flex;

@@ -18,7 +18,7 @@ const Slider = ({ data, isDarkTheme }) => {
 
 
     return (
-        <Wrapper left={imgWidth}>
+        <Wrapper isDarkTheme={isDarkTheme} left={imgWidth}>
             <Broken bg={isDarkTheme ? data.repairedImage.url : data.repairedImageWhite.url} />
             <RepairedWrapper imgWidth={imgWidth}>
                 <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
         appearance: none;
         width: 100%;
         height: 100vh;
-        background-color: ${props => props.theme.isBlackTheme ? "transparent" : "#00000050"};
+        background-color: ${props => props.isDarkTheme ? "transparent" : "#00000050"};
         outline: none;
         margin: 0;
         display: flex;
@@ -54,7 +54,7 @@ const Wrapper = styled.div`
             appearance: none;
             width: 1px;
             height: 100vh;
-            background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            background: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             cursor: pointer;
         }
         &::after{

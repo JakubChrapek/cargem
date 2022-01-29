@@ -12,7 +12,7 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
     }
 
     return (
-        <Grid id={'tabContent' + index} className={`${choosenIndex == index ? 'active' : null} tabContent`}>
+        <Grid isDarkTheme={isDarkTheme} id={'tabContent' + index} className={`${choosenIndex == index ? 'active' : null} tabContent`}>
             {items.map((el, index) => (
                 <>
                     {isMaxCount
@@ -27,7 +27,7 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
                     }
                 </>
             ))}
-            <MoreButton items={itemCount} isMax={items.length < 10} isShowMore={!isMaxCount}>
+            <MoreButton isDarkTheme={isDarkTheme} items={itemCount} isMax={items.length < 10} isShowMore={!isMaxCount}>
                 <p>
                     {isMaxCount
                         ? itemCount < 10
@@ -75,12 +75,12 @@ const Grid = styled.div`
             left: 0;
             right: 0;
             height: 1px;
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.lines : props.theme.white.lines};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.lines : props.theme.white.lines};
             transition: all .2s linear;
         }
 
         h6{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
             padding-bottom: 4px;
             margin: 0;
             font-size: 18px;
@@ -88,7 +88,7 @@ const Grid = styled.div`
         }
 
         p{
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             margin: 0;
             font-size: 18px;
             line-height: 26px;
@@ -137,9 +137,9 @@ const MoreButton = styled.div`
             transition: .2s linear;
             font-weight: bold;
             cursor: pointer;
-            background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
-            border: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+            background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
+            border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
+            color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
 
             &:hover{
 
@@ -161,7 +161,7 @@ const MoreButton = styled.div`
                 height: 1px;
                 bottom: 0;
                 left: 0;
-                background: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+                background: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
             }
 
             &::before{
@@ -172,7 +172,7 @@ const MoreButton = styled.div`
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+                background: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             }
         }
     }

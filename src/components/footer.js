@@ -15,12 +15,12 @@ const Footer = ({ data, isDarkTheme }) => {
 
 
     return (
-        <Wrapper id="kontakt">
+        <Wrapper isDarkTheme={isDarkTheme} id="kontakt">
             <Flex>
-                <TextBox>
+                <TextBox isDarkTheme={isDarkTheme}>
                     <StructuredText data={data.title} />
                     <StructuredText data={data.textContent} />
-                    <Links>
+                    <Links isDarkTheme={isDarkTheme}>
                         {data.links.map((el, index) => (
                             <a href={el.text} onClick={(e) => { Copy(e) }}>
                                 {(() => {
@@ -40,7 +40,7 @@ const Footer = ({ data, isDarkTheme }) => {
                         ))}
                     </Links>
                     <OpenTimeTitle>{data.openTimeTitle}</OpenTimeTitle>
-                    <OpenTime>
+                    <OpenTime isDarkTheme={isDarkTheme}>
                         {data.openTimes.map(el => (
                             <div >
                                 <StructuredText data={el.content} />
@@ -56,7 +56,7 @@ const Footer = ({ data, isDarkTheme }) => {
             <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
             <FormBox className="mobile">
                 <StructuredText data={data.formTitle} />
-                <Form />
+                <Form isDarkTheme={isDarkTheme} />
             </FormBox>
         </Wrapper>
     )

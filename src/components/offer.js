@@ -8,7 +8,7 @@ const Offer = ({ data, isDarkTheme }) => {
     return (
         <Wrapper>
             <StructuredText data={data.title} />
-            <ItemsBox>
+            <ItemsBox isDarkTheme={isDarkTheme}>
                 {data.items.map((el, index) => (
                     <div key={el}>
                         <span>
@@ -32,7 +32,7 @@ const Offer = ({ data, isDarkTheme }) => {
                     </div>
                 ))}
             </ItemsBox>
-            <Link href="#">{data.buttonText}</Link>
+            <Link isDarkTheme={isDarkTheme} href="#">{data.buttonText}</Link>
             <Car src={isDarkTheme ? data.carImg.url : data.carImgWhite.url} />
         </Wrapper>
     )
@@ -114,11 +114,11 @@ const ItemsBox = styled.div`
     h3{
         margin: 0;
         font-size: 24px;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
     }
 
     h6{
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
         font-size: 18px;
         line-height: 26px;
         padding: 16px 0;
@@ -126,7 +126,7 @@ const ItemsBox = styled.div`
     }
 
     p{
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         font-size: 14px;
         line-height: 20px;
         padding: 0;
@@ -155,13 +155,13 @@ const Link = styled.a`
     text-transform: uppercase;
     transition: .2s linear;
     font-weight: bold;
-    background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
-    border: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-    color: ${props => props.theme.isBlackTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+    background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
+    border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
+    color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
     box-shadow: 0px 3px 6px -4px #979DA6;
 
     &:hover{
-        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
+        background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
     }
 
     @media(max-width: 539px){
