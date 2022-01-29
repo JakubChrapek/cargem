@@ -9,37 +9,6 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
 
     let changeColorMode = useContext(ThemeChangeContext)
 
-    // if (typeof document !== `undefined`){
-    //     var options = {
-    //         root: document.querySelector('#main'),
-    //         rootMargin: '0px',
-    //         threshold: 1.0
-    //     }
-
-    //     var callback = function(entries, observer) {
-    //         let allNavItems = document.querySelectorAll('.navItem')
-    //         let currItem = document.querySelector(`#${entries[0].target.id}Nav`)
-
-    //         for(let i = 0; i < allNavItems.length; i++){
-    //             allNavItems[i].classList.remove('active')
-    //         }
-
-    //         currItem.classList.add('active')
-    //         console.log(entries)
-    //     }
-
-    //     var observer = new IntersectionObserver(callback, options)
-
-
-    //     useEffect(() => {
-    //         observer.observe(document.querySelector("#main"))
-    //         observer.observe(document.querySelector("#oNas"))
-    //         observer.observe(document.querySelector("#oferta"))
-    //         observer.observe(document.querySelector("#faq"))
-    //         observer.observe(document.querySelector("#kontakt"))
-    //     }, [])
-    // }
-
     return (
         <Wrapper className="" id="aside">
 

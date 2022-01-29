@@ -14,7 +14,12 @@ const ThemeWrapper = ({ children }) => {
         }
     }, [])
 
-    theme.isBlackTheme = isDarkTheme
+    if (localStorage.getItem('isBlack') === 'true'){
+        theme.isBlackTheme = true
+    } else {
+        theme.isBlackTheme = false
+    }
+    
 
     const handleClick = () => {
         if (localStorage.getItem('isBlack') === 'true') {
@@ -29,7 +34,7 @@ const ThemeWrapper = ({ children }) => {
     return (
         <ThemeContext.Provider value={isDarkTheme}>
             <ThemeChangeContext.Provider value={handleClick}>
-                    {children}
+                {children}
             </ThemeChangeContext.Provider>
         </ThemeContext.Provider>
     )
