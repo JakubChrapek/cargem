@@ -21,12 +21,14 @@ export let theme = {
             static: {
                 border: '#2C8CDA',
                 background: '#2C8CDA',
-                text: '#030405'
+                text: '#030405',
+                shadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)'
             },
             hover: {
                 border: '#2C8CDA',
                 background: '#2161A6',
-                text: '#030405'
+                text: '#030405',
+                shadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)'
             }
         }
     },
@@ -34,7 +36,7 @@ export let theme = {
         background: '#F3F3F3',
         lines: '#EDEFF2',
         textBG: '#EDEFF2',
-        textBGShadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)',
+        textBGShadow: '0px 3px 6px -4px #979DA6',
         outline: '#2161A6',
         aside: {
             background: '#EDEFF2',
@@ -51,12 +53,14 @@ export let theme = {
             static: {
                 border: '#2C8CDA',
                 background: '#2C8CDA',
-                text: '#F3F3F3'
+                text: '#F3F3F3',
+                shadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)'
             },
             hover: {
                 border: '#2C8CDA',
                 background: '#2161A6',
-                text: '#F3F3F3'
+                text: '#F3F3F3',
+                shadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)'
             }
         }
     }

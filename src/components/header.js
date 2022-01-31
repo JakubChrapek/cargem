@@ -196,7 +196,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
             border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
             color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.black.button.static.text};
-            box-shadow: 0px 3px 6px -4px #979DA6;
+            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.black.button.static.shadow};
 
             &:hover{
                 background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
@@ -207,7 +207,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.theme.black.text.main};
             border: ${props => props.theme.black.text.main};
             color: ${props => props.theme.white.text.main};
-            box-shadow: 0px 3px 6px -4px #979DA6;
+            box-shadow: 5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15); 
 
             &:hover{
                 filter: brightness(0.8);

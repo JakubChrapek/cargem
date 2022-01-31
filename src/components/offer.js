@@ -158,7 +158,7 @@ const Link = styled.a`
     background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
     border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
     color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
-    box-shadow: 0px 3px 6px -4px #979DA6;
+    box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.black.button.static.shadow};
 
     &:hover{
         background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
