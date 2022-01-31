@@ -45,9 +45,10 @@ export let theme = {
         },
         text: {
             main: '#030405',
-            hover: '#4C5F6B',
+            hover: '#11181F',
             sub: '#4C5F6B',
-            active: '#2C8CDA'
+            active: '#2C8CDA',
+            grey: '#A6A9B3'
         },
         button: {
             static: {

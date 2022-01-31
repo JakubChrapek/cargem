@@ -144,9 +144,21 @@ const ListItem = styled.li`
 
         path{
             transition: .2s linear;
-            fill: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+            fill: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.grey};
         }
     }
+
+    &:hover{
+            svg{
+                path{
+                    fill:  ${props => props.isDarkTheme ? props.theme.black.text.hover : props.theme.white.text.sub};
+                }
+            }
+
+        color: ${props => props.isDarkTheme ? props.theme.black.aside.active : props.theme.white.text.hover};
+            
+        }
+
 
     a{
         text-decoration: none;
@@ -170,16 +182,7 @@ const ListItem = styled.li`
         color: ${props => props.isDarkTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
     }
 
-        &:hover{
-            svg{
-                path{
-                    fill:  ${props => props.isDarkTheme ? props.theme.black.text.hover : props.theme.white.text.hover};
-                }
-            }
-
-        color: ${props => props.isDarkTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
-            
-        }
+        
     }
 
     
