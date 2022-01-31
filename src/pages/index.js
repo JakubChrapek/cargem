@@ -13,6 +13,7 @@ import Faq from "../components/faq"
 import Footer from "../components/footer"
 import { Toaster } from "react-hot-toast"
 import Loader from "../components/loader"
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 
 const IndexPage = ({ data }) => {
 
@@ -30,6 +31,7 @@ const IndexPage = ({ data }) => {
     <ThemeProvider theme={theme}>
       <App isDarkTheme={isDarkTheme} id="main">
         <Loader />
+        <HelmetDatoCms seo={data.datoCmsSite.seoMetaTags} favicon={data.datoCmsSite.faviconMetaTags} />
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -186,6 +188,25 @@ query MainQuery {
     }
     mapWhite{
       url
+    }
+  }
+  datoCmsSite {
+    faviconMetaTags {
+        ...GatsbyDatoCmsFaviconMetaTags
+      }
+    globalSeo {
+      siteName
+      titleSuffix
+      twitterAccount
+      facebookPageUrl
+      fallbackSeo {
+        title
+        description
+        image {
+          url
+        }
+        twitterCard
+      }
     }
   }
 }
