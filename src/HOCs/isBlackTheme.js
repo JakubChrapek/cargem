@@ -11,13 +11,16 @@ const ThemeWrapper = ({ children }) => {
     useEffect(() => {
         if (localStorage.getItem('isBlack') === 'true') {
             setIsDarkTheme(true)
+            document.documentElement.className = 'dark'
         }
     }, [])
 
     if (localStorage.getItem('isBlack') === 'true') {
         theme.isBlackTheme = true
+        document.documentElement.className = 'dark'
     } else {
         theme.isBlackTheme = false
+        document.documentElement.className = ''
     }
 
     const handleClick = () => {

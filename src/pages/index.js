@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <App isDarkTheme={isDarkTheme} id="main">
-        {/* <Loader isDarkTheme={isDarkTheme} /> */}
+        <Loader />
         <Toaster
           position="top-center"
           reverseOrder={false}

@@ -14,3 +14,96 @@ details[open] svg{
     transform: rotateX(0deg);
     
 }
+
+
+/* loader style */
+
+#Loader{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: .5s linear;
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F3F3;
+}
+
+.dark #Loader{
+    background-color: #020405;
+}
+
+#Loader div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Loader.off{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#Loader .top{
+    transform: translateY(-2px) translateX(-50px);
+    opacity: 0;
+    zoom: 2;
+    transition: all .4s ease-out;
+}
+
+#Loader .mid{
+    transform: translateX(-50px);
+    opacity: 0;
+    zoom: 2;
+    transition: all .4s ease-out .4s;
+}
+
+#Loader .bot{
+    transform: translateY(20px);
+    opacity: 0;
+    zoom: 2;
+    transition: all .4s ease-out .8s;
+}
+
+#Loader .title{
+    transform: translateY(30px);
+    opacity: 0;
+    zoom: 2;
+    transition: all .4s ease-out 1.2s;
+}
+
+#Loader.active .top{
+    transform: translateY(-4px);
+    zoom: 2;
+    opacity: 1;
+}
+
+#Loader.active .mid{
+    transform: translateY(-2px);
+    zoom: 2;
+    opacity: 1;
+}
+
+#Loader.active .bot{
+    transform: translateY(-3.2px);
+    zoom: 2;
+    opacity: 1;
+}
+
+#Loader.active .title{
+    transform: translateY(0px);
+    zoom: 2;
+    opacity: 1;
+}
+
+#Loader svg.title path{
+    fill: #030405;
+}
+
+.dark #Loader svg.title path{
+    fill: #F3F3F3;
+}
