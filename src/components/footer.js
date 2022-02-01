@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import Form from './footer-form'
 
 const Footer = ({ data, isDarkTheme }) => {
-
+    
     function Copy(e) {
         e.preventDefault()
         toast('copyied to clipboard')
@@ -50,7 +50,7 @@ const Footer = ({ data, isDarkTheme }) => {
                 </TextBox>
                 <FormBox className="desctop">
                     <StructuredText data={data.formTitle} />
-                    <Form />
+                    <Form isDarkTheme={isDarkTheme} />
                 </FormBox>
             </Flex>
             <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
@@ -77,6 +77,8 @@ const Wrapper = styled.footer`
 
     box-sizing: border-box;
     border-radius: 12px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};
     box-shadow: ${props => props.theme.isBlackTheme ? props.theme.black.textBGShadow : props.theme.white.textBGShadow};
 
@@ -90,6 +92,8 @@ const Wrapper = styled.footer`
         color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
         font-size: 24px;
         line-height: 28px;
+        margin-top: 0;
+        margin-bottom: 38px;
     }
 
     iframe{
@@ -116,22 +120,29 @@ const Wrapper = styled.footer`
         box-shadow: unset;
         
         margin: 60px 32px 80px;
+
+        h3{
+            margin-bottom: 28px;
+        }
     }
 `
 
 const Map = styled.a`
     display: block;
     width: 100%;
-    height: 320px;
+    aspect-ratio: 3/1;
     background-image: url(${props => props.bg});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 8px;
-    margin-top: 64px;
+    margin-top: 32px;
+    box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.black.button.static.shadow};
 
     @media (max-width: 876px){
         margin-top: 54px;
+        height: 385px;
+        aspect-ratio: unset;
     }
 
     @media (max-width: 539px) {

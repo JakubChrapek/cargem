@@ -14,8 +14,8 @@ const Header = ({ data, isDarkTheme }) => {
             <TextBox isDarkTheme={isDarkTheme}>
                 <StructuredText data={data.title} />
                 <ButtonsWrapper isDarkTheme={isDarkTheme}>
-                    <Link className="first" smooth={true} to="oferta">{data.firstButtonText}</Link>
-                    <Link className="second" smooth={true} to="kontakt">{data.secondButtonText}</Link>
+                    <Link href='#' tabindex="0" className="first" smooth={'easeOutCubic'} duration={'250'} to="oferta">{data.firstButtonText}</Link>
+                    <Link href='#' tabindex="0" className="second" smooth={'easeOutCubic'} duration={'250'} to="kontakt">{data.secondButtonText}</Link>
                 </ButtonsWrapper>
             </TextBox>
         </Wrapper>
@@ -124,6 +124,8 @@ const TextBox = styled.div`
         color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.black.text.main};
         transition: .2s linear;
         text-align: center;
+        letter-spacing: -1px;
+        font-weight: 400;
     }
 
     @media (max-width: 876px) {
@@ -196,7 +198,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
             border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
             color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.black.button.static.text};
-            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.black.button.static.shadow};
+            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.white.button.static.shadow};
 
             &:hover{
                 background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

@@ -18,9 +18,9 @@ const Price = ({ data, isDarkTheme }) => {
             </TextBox>
             <TabsChoose>
                 {data.tabs.map((el, index) => (
-                    <span onClick={() => { setChooseIndex(index) }}>
+                    <li onClick={() => { setChooseIndex(index) }}>
                         <PriceTab choosenIndex={choosenIndex} isDarkTheme={isDarkTheme} index={index} title={el.title} />
-                    </span>
+                    </li>
                 ))}
             </TabsChoose>
             <TabsContent >
@@ -92,9 +92,15 @@ const TextBox = styled.div`
     }
 `
 
-const TabsChoose = styled.div`
+const TabsChoose = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+
+    li{
+        list-style: none;
+    }
 
     @media (max-width: 640px){
     }

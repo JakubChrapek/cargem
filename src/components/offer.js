@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { StructuredText } from "react-datocms";
-import { StaticImage } from "gatsby-plugin-image"
 import { TimingBelt, Door, PaintSpray, Key, AirPump, colors } from "../constants/icons";
+import { Link } from "react-scroll"
 
 const Offer = ({ data, isDarkTheme }) => {
     return (
@@ -32,7 +32,7 @@ const Offer = ({ data, isDarkTheme }) => {
                     </div>
                 ))}
             </ItemsBox>
-            <Link isDarkTheme={isDarkTheme} href="#">{data.buttonText}</Link>
+            <LinkS href='#' tabindex="0" smooth={'easeOutCubic'} duration={'250'} to="kontakt" isDarkTheme={isDarkTheme} >{data.buttonText}</LinkS>
             <Car src={isDarkTheme ? data.carImg.url : data.carImgWhite.url} />
         </Wrapper>
     )
@@ -144,7 +144,7 @@ const ItemsBox = styled.div`
     }
 `
 
-const Link = styled.a`
+const LinkS = styled(Link)`
     display: block;
     width: 246px;
     margin-top: 75px;
@@ -158,7 +158,7 @@ const Link = styled.a`
     background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
     border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
     color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
-    box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.black.button.static.shadow};
+    box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.white.button.static.shadow};
 
     &:hover{
         background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

@@ -14,35 +14,37 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
 
             <div>
                 <CloseNav isDarkTheme={isDarkTheme} onClick={setMenuState} />
-                <a href="#main"><Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} /></a>
+                <Link smooth={'easeOutCubic'} duration={'250'} to="header">
+                    <Logo src={isDarkTheme ? data.logo.url : data.logoWhite.url} alt={isDarkTheme ? data.logo.alt : data.logoWhite.alt} />
+                </Link>
                 <Nav>
                     <List>
-                        <ListItem isDarkTheme={isDarkTheme} className="navItem" id="mainNav">
-                            <Link activeClass="active" spy={true} smooth={true} to="header">
+                        <ListItem  isDarkTheme={isDarkTheme} className="navItem" id="mainNav">
+                            <Link href='#' tabindex="0" activeClass="active" spy={true} smooth={'easeOutCubic'} duration={'250'} to="header">
                                 <Home />
                                 Strona Główna
                             </Link>
                         </ListItem>
                         <ListItem isDarkTheme={isDarkTheme} className="navItem" id="oNasNav">
-                            <Link activeClass="active" spy={true} smooth={true} to="oNas">
+                            <Link href='#' tabindex="0" activeClass="active" spy={true} smooth={'easeOutCubic'} duration={'250'} to="oNas">
                                 <Car />
                                 O Nas
                             </Link>
                         </ListItem>
                         <ListItem isDarkTheme={isDarkTheme} className="navItem" id="ofertaNav">
-                            <Link activeClass="active" spy={true} smooth={true} to="oferta">
-                                <Price />
+                            <Link href='#' tabindex="0" activeClass="active" spy={true} smooth={'easeOutCubic'} duration={'250'} to="oferta">
+                                <Price />   
                                 Oferta
                             </Link>
                         </ListItem>
                         <ListItem isDarkTheme={isDarkTheme} className="navItem" id="faqNav">
-                            <Link activeClass="active" spy={true} smooth={true} to="faq">
+                            <Link href='#' tabindex="0" activeClass="active" spy={true} smooth={'easeOutCubic'} duration={'250'} to="faq">
                                 <Faq />
                                 FAQ
                             </Link>
                         </ListItem>
                         <ListItem isDarkTheme={isDarkTheme} className="navItem" id="kontaktNav">
-                            <Link activeClass="active" spy={true} smooth={true} to="kontakt">
+                            <Link href='#' tabindex="0" activeClass="active" spy={true} smooth={'easeInCubic'} duration={'250'} to="kontakt">
                                 <Phone />
                                 Kontakt
                             </Link>

@@ -55,13 +55,13 @@ export let theme = {
                 border: '#2C8CDA',
                 background: '#2C8CDA',
                 text: '#F3F3F3',
-                shadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)'
+                shadow: '0px 3px 6px -4px #979DA6'
             },
             hover: {
                 border: '#2C8CDA',
                 background: '#2161A6',
                 text: '#F3F3F3',
-                shadow: '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)'
+                shadow: '0px 3px 6px -4px #979DA6'
             }
         }
     }

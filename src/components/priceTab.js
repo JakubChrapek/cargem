@@ -33,7 +33,7 @@ const PriceTab = ({ isDarkTheme, index, title, choosenIndex }) => {
 
 export default PriceTab
 
-const TabWrapper = styled.div`
+const TabWrapper = styled.button`
     margin-right: clamp(16px, 3.33vw, 64px);
     margin-bottom: 32px;
     display: flex;
@@ -42,6 +42,9 @@ const TabWrapper = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 
     svg{
         transition: all .2s linear;

@@ -23,7 +23,7 @@ const Slider = ({ data, isDarkTheme }) => {
             <RepairedWrapper imgWidth={imgWidth}>
                 <Repaired imgWidthDelta={imgWidthDelta} bg={isDarkTheme ? data.brokenImage.url : data.brokeImageWhite.url} />
             </RepairedWrapper>
-            <input onChange={(e) => { handleChange(e) }} defaultValue='100' type="range" min="0" max="200" class="slider" />
+            <input tabindex="-1" onChange={(e) => { handleChange(e) }} defaultValue='100' type="range" min="0" max="200" class="slider" />
         </Wrapper>
     )
 }
