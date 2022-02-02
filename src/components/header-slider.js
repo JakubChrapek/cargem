@@ -65,6 +65,7 @@ const Wrapper = styled.div`
             height: 52px;
             left: calc(${props => props.left} - 26px);
             cursor: pointer;
+            pointer-events: none;
         }
     }
 

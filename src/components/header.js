@@ -209,7 +209,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.theme.black.text.main};
             border: ${props => props.theme.black.text.main};
             color: ${props => props.theme.white.text.main};
-            box-shadow: 5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15); 
+            box-shadow: 0px 3px 6px -4px #979DA6; 
 
             &:hover{
                 filter: brightness(0.8);

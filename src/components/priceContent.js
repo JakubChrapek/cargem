@@ -35,7 +35,7 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
                             : '10'
                         : itemCount} z {itemCount} usług
                 </p>
-                {itemCount < 10
+                {itemCount < 11
                     ? null
                     : <button onClick={() => { setIsMaxCount(!isMaxCount) }}> {isMaxCount ? "Wczytaj więcej" : "Pokaż mniej"}</button>}
             </MoreButton>
@@ -140,9 +140,12 @@ const MoreButton = styled.div`
             background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
             border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
             color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
 
             &:hover{
-
+                background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
             }
         }
 
