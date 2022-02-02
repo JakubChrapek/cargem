@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { StructuredText } from 'react-datocms';
-import { Phone, colors, Mail, Mark } from './../constants/icons'
+import { Phone, Mail, Mark } from './../constants/icons'
 import toast from 'react-hot-toast';
 import Form from './footer-form'
 
@@ -12,7 +12,6 @@ const Footer = ({ data, isDarkTheme }) => {
         toast('copyied to clipboard')
         navigator.clipboard.writeText(e.target.innerText)
     }
-
 
     return (
         <Wrapper isDarkTheme={isDarkTheme} id="kontakt">
@@ -79,8 +78,8 @@ const Wrapper = styled.footer`
     border-radius: 12px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    background-color: ${props => props.theme.isBlackTheme ? props.theme.black.textBG : props.theme.white.textBG};
-    box-shadow: ${props => props.theme.isBlackTheme ? props.theme.black.textBGShadow : props.theme.white.textBGShadow};
+    background-color: ${props => props.isDarkTheme ? props.theme.black.textBG : props.theme.white.textBG};
+    box-shadow: ${props => props.isDarkTheme ? props.theme.black.textBGShadow : props.theme.white.textBGShadow};
 
     h2{
         margin: 0;
@@ -89,7 +88,7 @@ const Wrapper = styled.footer`
     }
 
     h3{
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
         font-size: 24px;
         line-height: 28px;
         margin-top: 0;
@@ -172,7 +171,7 @@ const TextBox = styled.div`
         top: 0;
         height: 100%;
         width: 1px;
-        background-color: ${props => props.theme.isBlackTheme ? props.theme.black.lines : props.theme.white.lines};
+        background-color: ${props => props.isDarkTheme ? props.theme.black.lines : props.theme.white.lines};
     }
 
     h2{
@@ -183,7 +182,7 @@ const TextBox = styled.div`
         font-size: 18px;
         line-height: 26px;
         margin: 0;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
     }
 
     p{
@@ -191,7 +190,7 @@ const TextBox = styled.div`
         line-height: 20px;
         margin-top: 8px;
         margin-bottom: 24px;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     }
 
     @media (max-width: 876px){
@@ -257,7 +256,7 @@ const Links = styled.div`
 
         span{
             margin-left: 8px;
-            color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+            color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
             transition: .2s linear;
             font-size: 14px;
             line-height: 20px;
@@ -285,14 +284,14 @@ const OpenTime = styled.div`
 
     h6{
         margin: 0;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         font-size: 14px;
         line-height: 20px;
     }
 
     p{
         margin: 0;
-        color: ${props => props.theme.isBlackTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
         font-size: 14px;
         line-height: 20px;
         font-weight: 500;

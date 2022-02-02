@@ -75,6 +75,8 @@ const Wrapper = styled.section`
 const Questions = styled.div`
 
     details{
+        list-style: none;
+        list-style-type: none;
         margin-top: 32px;
         padding-bottom: 16px;
         position: relative;
@@ -94,6 +96,7 @@ const Questions = styled.div`
 
     summary{
         list-style: none;
+        list-style-type: none;
         cursor: pointer;
 
         svg{
