@@ -28,16 +28,16 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
                 </>
             ))}
             <MoreButton isDarkTheme={isDarkTheme} items={itemCount} isMax={items.length < 10} isShowMore={!isMaxCount}>
-                <p>
+                <MoreButtonText>
                     {isMaxCount
                         ? itemCount < 10
                             ? itemCount
                             : '10'
                         : itemCount} z {itemCount} usług
-                </p>
+                </MoreButtonText>
                 {itemCount < 11
                     ? null
-                    : <button onClick={() => { setIsMaxCount(!isMaxCount) }}> {isMaxCount ? "Wczytaj więcej" : "Pokaż mniej"}</button>}
+                    : <MoreButtonButton onClick={() => { setIsMaxCount(!isMaxCount) }}> {isMaxCount ? "Wczytaj więcej" : "Pokaż mniej"}</MoreButtonButton>}
             </MoreButton>
 
         </Grid>
@@ -126,57 +126,58 @@ const MoreButton = styled.div`
     @media (max-width: 539px) {
         display: block;
         text-align: center;
-        button{
-            margin: 0 auto;
-            text-align: center;
-            padding: 12px 24px;
-            font-size: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: .2s linear;
-            font-weight: bold;
-            cursor: pointer;
-            background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
-            border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-            color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+    }
+`
 
-            &:hover{
-                background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
-            }
-        }
+const MoreButtonButton = styled.button`
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .2s linear;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
+    border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
+    color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
-        p{
-            max-width: 190px;
-            font-size: 14px !important;
-            margin: 0 auto 16px !important;
-            padding-bottom: 4px;
-            position: relative;
+    &:hover{
+        background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
+    }
+`
 
-            &::after{
-                transition: .2s linear;
-                width: ${props => props.isShowMore ? "100" : props.isMax ? '100' : 10 / props.items * 100}%;
-                content: "";
-                position: absolute;
-                height: 1px;
-                bottom: 0;
-                left: 0;
-                background: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
-            }
+const MoreButtonText = styled.p`
+    max-width: 190px;
+    font-size: 14px !important;
+    margin: 0 auto 16px !important;
+    padding-bottom: 4px;
+    position: relative;
 
-            &::before{
-                width: 100%;
-                content: "";
-                position: absolute;
-                height: 1px;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
-            }
-        }
+    &::after{
+        transition: .2s linear;
+        width: ${props => props.isShowMore ? "100" : props.isMax ? '100' : 10 / props.items * 100}%;
+        content: "";
+        position: absolute;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+    }
+
+    &::before{
+        width: 100%;
+        content: "";
+        position: absolute;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     }
 `

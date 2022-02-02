@@ -1,3 +1,11 @@
+*{
+    list-style: none;
+}
+
+*::marker{
+    display: none;
+}
+
 html{
     scroll-behavior: smooth;
     background-color: #F3F3F3;
