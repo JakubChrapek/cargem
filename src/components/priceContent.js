@@ -27,8 +27,8 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
                     }
                 </>
             ))}
-            <MoreButton isDarkTheme={isDarkTheme} items={itemCount} isMax={items.length < 10} isShowMore={!isMaxCount}>
-                <MoreButtonText>
+            <MoreButton isDarkTheme={isDarkTheme} items={itemCount} >
+                <MoreButtonText isDarkTheme={isDarkTheme} isMax={items.length < 10} isShowMore={!isMaxCount}>
                     {isMaxCount
                         ? itemCount < 10
                             ? itemCount
@@ -37,9 +37,8 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
                 </MoreButtonText>
                 {itemCount < 11
                     ? null
-                    : <MoreButtonButton onClick={() => { setIsMaxCount(!isMaxCount) }}> {isMaxCount ? "Wczytaj więcej" : "Pokaż mniej"}</MoreButtonButton>}
+                    : <MoreButtonButton isDarkTheme={isDarkTheme} onClick={() => { setIsMaxCount(!isMaxCount) }}> {isMaxCount ? "Wczytaj więcej" : "Pokaż mniej"}</MoreButtonButton>}
             </MoreButton>
-
         </Grid>
     )
 }

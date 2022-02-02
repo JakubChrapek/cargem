@@ -99,6 +99,14 @@ const Questions = styled.div`
         list-style-type: none;
         cursor: pointer;
 
+        &::-webkit-details-marker{
+            display:none;
+        }
+
+        &::marker{
+            display: none;
+        }
+
         svg{
             transition: all .2s linear;
             margin-left: 8px;
