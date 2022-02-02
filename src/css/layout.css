@@ -38,6 +38,7 @@ details[open] svg{
     background-color: #F3F3F3;
 }
 
+
 .dark #Loader{
     background-color: #020405;
 }
@@ -112,4 +113,41 @@ details[open] svg{
 
 .dark #Loader svg.title path{
     fill: #F3F3F3;
+}
+
+
+@media(max-width: 539px){
+    
+    #Loader .top{
+        zoom: 1.6;
+    }
+
+    #Loader .mid{
+        zoom: 1.6;
+    }
+
+    #Loader .bot{
+        zoom: 1.6;
+    }
+
+    #Loader .title{
+        zoom: 1.6;
+    }
+
+    #Loader.active .top{
+        zoom: 1.6;
+    }
+
+    #Loader.active .mid{
+        zoom: 1.6;
+    }
+
+    #Loader.active .bot{
+        zoom: 1.6;
+    }
+
+    #Loader.active .title{
+        zoom: 1.6;
+    }
+
 }
