@@ -115,6 +115,7 @@ const ItemsBox = styled.div`
         margin: 0;
         font-size: 24px;
         color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        font-weight: ${props => props.isDarkTheme ? '500' : '600' };
     }
 
     h6{
@@ -123,6 +124,7 @@ const ItemsBox = styled.div`
         line-height: 26px;
         padding: 16px 0;
         margin: 0;
+        font-weight: ${props => props.isDarkTheme ? '600' : '600' };
     }
 
     p{
@@ -131,6 +133,7 @@ const ItemsBox = styled.div`
         line-height: 20px;
         padding: 0;
         margin: 0;
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
     }
 
     @media (max-width: 876px) {
@@ -159,6 +162,7 @@ const LinkS = styled(Link)`
     border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
     color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
     box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.white.button.static.shadow};
+    font-weight: 700;
 
     &:hover{
         background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

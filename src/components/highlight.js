@@ -106,6 +106,7 @@ const Benefits = styled.div`
                 margin: 0 0 8px 8px;
                 font-size: 18px;
                 color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+                font-weight: ${props => props.isDarkTheme ? '600' : '700' };
             }
         }
 
@@ -115,6 +116,7 @@ const Benefits = styled.div`
             line-height: 20px;
             margin-top: 8px;
             margin-bottom: 0;
+            font-weight: ${props => props.isDarkTheme ? '400' : '500' };
         }
     }
 
@@ -190,12 +192,15 @@ const Texts = styled.div`
         font-size: 18px;
         line-height: 26px;
         color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        font-weight: ${props => props.isDarkTheme ? '600' : '700' };
+        margin: 0;
     }
 
     p{
         font-size: 14px;
         line-height: 20px;
         color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
     }
 
     @media (max-width: 876px) {

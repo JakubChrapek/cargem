@@ -9,7 +9,7 @@ const Footer = ({ data, isDarkTheme }) => {
     
     function Copy(e) {
         e.preventDefault()
-        toast('copyied to clipboard')
+        toast('skopiowane do schowka')
         navigator.clipboard.writeText(e.target.innerText)
     }
 
@@ -34,6 +34,7 @@ const Footer = ({ data, isDarkTheme }) => {
                                 })()}
                                 <span>
                                     {el.text}
+                                    {index === 0 ? <button className="copy">skopiuj</button> : null}
                                 </span>
                             </a>
                         ))}
@@ -52,7 +53,7 @@ const Footer = ({ data, isDarkTheme }) => {
                     <Form isDarkTheme={isDarkTheme} />
                 </FormBox>
             </Flex>
-            <Map bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
+            <Map href="https://www.google.com/maps/place/Rososz+145,+08-500+Rososz/data=!4m2!3m1!1s0x4718a1cc984f288b:0xa0ba4d0e46b74ea4?sa=X&ved=2ahUKEwjhpa3s5uH1AhWvAxAIHdbPDK0Q8gF6BAgWEAE" bg={isDarkTheme ? data.map.url : data.mapWhite.url} />
             <FormBox className="mobile">
                 <StructuredText data={data.formTitle} />
                 <Form isDarkTheme={isDarkTheme} />
@@ -183,6 +184,7 @@ const TextBox = styled.div`
         line-height: 26px;
         margin: 0;
         color: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        font-weight: ${props => props.isDarkTheme ? '600' : '700' };
     }
 
     p{
@@ -191,6 +193,7 @@ const TextBox = styled.div`
         margin-top: 8px;
         margin-bottom: 24px;
         color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
     }
 
     @media (max-width: 876px){
@@ -205,6 +208,10 @@ const TextBox = styled.div`
 
 const FormBox = styled.div`
     padding-left: 12%;
+
+    h3{
+        font-weight: ${props => props.isDarkTheme ? '500' : '600' };
+    }
 
     &.mobile{
         display: none;
@@ -260,6 +267,7 @@ const Links = styled.div`
             transition: .2s linear;
             font-size: 14px;
             line-height: 20px;
+            font-weight: ${props => props.isDarkTheme ? '400' : '500' };
         }
 
             
@@ -271,10 +279,36 @@ const Links = styled.div`
         }
     }
 
+    .copy{
+        text-align: center;
+        padding: 3px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: .2s linear;
+        font-weight: bold;
+        font-weight: 700;
+        background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
+        border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
+        color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+        box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.white.button.static.shadow};
+        cursor: pointer;
+        margin-left: 10px;
+
+        &:hover{
+            background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
+        }
+
+        @media (min-width: 539px) {
+            display: none;  
+        }
+    }
+
 `
 
 const OpenTimeTitle = styled.h4`
     margin: 24px 0 8px !important;
+    font-weight: ${props => props.isDarkTheme ? '600' : '700' };
 `
 
 const OpenTime = styled.div`
@@ -287,6 +321,7 @@ const OpenTime = styled.div`
         color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
         font-size: 14px;
         line-height: 20px;
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
     }
 
     p{
@@ -295,6 +330,7 @@ const OpenTime = styled.div`
         font-size: 14px;
         line-height: 20px;
         font-weight: 500;
+        font-weight: ${props => props.isDarkTheme ? '500' : '600' };
     }
 
     @media (max-width: 539px) {

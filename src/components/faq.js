@@ -15,7 +15,7 @@ const Faq = ({ data, isDarkTheme }) => {
                             ? <details>
                                 <summary itemProp="mainEntity" itemType="https://schema.org/Question">
                                     <span itemProp="name">
-                                        {el.title}&nbsp;<Arrow />
+                                        {el.title}<Arrow />
                                     </span>
                                 </summary>
                                 <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
@@ -27,7 +27,7 @@ const Faq = ({ data, isDarkTheme }) => {
                             : <details open>
                                 <summary itemProp="mainEntity" itemType="https://schema.org/Question">
                                     <span itemProp="name">
-                                        {el.title}&nbsp;<Arrow />
+                                        {el.title}<Arrow />
                                     </span>
                                 </summary>
                                 <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
@@ -118,6 +118,7 @@ const Questions = styled.div`
             line-height: 32px;
             font-weight: 500;
             position: relative;
+            font-weight: ${props => props.isDarkTheme ? '500' : '600' };
         }
     }
 
@@ -128,6 +129,7 @@ const Questions = styled.div`
             color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             font-size: 14px;
             line-height: 20px;
+            font-weight: ${props => props.isDarkTheme ? '400' : '500' };
         }
 
         @media (max-width: 876px) {

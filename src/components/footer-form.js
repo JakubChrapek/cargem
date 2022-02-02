@@ -44,7 +44,7 @@ const Form = ({ isDarkTheme }) => {
             </label>
             <label className={errors.phone && "error"}>
                 <span>Telefon</span>
-                <input name="phone" placeholder='512566344' {...register("phone", { required: true, pattern: /^\d+$/ })} />
+                <input type='tel' name="phone" placeholder='512566344' {...register("phone", { required: true, pattern: /^\d+$/ })} />
                 <p className='errorText'>{errors.phone && "Proszę wpisać numer w postaci 9 liczb bez spacji i znaków specjalnych"}</p>
             </label>
             <label className='area'>
@@ -100,6 +100,7 @@ const Wrapper = styled.form`
         span{
             color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
             margin-bottom: 4px;
+            font-weight: ${props => props.isDarkTheme ? '500' : '600' };
         }
 
         input{
@@ -201,6 +202,7 @@ const Wrapper = styled.form`
         width: 185px;
         cursor: pointer;
         margin-top: 32px;
+        font-weight: 700;
 
         &:hover{
             background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

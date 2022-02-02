@@ -69,6 +69,7 @@ const TextBox = styled.div`
         margin: 0;
         font-size: 14px;
         line-height: 20px;
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
     }
 
     @media (max-width: 1300px) {

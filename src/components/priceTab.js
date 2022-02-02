@@ -64,6 +64,7 @@ const TabWrapper = styled.button`
         transition: .2s linear;
         font-size: 18px;
         line-height: 26px;
+        font-weight: ${props => props.isDarkTheme ? '500' : '600' };
 
         &::after{
             content: "";

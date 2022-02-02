@@ -37,7 +37,9 @@ const PriceContent = ({ isDarkTheme, index, items, choosenIndex }) => {
                 </MoreButtonText>
                 {itemCount < 11
                     ? null
-                    : <MoreButtonButton isDarkTheme={isDarkTheme} onClick={() => { setIsMaxCount(!isMaxCount) }}> {isMaxCount ? "Wczytaj więcej" : "Pokaż mniej"}</MoreButtonButton>}
+                    : isMaxCount ?
+                        <MoreButtonButton isDarkTheme={isDarkTheme} onClick={() => { setIsMaxCount(!isMaxCount) }}>Wczytaj więcej</MoreButtonButton>
+                        : null}
             </MoreButton>
         </Grid>
     )
@@ -84,6 +86,7 @@ const Grid = styled.div`
             margin: 0;
             font-size: 18px;
             line-height: 26px;
+            font-weight: ${props => props.isDarkTheme ? '600' : '700'};
         }
 
         p{
@@ -91,6 +94,7 @@ const Grid = styled.div`
             margin: 0;
             font-size: 18px;
             line-height: 26px;
+            font-weight: ${props => props.isDarkTheme ? '400' : '500'};
         }
     }
 
@@ -148,6 +152,7 @@ const MoreButtonButton = styled.button`
     box-sizing: border-box;
     width: 150px;
     max-height: 36px;
+    font-weight: 700;
 
     &:hover{
         background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

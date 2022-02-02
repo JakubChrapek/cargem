@@ -28,6 +28,7 @@ const Wrapper = styled.header`
     width: 100%;
     height: 100vh;
     position: relative;
+    box-shadow:${props => props.isDarkTheme ? '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)' : ' 0px 3px 6px -4px #979DA6'};
 
     &::after{
         display: ${props => props.isDarkTheme ? 'auto' : 'none'};
@@ -37,8 +38,9 @@ const Wrapper = styled.header`
         left: 0;
         right: 0;
         bottom: 0;
-        height: 100px;
+        height: 500px;
         background: linear-gradient(360deg, #030405 0%, #030405 11.72%, rgba(3, 4, 5, 0) 20.1%);
+        pointer-events: none;
     }
 
     &::before{
@@ -49,13 +51,23 @@ const Wrapper = styled.header`
         left: 0;
         right: 0;
         top: 0;
-        height: 100px;
+        height: 500px;
         background: linear-gradient(180deg, #030405 0%, #030405 11.72%, rgba(3, 4, 5, 0) 20.1%);
+        pointer-events: none;
     }
 
     
 
     @media (max-width: 876px) {
+
+        &::after{
+            height: 250px;
+        }
+
+        &::before{
+            height: 250px;
+        }
+
         height: auto;
 
         .slider{
@@ -114,7 +126,7 @@ const TextBox = styled.div`
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 10000;
     margin: 0 auto;
 
     h1{
@@ -193,12 +205,13 @@ const ButtonsWrapper = styled.div`
         text-transform: uppercase;
         transition: .2s linear;
         font-weight: bold;
+        font-weight: 700;
 
         &.first{
             background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
             border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
-            color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.black.button.static.text};
-            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.white.button.static.shadow};
+            color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
+            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : 'none'};
 
             &:hover{
                 background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
@@ -209,7 +222,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.theme.black.text.main};
             border: ${props => props.theme.black.text.main};
             color: ${props => props.theme.white.text.main};
-            box-shadow: 0px 3px 6px -4px #979DA6; 
+            box-shadow: 5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15); 
 
             &:hover{
                 filter: brightness(0.8);

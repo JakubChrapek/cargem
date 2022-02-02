@@ -170,6 +170,7 @@ const ListItem = styled.li`
         align-items: center;
         font-size: 18px;
         line-height: 26px;
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
 
         transition: all .2s linear;
         color: ${props => props.isDarkTheme ? props.theme.black.aside.default : props.theme.white.aside.default};
@@ -182,6 +183,7 @@ const ListItem = styled.li`
             }
 
         color: ${props => props.isDarkTheme ? props.theme.black.aside.active : props.theme.white.aside.active};
+        font-weight: ${props => props.isDarkTheme ? '500' : '600' };
     }
 
         
@@ -233,8 +235,8 @@ const ColorTrybe = styled.div`
 
     div{
         margin-left: 6px;
-        width: 40px;
-        height: 20px;
+        width: 48px;
+        height: 24px;
         box-sizing: border-box;
         padding: 2px;
         position: relative;
@@ -247,12 +249,13 @@ const ColorTrybe = styled.div`
     span{
         display: block;
         border-radius: 50px;
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
         position: absolute;
-        left: ${props => props.isDarkTheme ? "22px" : "2px"};
+        left: ${props => props.isDarkTheme ? "26px" : "2px"};
         background-color: ${props => props.theme.black.text.main};
         transition: .2s linear;
+        font-weight: ${props => props.isDarkTheme ? '400' : '500' };
 
         
     }
@@ -263,6 +266,7 @@ const Copyright = styled.p`
     color: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
     margin: 28px 0 0 0;
     font-size: 14px;
+    font-weight: ${props => props.isDarkTheme ? '500' : '600' };
 `
 
 const CloseNav = styled.div`
