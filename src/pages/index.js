@@ -219,9 +219,12 @@ const App = styled.div`
   background: ${props => props.isDarkTheme ? props.theme.black.background : props.theme.white.background};
   transition: all .2s linear;
 
-  *{
-    outline-width: 0.01em;
-    outline-color: ${props => props.isDarkTheme ? props.theme.black.outline : props.theme.white.outline}; 
+  *:focus{
+    outline: none;
+  }
+
+  *:focus-visible{
+    outline: 2px solid ${props => props.isDarkTheme ? props.theme.black.outline : props.theme.white.outline};
   }
 
   a{

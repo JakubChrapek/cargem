@@ -120,18 +120,17 @@ const Grid = styled.div`
 `
 
 const MoreButton = styled.div`
-    display: none;
+    text-align: center; 
 
-    @media (max-width: 539px) {
-        display: block;
-        text-align: center;
+    @media (min-width: 539px) {
+        display: none;  
     }
 `
 
 const MoreButtonButton = styled.button`
     margin: 0 auto;
     text-align: center;
-    padding: 12px 24px;
+    padding: 12px 0;
     font-size: 12px;
     border-radius: 8px;
     text-decoration: none;
@@ -145,6 +144,10 @@ const MoreButtonButton = styled.button`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    display: block;
+    box-sizing: border-box;
+    width: 150px;
+    max-height: 36px;
 
     &:hover{
         background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};
@@ -157,6 +160,7 @@ const MoreButtonText = styled.p`
     margin: 0 auto 16px !important;
     padding-bottom: 4px;
     position: relative;
+    text-align: center;
 
     &::after{
         transition: .2s linear;
