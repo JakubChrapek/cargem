@@ -28,7 +28,6 @@ const Wrapper = styled.header`
     width: 100%;
     height: 100vh;
     position: relative;
-    box-shadow:${props => props.isDarkTheme ? '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)' : ' 0px 3px 6px -4px #979DA6'};
 
     &::after{
         display: ${props => props.isDarkTheme ? 'auto' : 'none'};

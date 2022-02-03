@@ -35,17 +35,17 @@ const Form = ({ isDarkTheme }) => {
             <label className={errors.firstName && "error"}>
                 <span>Imie</span>
                 <input name="firstName" placeholder='Dariusz' {...register("firstName", { required: true })} />
-                <p className='errorText'>{errors.firstName && "Proszę wpisać imię"}</p>
+                <p className='errorText'>{errors.firstName && "Proszę, wpisz imię"}</p>
             </label>
             <label className={errors.eMail && "error"}>
                 <span>E-mail</span>
                 <input name="eMail" placeholder='przykladowymail@gmail.com' {...register("eMail", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />
-                <p className='errorText'>{errors.eMail && "Proszę wpisać poprawny Email"}</p>
+                <p className='errorText'>{errors.eMail && "Proszę, wpisz poprawny E-mail"}</p>
             </label>
             <label className={errors.phone && "error"}>
                 <span>Telefon</span>
                 <input type='tel' name="phone" placeholder='512566344' {...register("phone", { required: true, pattern: /^\d+$/ })} />
-                <p className='errorText'>{errors.phone && "Proszę wpisać numer w postaci 9 liczb bez spacji i znaków specjalnych"}</p>
+                <p className='errorText'>{errors.phone && "Proszę, wpisz numer telefonu w postaci 9 cyfr bez spacji i znaków specjalnych"}</p>
             </label>
             <label className='area'>
                 <span>Szczegóły</span>
@@ -73,7 +73,7 @@ const Wrapper = styled.form`
         position: relative;
         
         input{
-            border: 1px solid red;
+            border: 1px solid #F2496B;
         }
     }  
 
@@ -82,8 +82,8 @@ const Wrapper = styled.form`
         bottom: 0;
         transform: translateY(110%);
         margin: 4px 0 0;
-        color: red;
-        font-size: 12px;
+        color: #F2496B;
+        font-size: 11px;
     }
 
 
@@ -143,8 +143,12 @@ const Wrapper = styled.form`
             }
 
             &.error{
+                input{
+                    border-color: #F2496B;
+                }
+
                 span{
-                    color: red;
+                    color: #F2496B;
                     margin-bottom: 0;
                 }
             }

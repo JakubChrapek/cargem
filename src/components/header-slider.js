@@ -49,6 +49,7 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow:${props => props.isDarkTheme ? '5px 10px 10px -4px rgba(0, 0, 0, 0.8), inset -2px -2px 6px -4px rgba(0, 0, 0, 0.15)' : ' 0px 3px 6px -4px #979DA6'};
         &::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;

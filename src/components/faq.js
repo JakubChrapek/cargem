@@ -15,7 +15,7 @@ const Faq = ({ data, isDarkTheme }) => {
                             ? <details>
                                 <summary itemProp="mainEntity" itemType="https://schema.org/Question">
                                     <span itemProp="name">
-                                        {el.title}<Arrow />
+                                    <Arrow />{el.title}
                                     </span>
                                 </summary>
                                 <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
@@ -27,7 +27,7 @@ const Faq = ({ data, isDarkTheme }) => {
                             : <details open>
                                 <summary itemProp="mainEntity" itemType="https://schema.org/Question">
                                     <span itemProp="name">
-                                        {el.title}<Arrow />
+                                    <Arrow />{el.title}
                                     </span>
                                 </summary>
                                 <p itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
@@ -108,8 +108,9 @@ const Questions = styled.div`
         }
 
         svg{
+            height: 18px;
             transition: all .2s linear;
-            margin-left: 8px;
+            margin-right: 8px;
         }
 
         span{
