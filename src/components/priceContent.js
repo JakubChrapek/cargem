@@ -126,6 +126,37 @@ const Grid = styled.div`
 const MoreButton = styled.div`
     text-align: center; 
 
+    p{
+        max-width: 190px;
+        font-size: 14px !important;
+        margin: 0 auto 16px !important;
+        padding-bottom: 4px;
+        position: relative;
+        text-align: center;
+
+        &::after{
+            transition: .2s linear;
+            width: ${props => props.isShowMore ? "100" : props.isMax ? '100' : 10 / props.items * 100}%;
+            content: "";
+            position: absolute;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background: ${props => props.isDarkTheme ? props.theme.black.text.main : props.theme.white.text.main};
+        }
+
+        &::before{
+            width: 100%;
+            content: "";
+            position: absolute;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
+        }
+    }
+
     @media (min-width: 539px) {
         display: none;  
     }
