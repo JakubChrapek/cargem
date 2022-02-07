@@ -108,7 +108,7 @@ const Wrapper = styled.aside`
         left: 0;
         top: 0;
         bottom: 0;
-        z-index: 10000;
+        z-index: 1000000;
         padding: 65px 32px 44px 40px;
         transform: translateX(-100%);
         transition: .2s linear;

@@ -104,7 +104,7 @@ const Wrapper = styled.header`
         }
     }
 
-    @media (max-width: 436px){
+    @media (max-width: 416px){
         
         &::after{
             bottom: 260px;
@@ -210,7 +210,7 @@ const ButtonsWrapper = styled.div`
             background-color: ${props => props.isDarkTheme ? props.theme.black.button.static.background : props.theme.white.button.static.background};
             border: ${props => props.isDarkTheme ? props.theme.black.button.static.border : props.theme.white.button.static.border};
             color: ${props => props.isDarkTheme ? props.theme.black.button.static.text : props.theme.white.button.static.text};
-            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : 'none'};
+            box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.white.button.static.shadow};
 
             &:hover{
                 background-color: ${props => props.isDarkTheme ? props.theme.black.button.hover.background : props.theme.white.button.hover.background};

@@ -54,13 +54,13 @@ export let theme = {
             static: {
                 border: '#2C8CDA',
                 background: '#2C8CDA',
-                text: '#F3F3F3',
+                text: '#030405',
                 shadow: '0px 3px 6px -4px #979DA6'
             },
             hover: {
                 border: '#2C8CDA',
                 background: '#2161A6',
-                text: '#F3F3F3',
+                text: '#030405',
                 shadow: '0px 3px 6px -4px #979DA6'
             }
         }

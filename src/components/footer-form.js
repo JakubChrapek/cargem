@@ -167,16 +167,15 @@ const Wrapper = styled.form`
                 position: relative;
 
                 &::before{
-                    content: "";
-                    width: 0.65em;
-                    height: 0.65em;
+                    content: "✓";
                     transition: 120ms transform ease-in-out;
-                    box-shadow: inset 1em 1em ${props => props.isDarkTheme ? props.theme.black.text.sub : props.theme.white.text.sub};
                     position: absolute;
                     left: 50%;
                     top: 50%;
                     transform: translateX(-50%) translateY(-50%) scale(0);
                     border-radius: 3px;
+                    color: #2C8CDA;
+                    font-weight: 900;
                 }
 
                 &:checked{

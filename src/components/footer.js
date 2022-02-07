@@ -137,7 +137,7 @@ const Map = styled.a`
     background-repeat: no-repeat;
     border-radius: 8px;
     margin-top: 32px;
-    box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : props.theme.black.button.static.shadow};
+    box-shadow: ${props => props.isDarkTheme ? props.theme.black.button.static.shadow : '0px 3px 6px -4px #979DA6'};
 
     @media (max-width: 876px){
         margin-top: 54px;
