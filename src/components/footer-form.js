@@ -2,7 +2,17 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import styled from 'styled-components'
-import axios from 'axios'
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map(
+      (key) =>
+        encodeURIComponent(key) +
+        '=' +
+        encodeURIComponent(data[key])
+    )
+    .join('&')
+}
 
 const Form = ({ isDarkTheme }) => {
   const {
@@ -57,30 +67,26 @@ const Form = ({ isDarkTheme }) => {
   // }
 
   const onSubmit = (data) => {
-    axios
-      .post(
-        '/',
-        {
-          'form-name': 'contact-form',
-          firstName: data.firstName,
-          eMail: data.eMail,
-          phone: data.phone,
-          question: data.question,
-          accept: data.accept
-        },
-        {
-          headers: {
-            'Content-Type':
-              'application/x-www-form-urlencoded'
-          }
-        }
-      )
-      .then((res) => {
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: encode({
+        'form-name': 'contact',
+        firstName: data.firstName,
+        eMail: data.eMail,
+        phone: data.phone,
+        question: data.question,
+        accept: data.accept
+      })
+    })
+      .then(() => {
         toast('Dziękujemy. Odezwiemy się wkrótce.', {
           icon: '✅'
         })
       })
-      .catch((error) => {
+      .catch(() => {
         toast('Coś poszło nie tak.', {
           icon: '❌'
         })
@@ -92,7 +98,7 @@ const Form = ({ isDarkTheme }) => {
       isDarkTheme={isDarkTheme}
       onSubmit={handleSubmit(onSubmit)}
       data-netlify='true'
-      name='contact-form'>
+      name='contact'>
       <label className={errors.firstName && 'error'}>
         <span>Imię</span>
         <input
