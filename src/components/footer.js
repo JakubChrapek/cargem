@@ -8,8 +8,11 @@ import Form from './footer-form'
 const Footer = ({ data, isDarkTheme }) => {
   function Copy(e) {
     e.preventDefault()
-    toast('skopiowane do schowka')
-    navigator.clipboard.writeText(e.target.innerText)
+    toast('Skopiowano do schowka.')
+    navigator.clipboard.writeText(
+      data.links[0]?.text?.replaceAll(' ', '') ??
+        '516879697'
+    )
   }
 
   return (
