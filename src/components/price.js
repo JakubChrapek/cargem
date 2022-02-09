@@ -17,6 +17,7 @@ const Price = ({ data, isDarkTheme }) => {
       <TabsChoose>
         {data.tabs.map((el, index) => (
           <li
+            key={el.title}
             onClick={() => {
               setChooseIndex(index)
             }}>
@@ -32,6 +33,7 @@ const Price = ({ data, isDarkTheme }) => {
       <TabsContent>
         {data.tabs.map((el, index) => (
           <PriceContent
+            key={`priceTabs-${index}`}
             chosenIndex={chosenIndex}
             isDarkTheme={isDarkTheme}
             index={index}

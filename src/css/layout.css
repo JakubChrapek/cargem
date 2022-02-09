@@ -1,161 +1,153 @@
-*{
-    list-style: none;
+* {
+  list-style: none;
 }
 
-*::marker{
-    display: none;
+*::marker {
+  display: none;
 }
 
-html{
-    scroll-behavior: smooth;
-    background-color: #F3F3F3;
+html {
+  scroll-behavior: smooth;
+  background-color: #f3f3f3;
 }
 
-html.dark{
-    background-color: #020405;
+html.dark {
+  background-color: #020405;
 }
 
-body{
-    font-family: lato;
+body {
+  font-family: lato;
 }
 
-details svg{
-    transform: rotateX(180deg);
+details svg {
+  transform: rotateX(180deg);
 }
 
-details[open] svg{
-    transform: rotateX(0deg);
-    
+details[open] svg {
+  transform: rotateX(0deg);
 }
-
 
 /* loader style */
 
-
-#Loader{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transition: .5s linear;
-    z-index: 100000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F3F3F3;
+#Loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.5s linear;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
 }
 
-
-.dark #Loader{
-    background-color: #020405;
+.dark #Loader {
+  background-color: #020405;
 }
 
-#Loader div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#Loader div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#Loader.off{
-    opacity: 0;
-    pointer-events: none;
+#Loader.off {
+  opacity: 0;
+  pointer-events: none;
 }
 
-#Loader .top{
-    transform: translateY(-2px) translateX(-50px);
-    opacity: 0;
-    zoom: 2;
-    transition: all .4s ease-out;
+#Loader .top {
+  transform: translateX(-40px);
+  opacity: 0;
+  zoom: 2;
+  transition: all 0.4s ease-out;
 }
 
-#Loader .mid{
-    transform: translateX(-50px);
-    opacity: 0;
-    zoom: 2;
-    transition: all .4s ease-out .4s;
+#Loader .mid {
+  transform: translateX(40px);
+  opacity: 0;
+  zoom: 2;
+  transition: all 0.4s ease-out;
 }
 
-#Loader .bot{
-    transform: translateY(20px);
-    opacity: 0;
-    zoom: 2;
-    transition: all .4s ease-out .8s;
+#Loader .bot {
+  transform: translate(40px, -1px);
+  opacity: 0;
+  zoom: 2;
+  transition: all 0.4s ease-out;
 }
 
-#Loader .title{
-    transform: translateY(30px);
-    opacity: 0;
-    zoom: 2;
-    transition: all .4s ease-out 1.2s;
+#Loader .title {
+  transform: translateX(40px);
+  opacity: 0;
+  zoom: 2;
+  transition: opacity 0.8s ease-out 0.65s,
+    transform 0.65s ease-out 0.45s;
 }
 
-#Loader.active .top{
-    transform: translateY(-4px);
-    zoom: 2;
-    opacity: 1;
+#Loader.active .top {
+  transform: translateX(0);
+  zoom: 2;
+  opacity: 1;
 }
 
-#Loader.active .mid{
-    transform: translateY(-2px);
-    zoom: 2;
-    opacity: 1;
+#Loader.active .mid,
+#Loader.active .bot {
+  transform: translateX(0px);
+  zoom: 2;
+  opacity: 1;
+}
+#Loader.active .bot {
+  transform: translate(0px, -1px);
 }
 
-#Loader.active .bot{
-    transform: translateY(-3.2px);
-    zoom: 2;
-    opacity: 1;
+#Loader.active .title {
+  transform: translateX(0px);
+  zoom: 2;
+  opacity: 1;
 }
 
-#Loader.active .title{
-    transform: translateY(0px);
-    zoom: 2;
-    opacity: 1;
+#Loader svg.title path {
+  fill: #030405;
 }
 
-#Loader svg.title path{
-    fill: #030405;
+.dark #Loader svg.title path {
+  fill: #f3f3f3;
 }
 
-.dark #Loader svg.title path{
-    fill: #F3F3F3;
-}
+@media (max-width: 539px) {
+  #Loader .top {
+    zoom: 1.6;
+  }
 
+  #Loader .mid {
+    zoom: 1.6;
+  }
 
-@media(max-width: 539px){
-    
-    #Loader .top{
-        zoom: 1.6;
-    }
+  #Loader .bot {
+    zoom: 1.6;
+  }
 
-    #Loader .mid{
-        zoom: 1.6;
-    }
+  #Loader .title {
+    zoom: 1.6;
+  }
 
-    #Loader .bot{
-        zoom: 1.6;
-    }
+  #Loader.active .top {
+    zoom: 1.6;
+  }
 
-    #Loader .title{
-        zoom: 1.6;
-    }
+  #Loader.active .mid {
+    zoom: 1.6;
+  }
 
-    #Loader.active .top{
-        zoom: 1.6;
-    }
+  #Loader.active .bot {
+    zoom: 1.6;
+  }
 
-    #Loader.active .mid{
-        zoom: 1.6;
-    }
-
-    #Loader.active .bot{
-        zoom: 1.6;
-    }
-
-    #Loader.active .title{
-        zoom: 1.6;
-    }
-
+  #Loader.active .title {
+    zoom: 1.6;
+  }
 }

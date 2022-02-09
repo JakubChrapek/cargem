@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import styled from 'styled-components'
@@ -20,53 +20,22 @@ const Form = ({ isDarkTheme }) => {
     handleSubmit,
     formState: { errors }
   } = useForm()
-  // async function onSubmitForm(values) {
-  //   if (sendCounter >= 3) {
-  //     toast(
-  //       'Już dostaliśmy od Ciebie wiadomość. Wkrótce się odezwiemy.',
-  //       {
-  //         icon: '🏁'
-  //       }
-  //     )
-  //     return 0
-  //   }
 
-  //   const subjectMessage = 'Formularz kontaktowy AmbasadaV8'
-  //   const messageContent = `Wiadomość od ${values.name}. Wiadomość: ${values.message}`
-
-  //   const parsedValues = {
-  //     ...values,
-  //     subject: subjectMessage,
-  //     message: messageContent
-  //   }
-
-  //   let config = {
-  //     method: 'post',
-  //     url: `/api/sendForm`,
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     data: parsedValues
-  //   }
-
-  //   setSendCounter((old) => old + 1)
-
-  //   try {
-  //     const response = await axios(config)
-  //     if (response.status === 200) {
-  //       reset()
-  //       toast('Dziękujemy. Odezwiemy się wkrótce.', {
-  //         icon: '✅'
-  //       })
-  //     }
-  //   } catch (err) {
-  //     toast('Coś poszło nie tak.', {
-  //       icon: '❌'
-  //     })
-  //   }
-  // }
+  const [sendCounter, setSendCounter] = useState(0)
 
   const onSubmit = (data) => {
+    if (sendCounter >= 2) {
+      toast(
+        'Już dostaliśmy od Ciebie wiadomość. Wkrótce się odezwiemy.',
+        {
+          icon: '🏁'
+        }
+      )
+      return 0
+    }
+
+    setSendCounter((old) => old + 1)
+
     fetch('/', {
       method: 'POST',
       headers: {
@@ -103,7 +72,7 @@ const Form = ({ isDarkTheme }) => {
         <span>Imię</span>
         <input
           name='firstName'
-          placeholder='Dariusz'
+          placeholder='Podaj imię'
           {...register('firstName', { required: true })}
         />
         <p className='errorText'>
@@ -114,7 +83,7 @@ const Form = ({ isDarkTheme }) => {
         <span>E-mail</span>
         <input
           name='eMail'
-          placeholder='przykladowymail@gmail.com'
+          placeholder='Podaj adres e-mail'
           {...register('eMail', {
             required: true,
             pattern:
@@ -130,7 +99,7 @@ const Form = ({ isDarkTheme }) => {
         <input
           type='tel'
           name='phone'
-          placeholder='512566344'
+          placeholder='Podaj nr telefonu'
           {...register('phone', {
             required: true,
             pattern: /^\d+$/
