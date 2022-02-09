@@ -15,6 +15,9 @@ const ThemeWrapper = ({ children }) => {
         }
     }, [])
 
+    let a = window.__theme
+
+
     if (localStorage.getItem('isBlack') === 'true') {
         theme.isBlackTheme = true
         document.documentElement.className = 'dark'

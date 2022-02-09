@@ -6,23 +6,13 @@ exports.onRenderBody = ({ setHeadComponents }) => {
             dangerouslySetInnerHTML={{
                 __html: `
                 (function () {
-                    // Update the current theme to either 'light' or 'dark'
-                    function setTheme(theme) {
-                        window.__theme = theme
-                        if (theme) {
-                            document.documentElement.className = 'dark'
-                          } else {
-                            document.documentElement.className = ''
-                          }
+                    function setTheme(isBlack) {
+                        window.__theme = isBlack
+                        document.documentElement.className = isBlack == 'false' ? '' : 'dark'
                     };
                 
-                    let isDark
-
-                    try {
-                        isDark = localStorage.getItem('isBlack');
-                    } catch (e) { }
-
-                    setTheme(isDark);
+                    let isBlack = localStorage.getItem('isBlack');
+                    setTheme(isBlack);
                 })();`
             }}
         />,
