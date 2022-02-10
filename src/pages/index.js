@@ -19,6 +19,7 @@ import { Toaster } from 'react-hot-toast'
 import Loader from '../components/loader'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 
 const IndexPage = ({ data }) => {
   let isDarkTheme = useContext(ThemeContext) // import for rerender
@@ -65,6 +66,12 @@ const IndexPage = ({ data }) => {
         <HelmetDatoCms
           seo={data.datoCmsSite.seoMetaTags}
           favicon={data.datoCmsSite.faviconMetaTags}
+        />
+        <Helmet
+          htmlAttributes={{
+            lang: 'pl',
+            title: 'Cargem'
+          }}
         />
         <Toaster
           position='top-center'
@@ -280,9 +287,9 @@ const App = styled.div`
   *:focus-visible {
     outline: 1px solid
       ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.outline
-          : props.theme.white.outline};
+    props.isDarkTheme
+      ? props.theme.black.outline
+      : props.theme.white.outline};
     outline-offset: 2px;
   }
 
@@ -293,9 +300,9 @@ const App = styled.div`
   mark {
     background-color: unset;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.active
-        : props.theme.white.text.active};
+    props.isDarkTheme
+      ? props.theme.black.text.active
+      : props.theme.white.text.active};
   }
 
   h1 {
@@ -304,9 +311,9 @@ const App = styled.div`
 
   h2 {
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     font-family: 'Krona one';
   }
 `
@@ -345,7 +352,7 @@ const OpenNav = styled.div`
     height: 2px;
     content: '';
     background-color: ${(props) =>
-      props.theme.black.text.main};
+    props.theme.black.text.main};
     mix-blend-mode: exclusion;
     position: absolute;
     right: 0;
@@ -358,7 +365,7 @@ const OpenNav = styled.div`
     height: 2px;
     content: '';
     background-color: ${(props) =>
-      props.theme.black.text.main};
+    props.theme.black.text.main};
     mix-blend-mode: exclusion;
     position: absolute;
     right: 0;
@@ -370,7 +377,7 @@ const OpenNav = styled.div`
     width: 20px;
     height: 2px;
     background-color: ${(props) =>
-      props.theme.black.text.main};
+    props.theme.black.text.main};
     mix-blend-mode: exclusion;
     position: absolute;
     right: 0;

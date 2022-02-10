@@ -94,6 +94,12 @@ const Offer = ({ data, isDarkTheme }) => {
             ? data.carImg.url
             : data.carImgWhite.url
         }
+
+        alt={
+          isDarkTheme
+            ? data.carImg.alt
+            : data.carImgWhite.alt
+        }
       />
     </Wrapper>
   )
