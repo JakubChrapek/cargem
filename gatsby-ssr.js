@@ -8,7 +8,10 @@ exports.onRenderBody = ({ setHeadComponents }) => {
                 (function () {
                     function setTheme(isBlack) {
                         window.__theme = isBlack
-                        document.documentElement.className = isBlack == 'false' ? '' : 'dark'
+                        isBlack 
+                            ? document.documentElement.className = isBlack === 'false' ? '' : 'dark'
+                            : null
+                        
                     };
                 
                     let isBlack = localStorage.getItem('isBlack');

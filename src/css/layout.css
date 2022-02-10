@@ -119,35 +119,5 @@ details[open] svg {
 }
 
 @media (max-width: 539px) {
-  #Loader .top {
-    zoom: 1.6;
-  }
 
-  #Loader .mid {
-    zoom: 1.6;
-  }
-
-  #Loader .bot {
-    zoom: 1.6;
-  }
-
-  #Loader .title {
-    zoom: 1.6;
-  }
-
-  #Loader.active .top {
-    zoom: 1.6;
-  }
-
-  #Loader.active .mid {
-    zoom: 1.6;
-  }
-
-  #Loader.active .bot {
-    zoom: 1.6;
-  }
-
-  #Loader.active .title {
-    zoom: 1.6;
-  }
 }

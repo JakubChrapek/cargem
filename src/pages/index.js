@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <App isDarkTheme={isDarkTheme} id='main'>
-        <Loader />
+        <Loader isDarkTheme={isDarkTheme} />
         <HelmetDatoCms
           seo={data.datoCmsSite.seoMetaTags}
           favicon={data.datoCmsSite.faviconMetaTags}
