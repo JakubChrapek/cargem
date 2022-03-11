@@ -175,7 +175,7 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
 export default Aside
 
 const Wrapper = styled.aside`
-  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, background 0.2s linear;
   padding: clamp(32px, 3.33vw, 64px)
     clamp(32px, 1.04vw, 64px) clamp(32px, 1.3vw, 64px)
     clamp(32px, 3.1vw, 64px);
@@ -201,7 +201,6 @@ const Wrapper = styled.aside`
     z-index: 1000000;
     padding: 65px 32px 44px 40px;
     transform: translateX(-100%);
-    transition: transform 0.2s linear;
 
     &.active {
       transform: translateX(0);
