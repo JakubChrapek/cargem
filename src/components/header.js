@@ -152,6 +152,7 @@ const TextBox = styled.div`
       props.isDarkTheme
         ? props.theme.black.text.main
         : props.theme.black.text.main};
+    filter: ${(props) => props.theme.black.text.dropShadow};
     transition: 0.2s linear;
     text-align: center;
     letter-spacing: -1px;
@@ -167,6 +168,7 @@ const TextBox = styled.div`
     h1 {
       font-size: 40px;
       line-height: 50px;
+      filter: none;
       color: ${(props) =>
         props.isDarkTheme
           ? props.theme.black.text.main

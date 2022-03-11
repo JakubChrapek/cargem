@@ -17,7 +17,8 @@ export let theme = {
       hover: '#DCE0E8',
       sub: '#A6A9B3',
       active: '#2C8CDA',
-      grey: '#4C5F6B'
+      grey: '#4C5F6B',
+      dropShadow: 'drop-shadow(0 0 0.1rem #030405)'
     },
     button: {
       static: {
@@ -52,7 +53,8 @@ export let theme = {
       hover: '#11181F',
       sub: '#4C5F6B',
       active: '#2C8CDA',
-      grey: '#A6A9B3'
+      grey: '#A6A9B3',
+      dropShadow: 'drop-shadow(0 0 0.1rem #030405)'
     },
     button: {
       static: {
