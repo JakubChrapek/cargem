@@ -69,7 +69,7 @@ const Footer = ({ data, isDarkTheme }) => {
         </FormBox>
       </Flex>
       <Map
-        aria-label='map link'
+        aria-label='link do mapy google'
         isDarkTheme={isDarkTheme}
         href='https://www.google.com/maps/place/Rososz+145,+08-500+Rososz/data=!4m2!3m1!1s0x4718a1cc984f288b:0xa0ba4d0e46b74ea4?sa=X&ved=2ahUKEwjhpa3s5uH1AhWvAxAIHdbPDK0Q8gF6BAgWEAE'
         bg={isDarkTheme ? data.map.url : data.mapWhite.url}

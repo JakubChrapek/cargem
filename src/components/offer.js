@@ -137,7 +137,7 @@ const Wrapper = styled.section`
 `
 
 const Car = styled(GatsbyImage)`
-  position: absolute;
+  position: absolute !important;
   bottom: 0;
   right: 0;
   width: clamp(20%, 30vw, 42%);
