@@ -170,7 +170,8 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
             tabindex='0'
             onClick={changeColorMode}
             onKeyDown={handleKeyDown}
-            role='switch'>
+            role='switch'
+            aria-checked={isDarkTheme}>
             <span />
           </div>
         </ColorTrybe>

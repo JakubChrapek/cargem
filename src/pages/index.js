@@ -20,6 +20,9 @@ import Loader from '../components/loader'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
+import { OpenNav } from '../components/openNav'
+import { Container } from '../components/container'
+import { AppWrapper } from '../components/appWrapper'
 
 const IndexPage = ({ data }) => {
   let isDarkTheme = useContext(ThemeContext) // import for rerender
@@ -66,7 +69,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <App isDarkTheme={isDarkTheme} id='main'>
+      <AppWrapper isDarkTheme={isDarkTheme} id='main'>
         <Loader isDarkTheme={isDarkTheme} />
         <HelmetDatoCms
           seo={{ tags: filteredSeoMetaTags }}
@@ -121,7 +124,7 @@ const IndexPage = ({ data }) => {
             />
           </Main>
         </Container>
-      </App>
+      </AppWrapper>
     </ThemeProvider>
   )
 }
@@ -130,6 +133,17 @@ export default IndexPage
 
 export const query = graphql`
   query MainQuery {
+    datoCmsSite {
+      faviconMetaTags {
+        ...GatsbyDatoCmsFaviconMetaTags
+      }
+    }
+
+    datoCmsSeo {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
     datoCmsAside {
       logo {
         alt
@@ -272,133 +286,7 @@ export const query = graphql`
         gatsbyImageData
       }
     }
-    datoCmsSite {
-      faviconMetaTags {
-        ...GatsbyDatoCmsFaviconMetaTags
-      }
-    }
-
-    datoCmsSeo {
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
-      }
-    }
-  }
-`
-
-const App = styled.div`
-  background: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.background
-      : props.theme.white.background};
-  transition: all 0.2s linear;
-
-  *:focus-visible {
-    outline: 1px solid
-      ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.outline
-          : props.theme.white.outline};
-    outline-offset: 2px;
-  }
-
-  a {
-    cursor: pointer;
-  }
-
-  mark {
-    background-color: unset;
-    color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.active
-        : props.theme.white.text.active};
-  }
-
-  h1 {
-    font-family: 'Krona one';
-  }
-
-  h2 {
-    color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
-    font-family: 'Krona one';
-  }
-`
-
-const Container = styled.div`
-  max-width: 1920px;
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: clamp(273px, 19.1vw, 367px) 1fr;
-  position: relative;
-
-  @media (max-width: 1240px) {
-    grid-template-columns: 1fr;
   }
 `
 
 const Main = styled.main``
-
-const OpenNav = styled.div`
-  @media (min-width: 1240px) {
-    display: none;
-  }
-
-  z-index: 10000;
-  position: fixed !important;
-  left: 32px;
-  top: 35px;
-  width: 20px;
-  height: 18px;
-  cursor: pointer;
-  mix-blend-mode: exclusion;
-
-  &::after {
-    width: 20px;
-    height: 2px;
-    content: '';
-    background-color: ${(props) =>
-      props.theme.black.text.main};
-    mix-blend-mode: exclusion;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 100%;
-  }
-
-  &::before {
-    width: 20px;
-    height: 2px;
-    content: '';
-    background-color: ${(props) =>
-      props.theme.black.text.main};
-    mix-blend-mode: exclusion;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-  }
-
-  span {
-    width: 20px;
-    height: 2px;
-    background-color: ${(props) =>
-      props.theme.black.text.main};
-    mix-blend-mode: exclusion;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 50%;
-  }
-
-  @media (max-width: 876px) {
-    left: 10px;
-  }
-
-  @media (max-width: 539px) {
-    left: 6px;
-  }
-`
