@@ -15,8 +15,12 @@ import {
 import { Link } from 'react-scroll'
 
 const Aside = ({ data, isDarkTheme, setMenuState }) => {
-  let changeColorMode = useContext(ThemeChangeContext)
-
+  const changeColorMode = useContext(ThemeChangeContext)
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.keyCode === 32) {
+      changeColorMode()
+    }
+  }
   return (
     <Wrapper
       className=''
@@ -152,6 +156,8 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
                       return <Twiter />
                     case 3:
                       return <Linkedin />
+                    default:
+                      return null
                   }
                 })()}
               </a>
@@ -160,7 +166,11 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
         </SocialMedia>
         <ColorTrybe isDarkTheme={isDarkTheme}>
           {data.nightModeTitle}
-          <div tabindex='0' onClick={changeColorMode}>
+          <div
+            tabindex='0'
+            onClick={changeColorMode}
+            onKeyDown={handleKeyDown}
+            role='switch'>
             <span />
           </div>
         </ColorTrybe>
@@ -237,9 +247,9 @@ const ListItem = styled.li`
     path {
       transition: 0.2s linear;
       fill: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.sub
-      : props.theme.white.text.grey};
+        props.isDarkTheme
+          ? props.theme.black.text.sub
+          : props.theme.white.text.grey};
     }
   }
 
@@ -247,16 +257,16 @@ const ListItem = styled.li`
     svg {
       path {
         fill: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.hover
-      : props.theme.white.text.sub};
+          props.isDarkTheme
+            ? props.theme.black.text.hover
+            : props.theme.white.text.sub};
       }
     }
 
     color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.aside.active
-      : props.theme.white.text.hover};
+      props.isDarkTheme
+        ? props.theme.black.aside.active
+        : props.theme.white.text.hover};
   }
 
   a {
@@ -268,13 +278,13 @@ const ListItem = styled.li`
     font-size: 18px;
     line-height: 26px;
     font-weight: ${(props) =>
-    props.isDarkTheme ? '400' : '500'};
+      props.isDarkTheme ? '400' : '500'};
 
     transition: color 0.2s linear;
     color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.aside.default
-      : props.theme.white.aside.default};
+      props.isDarkTheme
+        ? props.theme.black.aside.default
+        : props.theme.white.aside.default};
     &:focus-visible {
       outline-offset: 6px;
     }
@@ -282,18 +292,18 @@ const ListItem = styled.li`
       svg {
         path {
           fill: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.active
-      : props.theme.white.text.active};
+            props.isDarkTheme
+              ? props.theme.black.text.active
+              : props.theme.white.text.active};
         }
       }
 
       color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.aside.active
-      : props.theme.white.aside.active};
+        props.isDarkTheme
+          ? props.theme.black.aside.active
+          : props.theme.white.aside.active};
       font-weight: ${(props) =>
-    props.isDarkTheme ? '500' : '600'};
+        props.isDarkTheme ? '500' : '600'};
     }
   }
 `
@@ -321,9 +331,9 @@ const SocialMedia = styled.ul`
       path {
         transition: 0.2s linear;
         fill: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.sub
-      : props.theme.white.text.sub};
+          props.isDarkTheme
+            ? props.theme.black.text.sub
+            : props.theme.white.text.sub};
       }
     }
 
@@ -331,9 +341,9 @@ const SocialMedia = styled.ul`
       svg {
         path {
           fill: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.hover
-      : props.theme.white.text.hover};
+            props.isDarkTheme
+              ? props.theme.black.text.hover
+              : props.theme.white.text.hover};
         }
       }
     }
@@ -357,9 +367,9 @@ const ColorTrybe = styled.div`
     position: relative;
     border-radius: 50px;
     background-color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.active
-      : props.theme.white.text.sub};
+      props.isDarkTheme
+        ? props.theme.black.text.active
+        : props.theme.white.text.sub};
     transition: background 0.2s linear;
     cursor: pointer;
     &:focus-visible {
@@ -374,12 +384,12 @@ const ColorTrybe = styled.div`
     height: 20px;
     position: absolute;
     left: ${(props) =>
-    props.isDarkTheme ? '26px' : '2px'};
+      props.isDarkTheme ? '26px' : '2px'};
     background-color: ${(props) =>
-    props.theme.black.text.main};
+      props.theme.black.text.main};
     transition: left 0.2s linear, background 0.2s linear;
     font-weight: ${(props) =>
-    props.isDarkTheme ? '400' : '500'};
+      props.isDarkTheme ? '400' : '500'};
   }
 `
 
@@ -412,9 +422,9 @@ const CloseNav = styled.div`
     content: '';
     transform: rotateZ(45deg);
     background-color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.main
-      : props.theme.white.text.main};
+      props.isDarkTheme
+        ? props.theme.black.text.main
+        : props.theme.white.text.main};
     position: absolute;
     right: 0;
     left: 0;
@@ -427,9 +437,9 @@ const CloseNav = styled.div`
     content: '';
     transform: rotateZ(-45deg);
     background-color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.main
-      : props.theme.white.text.main};
+      props.isDarkTheme
+        ? props.theme.black.text.main
+        : props.theme.white.text.main};
     position: absolute;
     right: 0;
     left: 0;

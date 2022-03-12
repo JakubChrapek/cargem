@@ -17,9 +17,15 @@ const Price = ({ data, isDarkTheme }) => {
       <TabsChoose>
         {data.tabs.map((el, index) => (
           <li
+            role='button'
             key={el.title}
             onClick={() => {
               setChooseIndex(index)
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.keyCode === 32) {
+                setChooseIndex(index)
+              }
             }}>
             <PriceTab
               chosenIndex={chosenIndex}

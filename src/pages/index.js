@@ -59,20 +59,26 @@ const IndexPage = ({ data }) => {
     }
   }, [escFunction])
 
+  const filteredSeoMetaTags =
+    data.datoCmsSeo.seoMetaTags.tags.filter(
+      (tag) => tag !== null
+    )
+
   return (
     <ThemeProvider theme={theme}>
       <App isDarkTheme={isDarkTheme} id='main'>
         <Loader isDarkTheme={isDarkTheme} />
         <HelmetDatoCms
-          seo={data.datoCmsSite.seoMetaTags}
+          seo={{ tags: filteredSeoMetaTags }}
           favicon={data.datoCmsSite.faviconMetaTags}
         />
         <Helmet
           htmlAttributes={{
             lang: 'pl',
             title: 'Cargem'
-          }}
-        />
+          }}>
+          <title>Cargem</title>
+        </Helmet>
         <Toaster
           position='top-center'
           reverseOrder={false}
@@ -148,18 +154,22 @@ export const query = graphql`
       repairedImage {
         url
         alt
+        gatsbyImageData
       }
       brokenImage {
         alt
         url
+        gatsbyImageData
       }
       repairedImageWhite {
         alt
         url
+        gatsbyImageData
       }
       brokeImageWhite {
         alt
         url
+        gatsbyImageData
       }
     }
     datoCmsOffer {
@@ -170,10 +180,12 @@ export const query = graphql`
       carImg {
         alt
         url
+        gatsbyImageData
       }
       carImgWhite {
         alt
         url
+        gatsbyImageData
       }
       items {
         title
@@ -227,6 +239,7 @@ export const query = graphql`
       enginePhoto {
         alt
         url
+        gatsbyImageData
       }
     }
     datoCmsFooter {
@@ -250,28 +263,24 @@ export const query = graphql`
       }
       map {
         url
+        alt
+        gatsbyImageData
       }
       mapWhite {
         url
+        alt
+        gatsbyImageData
       }
     }
     datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
       }
-      globalSeo {
-        siteName
-        titleSuffix
-        twitterAccount
-        facebookPageUrl
-        fallbackSeo {
-          title
-          description
-          image {
-            url
-          }
-          twitterCard
-        }
+    }
+
+    datoCmsSeo {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
     }
   }
@@ -287,9 +296,9 @@ const App = styled.div`
   *:focus-visible {
     outline: 1px solid
       ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.outline
-      : props.theme.white.outline};
+        props.isDarkTheme
+          ? props.theme.black.outline
+          : props.theme.white.outline};
     outline-offset: 2px;
   }
 
@@ -300,9 +309,9 @@ const App = styled.div`
   mark {
     background-color: unset;
     color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.active
-      : props.theme.white.text.active};
+      props.isDarkTheme
+        ? props.theme.black.text.active
+        : props.theme.white.text.active};
   }
 
   h1 {
@@ -311,9 +320,9 @@ const App = styled.div`
 
   h2 {
     color: ${(props) =>
-    props.isDarkTheme
-      ? props.theme.black.text.main
-      : props.theme.white.text.main};
+      props.isDarkTheme
+        ? props.theme.black.text.main
+        : props.theme.white.text.main};
     font-family: 'Krona one';
   }
 `
@@ -352,7 +361,7 @@ const OpenNav = styled.div`
     height: 2px;
     content: '';
     background-color: ${(props) =>
-    props.theme.black.text.main};
+      props.theme.black.text.main};
     mix-blend-mode: exclusion;
     position: absolute;
     right: 0;
@@ -365,7 +374,7 @@ const OpenNav = styled.div`
     height: 2px;
     content: '';
     background-color: ${(props) =>
-    props.theme.black.text.main};
+      props.theme.black.text.main};
     mix-blend-mode: exclusion;
     position: absolute;
     right: 0;
@@ -377,7 +386,7 @@ const OpenNav = styled.div`
     width: 20px;
     height: 2px;
     background-color: ${(props) =>
-    props.theme.black.text.main};
+      props.theme.black.text.main};
     mix-blend-mode: exclusion;
     position: absolute;
     right: 0;

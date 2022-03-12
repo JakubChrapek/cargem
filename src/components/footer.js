@@ -37,6 +37,8 @@ const Footer = ({ data, isDarkTheme }) => {
                       return <Mail />
                     case 2:
                       return <Mark />
+                    default:
+                      return null
                   }
                 })()}
                 <span>

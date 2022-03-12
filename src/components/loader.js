@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { animateScroll as scroll } from 'react-scroll'
 import { colors, FullSygnet } from '../constants/icons'
-import { theme } from './../constants/theme'
 
-const Loader = ({isDarkTheme}) => {
+const Loader = ({ isDarkTheme }) => {
   useEffect(() => {
     scroll.scrollToTop()
     setTimeout(() => {
@@ -20,9 +19,7 @@ const Loader = ({isDarkTheme}) => {
   return (
     <div id='Loader'>
       <FullSygnet
-        color={
-          isDarkTheme ? colors.white : colors.black
-        }
+        color={isDarkTheme ? colors.white : colors.black}
       />
     </div>
   )

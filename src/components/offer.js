@@ -10,6 +10,7 @@ import {
   colors
 } from '../constants/icons'
 import { Link } from 'react-scroll'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Offer = ({ data, isDarkTheme }) => {
   return (
@@ -71,6 +72,8 @@ const Offer = ({ data, isDarkTheme }) => {
                         }
                       />
                     )
+                  default:
+                    return null
                 }
               })()}
               <h3>{el.title}</h3>
@@ -89,12 +92,11 @@ const Offer = ({ data, isDarkTheme }) => {
         {data.buttonText}
       </LinkS>
       <Car
-        src={
+        image={
           isDarkTheme
-            ? data.carImg.url
-            : data.carImgWhite.url
+            ? data.carImg.gatsbyImageData
+            : data.carImgWhite.gatsbyImageData
         }
-
         alt={
           isDarkTheme
             ? data.carImg.alt
@@ -134,7 +136,7 @@ const Wrapper = styled.section`
   }
 `
 
-const Car = styled.img`
+const Car = styled(GatsbyImage)`
   position: absolute;
   bottom: 0;
   right: 0;
