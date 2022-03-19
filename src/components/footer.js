@@ -24,6 +24,7 @@ const Footer = ({ data, isDarkTheme }) => {
           <Links isDarkTheme={isDarkTheme}>
             {data.links.map((el, index) => (
               <a
+                key={el.text}
                 aria-label='copy'
                 href={el.text}
                 onClick={(e) => {
@@ -56,8 +57,8 @@ const Footer = ({ data, isDarkTheme }) => {
             {data.openTimeTitle}
           </OpenTimeTitle>
           <OpenTime isDarkTheme={isDarkTheme}>
-            {data.openTimes.map((el) => (
-              <div>
+            {data.openTimes.map((el, index) => (
+              <div key={index}>
                 <StructuredText data={el.content} />
               </div>
             ))}
@@ -115,9 +116,9 @@ const Wrapper = styled.footer`
 
   h3 {
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     font-size: 24px;
     line-height: 28px;
     margin-top: 0;
@@ -202,9 +203,9 @@ const TextBox = styled.div`
     height: 100%;
     width: 1px;
     background-color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.lines
-        : props.theme.white.lines};
+    props.isDarkTheme
+      ? props.theme.black.lines
+      : props.theme.white.lines};
   }
 
   h2 {
@@ -216,11 +217,11 @@ const TextBox = styled.div`
     line-height: 26px;
     margin: 0;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     font-weight: ${(props) =>
-      props.isDarkTheme ? '600' : '700'};
+    props.isDarkTheme ? '600' : '700'};
   }
 
   p {
@@ -229,11 +230,11 @@ const TextBox = styled.div`
     margin-top: 8px;
     margin-bottom: 24px;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.sub
-        : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
     font-weight: ${(props) =>
-      props.isDarkTheme ? '400' : '500'};
+    props.isDarkTheme ? '400' : '500'};
   }
 
   @media (max-width: 876px) {
@@ -251,7 +252,7 @@ const FormBox = styled.div`
 
   h3 {
     font-weight: ${(props) =>
-      props.isDarkTheme ? '500' : '600'};
+    props.isDarkTheme ? '500' : '600'};
   }
 
   &.mobile {
@@ -304,14 +305,14 @@ const Links = styled.div`
     span {
       margin-left: 8px;
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.main
-          : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
       transition: 0.2s linear;
       font-size: 14px;
       line-height: 20px;
       font-weight: ${(props) =>
-        props.isDarkTheme ? '400' : '500'};
+    props.isDarkTheme ? '400' : '500'};
     }
 
     &:hover {
@@ -331,29 +332,29 @@ const Links = styled.div`
     font-weight: bold;
     font-weight: 700;
     background-color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.button.static.background
-        : props.theme.white.button.static.background};
+    props.isDarkTheme
+      ? props.theme.black.button.static.background
+      : props.theme.white.button.static.background};
     border: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.button.static.border
-        : props.theme.white.button.static.border};
+    props.isDarkTheme
+      ? props.theme.black.button.static.border
+      : props.theme.white.button.static.border};
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.button.static.text
-        : props.theme.white.button.static.text};
+    props.isDarkTheme
+      ? props.theme.black.button.static.text
+      : props.theme.white.button.static.text};
     box-shadow: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.button.static.shadow
-        : props.theme.white.button.static.shadow};
+    props.isDarkTheme
+      ? props.theme.black.button.static.shadow
+      : props.theme.white.button.static.shadow};
     cursor: pointer;
     margin-left: 10px;
 
     &:hover {
       background-color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.button.hover.background
-          : props.theme.white.button.hover.background};
+    props.isDarkTheme
+      ? props.theme.black.button.hover.background
+      : props.theme.white.button.hover.background};
     }
 
     @media (min-width: 539px) {
@@ -376,26 +377,26 @@ const OpenTime = styled.div`
   h6 {
     margin: 0;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.sub
-        : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
     font-size: 14px;
     line-height: 20px;
     font-weight: ${(props) =>
-      props.isDarkTheme ? '400' : '500'};
+    props.isDarkTheme ? '400' : '500'};
   }
 
   p {
     margin: 0;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
     font-weight: ${(props) =>
-      props.isDarkTheme ? '500' : '600'};
+    props.isDarkTheme ? '500' : '600'};
   }
 
   @media (max-width: 539px) {

@@ -9,7 +9,7 @@ const Highlight = ({ data, isDarkTheme }) => {
       <StructuredText data={data.title} />
       <Benefits isDarkTheme={isDarkTheme}>
         {data.benefits.map((el, index) => (
-          <div key={el} className={'div' + index}>
+          <div key={el.title} className={'div' + index}>
             <span>
               <Complete />
               <h4>{el.title}</h4>

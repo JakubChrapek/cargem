@@ -14,19 +14,17 @@ const Header = ({ data, isDarkTheme }) => {
         <ButtonsWrapper isDarkTheme={isDarkTheme}>
           <Link
             href='#'
-            tabindex='0'
+            tabIndex='0'
             className='first'
             smooth={'easeOutCubic'}
-            duration={'250'}
             to='oferta'>
             {data.firstButtonText}
           </Link>
           <Link
             href='#'
-            tabindex='0'
+            tabIndex='0'
             className='second'
             smooth={'easeOutCubic'}
-            duration={'250'}
             to='kontakt'>
             {data.secondButtonText}
           </Link>

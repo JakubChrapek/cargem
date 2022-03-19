@@ -26,7 +26,7 @@ const PriceContent = ({
         chosenIndex === index ? 'active' : null
       } tabContent`}>
       {items.map((el, index) => (
-        <>
+        <React.Fragment key={index}>
           {isMaxCount ? (
             index < 10 ? (
               <div>
@@ -38,7 +38,7 @@ const PriceContent = ({
               <StructuredText data={el.content} />
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
       <MoreButton
         isDarkTheme={isDarkTheme}

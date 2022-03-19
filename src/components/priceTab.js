@@ -16,15 +16,23 @@ const PriceTab = ({
   isDarkTheme,
   index,
   title,
-  chosenIndex
+  chosenIndex,
+  setChooseIndex
 }) => {
   return (
     <TabWrapper
       isDarkTheme={isDarkTheme}
       id={'tab' + index}
-      className={`${
-        chosenIndex === index ? 'active' : null
-      } tab`}>
+      className={`${chosenIndex === index ? 'active' : null
+        } tab`}
+      onClick={() => {
+        setChooseIndex(index)
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.keyCode === 32) {
+          setChooseIndex(index)
+        }
+      }}>
       {(() => {
         switch (index) {
           case 0:
@@ -121,9 +129,9 @@ const TabWrapper = styled.button`
     path {
       transition: 0.2s linear;
       fill: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.sub
-          : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
     }
   }
 
@@ -132,14 +140,14 @@ const TabWrapper = styled.button`
     padding: 6px 0;
     position: relative;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.sub
-        : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
     transition: 0.2s linear;
     font-size: 18px;
     line-height: 26px;
     font-weight: ${(props) =>
-      props.isDarkTheme ? '500' : '600'};
+    props.isDarkTheme ? '500' : '600'};
 
     &::after {
       content: '';
@@ -150,9 +158,9 @@ const TabWrapper = styled.button`
       left: 0;
       right: 0;
       background-color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.background
-          : props.theme.white.background};
+    props.isDarkTheme
+      ? props.theme.black.background
+      : props.theme.white.background};
       transition: 0.2s linear;
     }
   }
@@ -162,17 +170,17 @@ const TabWrapper = styled.button`
       path {
         transition: 0.2s linear;
         fill: ${(props) =>
-          props.isDarkTheme
-            ? props.theme.black.text.hover
-            : props.theme.white.text.hover};
+    props.isDarkTheme
+      ? props.theme.black.text.hover
+      : props.theme.white.text.hover};
       }
     }
 
     h4 {
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.hover
-          : props.theme.white.text.hover};
+    props.isDarkTheme
+      ? props.theme.black.text.hover
+      : props.theme.white.text.hover};
     }
   }
 
@@ -181,27 +189,27 @@ const TabWrapper = styled.button`
       path {
         transition: 0.2s linear;
         fill: ${(props) =>
-          props.isDarkTheme
-            ? props.theme.black.text.main
-            : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
 
         &.blue {
           fill: ${(props) =>
-            props.isDarkTheme
-              ? props.theme.black.text.active
-              : props.theme.white.text.active};
+    props.isDarkTheme
+      ? props.theme.black.text.active
+      : props.theme.white.text.active};
         }
       }
     }
 
     h4 {
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.main
-          : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
       &::after {
         background-color: ${(props) =>
-          props.theme.black.text.active};
+    props.theme.black.text.active};
       }
     }
   }

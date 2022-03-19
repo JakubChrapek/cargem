@@ -16,24 +16,15 @@ const Price = ({ data, isDarkTheme }) => {
       </TextBox>
       <TabsChoose>
         {data.tabs.map((el, index) => (
-          <li
-            role='button'
-            key={el.title}
-            onClick={() => {
-              setChooseIndex(index)
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.keyCode === 32) {
-                setChooseIndex(index)
-              }
-            }}>
+          <div key={el.title} >
             <PriceTab
               chosenIndex={chosenIndex}
               isDarkTheme={isDarkTheme}
               index={index}
               title={el.title}
+              setChooseIndex={setChooseIndex}
             />
-          </li>
+          </div>
         ))}
       </TabsChoose>
       <TabsContent>
@@ -84,14 +75,14 @@ const TextBox = styled.div`
 
   p {
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.sub
-        : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
     margin: 0;
     font-size: 14px;
     line-height: 20px;
     font-weight: ${(props) =>
-      props.isDarkTheme ? '400' : '500'};
+    props.isDarkTheme ? '400' : '500'};
   }
 
   @media (max-width: 1300px) {
@@ -115,14 +106,15 @@ const TextBox = styled.div`
   }
 `
 
-const TabsChoose = styled.ul`
+const TabsChoose = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
 
-  li {
-    list-style: none;
+  button {
+    background: transparent;
+    border: unset;
   }
 
   @media (max-width: 640px) {

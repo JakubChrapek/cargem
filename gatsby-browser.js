@@ -11,5 +11,3 @@ export function wrapPageElement({ element, props }) {
         {element}
     </ThemeWrapper>
 }
-
-

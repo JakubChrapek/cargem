@@ -18,7 +18,7 @@ const Offer = ({ data, isDarkTheme }) => {
       <StructuredText data={data.title} />
       <ItemsBox isDarkTheme={isDarkTheme}>
         {data.items.map((el, index) => (
-          <div key={el}>
+          <div key={index}>
             <span>
               {(() => {
                 switch (index) {
@@ -84,9 +84,8 @@ const Offer = ({ data, isDarkTheme }) => {
       </ItemsBox>
       <LinkS
         href='#'
-        tabindex='0'
+        tabIndex='0'
         smooth={'easeOutCubic'}
-        duration={'250'}
         to='kontakt'
         isDarkTheme={isDarkTheme}>
         {data.buttonText}
@@ -99,8 +98,8 @@ const Offer = ({ data, isDarkTheme }) => {
         }
         alt={
           isDarkTheme
-            ? data.carImg.alt
-            : data.carImgWhite.alt
+            ? data.carImg.alt ? data.carImg.alt : 'samochód dekoratywny'
+            : data.carImgWhite.alt ? data.carImgWhite.alt : 'samochód dekoratywny' 
         }
       />
     </Wrapper>

@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "dependencies": {
     "@fontsource/krona-one": "^4.5.1",
@@ -23,7 +24,9 @@
     "dotenv": "^14.2.0",
     "gatsby": "^4.5.3",
     "gatsby-plugin-image": "^2.5.2",
+    "gatsby-plugin-manifest": "^4.10.1",
     "gatsby-plugin-netlify": "^4.1.0",
+    "gatsby-plugin-offline": "^5.10.1",
     "gatsby-plugin-sharp": "^4.5.2",
     "gatsby-plugin-styled-components": "^5.5.0",
     "gatsby-source-datocms": "^3.0.12",
@@ -37,5 +40,10 @@
     "react-hot-toast": "^2.2.0",
     "react-scroll": "^1.8.4",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.12",
+    "gatsby-plugin-postcss": "^5.10.0",
+    "autoprefixer": "^10.4.4"
   }
 }

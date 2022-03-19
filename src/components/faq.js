@@ -14,9 +14,9 @@ const Faq = ({ data, isDarkTheme }) => {
       <StructuredText data={data.title} />
       <Questions isDarkTheme={isDarkTheme}>
         {data.questions.map((el, index) => (
-          <>
+          <React.Fragment key={el.title}>
             {index ? (
-              <details>
+              <details >
                 <summary
                   itemProp='mainEntity'
                   itemType='https://schema.org/Question'>
@@ -48,7 +48,7 @@ const Faq = ({ data, isDarkTheme }) => {
                 </p>
               </details>
             )}
-          </>
+          </React.Fragment>
         ))}
       </Questions>
     </Wrapper>
@@ -99,9 +99,9 @@ const Questions = styled.div`
       width: 100%;
       height: 1px;
       background-color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.lines
-          : props.theme.white.lines};
+    props.isDarkTheme
+      ? props.theme.black.lines
+      : props.theme.white.lines};
     }
   }
 
@@ -126,15 +126,15 @@ const Questions = styled.div`
 
     span {
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.main
-          : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
       font-size: 24px;
       line-height: 32px;
       font-weight: 500;
       position: relative;
       font-weight: ${(props) =>
-        props.isDarkTheme ? '500' : '600'};
+    props.isDarkTheme ? '500' : '600'};
     }
   }
 
@@ -143,13 +143,13 @@ const Questions = styled.div`
 
     span {
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.sub
-          : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
       font-size: 14px;
       line-height: 20px;
       font-weight: ${(props) =>
-        props.isDarkTheme ? '400' : '500'};
+    props.isDarkTheme ? '400' : '500'};
     }
 
     @media (max-width: 876px) {

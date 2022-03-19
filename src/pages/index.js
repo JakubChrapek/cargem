@@ -80,6 +80,11 @@ const IndexPage = ({ data }) => {
             lang: 'pl',
             title: 'Cargem'
           }}>
+          <meta name="theme-color" content={isDarkTheme ? '#020405' : '#f3f3f3'} />
+          <link rel="preload" href={data.datoCmsSlider.brokenImage.url} />
+          <link rel="preload" href={data.datoCmsSlider.brokeImageWhite.url} />
+          <link rel="preload" href={data.datoCmsSlider.repairedImage.url} />
+          <link rel="preload" href={data.datoCmsSlider.repairedImageWhite.url} />
           <title>Cargem</title>
         </Helmet>
         <Toaster
