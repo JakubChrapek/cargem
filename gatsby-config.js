@@ -6,6 +6,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-THP8784",
+        enableWebVitalsTracking: true,
+      },
+    },
+
+    {
       resolve: 'gatsby-source-datocms',
       options: {
         apiToken: process.env.DATOCMS_API_KEY
@@ -33,6 +41,6 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
-    
+
   ]
 }

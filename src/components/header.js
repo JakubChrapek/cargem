@@ -43,7 +43,7 @@ const Wrapper = styled.header`
 
   &::after {
     display: ${(props) =>
-      props.isDarkTheme ? 'auto' : 'none'};
+    props.isDarkTheme ? 'auto' : 'none'};
     content: '';
     position: absolute;
     z-index: 100;
@@ -62,7 +62,7 @@ const Wrapper = styled.header`
 
   &::before {
     display: ${(props) =>
-      props.isDarkTheme ? 'auto' : 'none'};
+    props.isDarkTheme ? 'auto' : 'none'};
     content: '';
     position: absolute;
     z-index: 1000;
@@ -147,9 +147,9 @@ const TextBox = styled.div`
     line-height: 60px;
     margin: 0;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.black.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.black.text.main};
     filter: ${(props) => props.theme.black.text.dropShadow};
     transition: 0.2s linear;
     text-align: center;
@@ -168,9 +168,9 @@ const TextBox = styled.div`
       line-height: 50px;
       filter: none;
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.text.main
-          : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     }
   }
 
@@ -221,7 +221,8 @@ const ButtonsWrapper = styled.div`
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.2s linear,
-      background-color 0.2s linear;
+      background-color 0.2s linear,
+      filter 0.2s linear;
     font-weight: bold;
     font-weight: 700;
 
@@ -231,42 +232,42 @@ const ButtonsWrapper = styled.div`
 
     &.first {
       background-color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.button.static.background
-          : props.theme.white.button.static.background};
+    props.isDarkTheme
+      ? props.theme.black.button.static.background
+      : props.theme.white.button.static.background};
       border: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.button.static.border
-          : props.theme.white.button.static.border};
+    props.isDarkTheme
+      ? props.theme.black.button.static.border
+      : props.theme.white.button.static.border};
       color: ${(props) =>
-        props.isDarkTheme
-          ? props.theme.black.button.static.text
-          : props.theme.white.button.static.text};
+    props.isDarkTheme
+      ? props.theme.black.button.static.text
+      : props.theme.white.button.static.text};
       @media (max-width: 876px) {
         box-shadow: ${(props) =>
-          props.isDarkTheme
-            ? props.theme.black.button.static.shadow
-            : props.theme.white.button.static.shadow};
+    props.isDarkTheme
+      ? props.theme.black.button.static.shadow
+      : props.theme.white.button.static.shadow};
       }
 
       &:hover {
         background-color: ${(props) =>
-          props.isDarkTheme
-            ? props.theme.black.button.hover.background
-            : props.theme.white.button.hover.background};
+    props.isDarkTheme
+      ? props.theme.black.button.hover.background
+      : props.theme.white.button.hover.background};
       }
     }
 
     &.second {
       background-color: ${(props) =>
-        props.theme.black.text.main};
+    props.theme.black.text.main};
       border: ${(props) => props.theme.black.text.main};
       color: ${(props) => props.theme.white.text.main};
       @media (max-width: 876px) {
         box-shadow: ${(props) =>
-          props.isDarkTheme
-            ? props.theme.black.button.static.shadow
-            : props.theme.white.button.static.shadow};
+    props.isDarkTheme
+      ? props.theme.black.button.static.shadow
+      : props.theme.white.button.static.shadow};
       }
       &:hover {
         filter: brightness(0.8);
