@@ -1,7 +1,24 @@
-import './src/css/normalize.css'
-import React from 'react'
-import ThemeWrapper from './src/HOCs/isBlackTheme'
+const React = require('react');
 
-export function wrapPageElement({ element, props }) {
-  return <ThemeWrapper {...props}>{element}</ThemeWrapper>
-}
+exports.onRenderBody = ({ setHeadComponents }) => {
+    setHeadComponents([
+        <script
+            dangerouslySetInnerHTML={{
+                __html: `
+                (function () {
+                    function setTheme(isBlack) {
+                        window.__theme = isBlack
+                        isBlack 
+                            ? document.documentElement.className = isBlack === 'false' ? '' : 'dark'
+                            : null
+                        
+                    };
+                
+                    let isBlack = localStorage.getItem('isBlack');
+                    setTheme(isBlack);
+                })();`
+            }}
+        />,
+    ]);
+};
+

@@ -16,14 +16,26 @@
   },
   "dependencies": {
     "@fontsource/krona-one": "^4.5.1",
+    "@fontsource/lato": "^4.5.0",
+    "@netlify/plugin-gatsby": "^2.0.2",
+    "axios": "^0.25.0",
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^14.2.0",
     "gatsby": "^4.5.3",
+    "gatsby-plugin-image": "^2.5.2",
+    "gatsby-plugin-netlify": "^4.1.0",
+    "gatsby-plugin-sharp": "^4.5.2",
     "gatsby-plugin-styled-components": "^5.5.0",
     "gatsby-source-datocms": "^3.0.12",
+    "gatsby-source-filesystem": "^4.5.2",
+    "gatsby-transformer-sharp": "^4.5.0",
     "react": "^17.0.1",
     "react-datocms": "^2.1.2",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.25.0",
+    "react-hot-toast": "^2.2.0",
+    "react-scroll": "^1.8.4",
     "styled-components": "^5.3.3"
   }
 }

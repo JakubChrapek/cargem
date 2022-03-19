@@ -1,0 +1,123 @@
+* {
+  list-style: none;
+}
+
+*::marker {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f3f3f3;
+}
+
+html.dark {
+  background-color: #020405;
+}
+
+body {
+  font-family: lato;
+}
+
+details svg {
+  transform: rotateX(180deg);
+}
+
+details[open] svg {
+  transform: rotateX(0deg);
+}
+
+/* loader style */
+
+#Loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.5s linear;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
+}
+
+.dark #Loader {
+  background-color: #020405;
+}
+
+#Loader div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#Loader.off {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#Loader .top {
+  transform: translateX(-40px);
+  opacity: 0;
+  zoom: 2;
+  transition: all 0.4s ease-out;
+}
+
+#Loader .mid {
+  transform: translateX(40px);
+  opacity: 0;
+  zoom: 2;
+  transition: all 0.4s ease-out;
+}
+
+#Loader .bot {
+  transform: translate(40px, -1px);
+  opacity: 0;
+  zoom: 2;
+  transition: all 0.4s ease-out;
+}
+
+#Loader .title {
+  transform: translateX(40px);
+  opacity: 0;
+  zoom: 2;
+  transition: opacity 0.8s ease-out 0.65s,
+    transform 0.65s ease-out 0.45s;
+}
+
+#Loader.active .top {
+  transform: translateX(0);
+  zoom: 2;
+  opacity: 1;
+}
+
+#Loader.active .mid,
+#Loader.active .bot {
+  transform: translateX(0px);
+  zoom: 2;
+  opacity: 1;
+}
+#Loader.active .bot {
+  transform: translate(0px, -1px);
+}
+
+#Loader.active .title {
+  transform: translateX(0px);
+  zoom: 2;
+  opacity: 1;
+}
+
+#Loader svg.title path {
+  fill: #030405;
+}
+
+.dark #Loader svg.title path {
+  fill: #f3f3f3;
+}
+
+@media (max-width: 539px) {
+
+}
