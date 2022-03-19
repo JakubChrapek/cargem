@@ -137,7 +137,7 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
       <div>
         <SocialMedia isDarkTheme={isDarkTheme}>
           {data.socialMedia.map((el, index) => (
-            <li key={el.link}>
+            <li key={`social-${el.link}`}>
               <a
                 href={el.link}
                 target='_blank'

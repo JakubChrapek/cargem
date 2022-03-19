@@ -166,12 +166,15 @@ const SideImg = styled(GatsbyImage)`
 
   @media (max-width: 876px) {
     display: block;
-    position: relative;
+    position: relative !important;
     transform: unset;
     margin: 0 auto;
     top: 0;
     padding-bottom: 54px;
     width: 100%;
+    img {
+      object-fit: contain !important;
+    }
   }
 
   @media (max-width: 539px) {

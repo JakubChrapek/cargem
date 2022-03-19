@@ -58,7 +58,7 @@ const Footer = ({ data, isDarkTheme }) => {
           </OpenTimeTitle>
           <OpenTime isDarkTheme={isDarkTheme}>
             {data.openTimes.map((el, index) => (
-              <div key={index}>
+              <div key={`czas-otwarcia-${index}`}>
                 <StructuredText data={el.content} />
               </div>
             ))}

@@ -9,7 +9,7 @@ const Highlight = ({ data, isDarkTheme }) => {
       <StructuredText data={data.title} />
       <Benefits isDarkTheme={isDarkTheme}>
         {data.benefits.map((el, index) => (
-          <div key={el.title} className={'div' + index}>
+          <div key={el.text} className={'div' + index}>
             <span>
               <Complete />
               <h4>{el.title}</h4>
@@ -204,6 +204,9 @@ const Texts = styled.div`
 
   div {
     padding-right: clamp(80px, 8vw, 160px);
+    @media (max-width: 380px) {
+      padding-right: 0;
+    }
   }
 
   h3 {
