@@ -14,7 +14,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Offer = ({ data, isDarkTheme }) => {
   return (
-    <Wrapper>
+    <Wrapper id='oferta'>
       <StructuredText data={data.title} />
       <ItemsBox isDarkTheme={isDarkTheme}>
         {data.items.map((el, index) => (
@@ -99,7 +99,7 @@ const Offer = ({ data, isDarkTheme }) => {
         alt={
           isDarkTheme
             ? data.carImg.alt ? data.carImg.alt : 'samochód dekoratywny'
-            : data.carImgWhite.alt ? data.carImgWhite.alt : 'samochód dekoratywny' 
+            : data.carImgWhite.alt ? data.carImgWhite.alt : 'samochód dekoratywny'
         }
       />
     </Wrapper>
@@ -112,7 +112,6 @@ const Wrapper = styled.section`
   padding-top: clamp(55px, 9.31vw, 180px);
   padding-left: clamp(55px, 8.6vw, 167px);
   padding-right: clamp(55px, 8.6vw, 167px);
-  padding-bottom: clamp(55px, 9.31vw, 180px);
   position: relative;
 
   h2 {
@@ -182,37 +181,37 @@ const ItemsBox = styled.div`
     margin: 0;
     font-size: 24px;
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     font-weight: ${(props) =>
-      props.isDarkTheme ? '500' : '600'};
+    props.isDarkTheme ? '500' : '600'};
   }
 
   h6 {
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.main
-        : props.theme.white.text.main};
+    props.isDarkTheme
+      ? props.theme.black.text.main
+      : props.theme.white.text.main};
     font-size: 18px;
     line-height: 26px;
     padding: 16px 0;
     margin: 0;
     font-weight: ${(props) =>
-      props.isDarkTheme ? '600' : '600'};
+    props.isDarkTheme ? '600' : '600'};
   }
 
   p {
     color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.text.sub
-        : props.theme.white.text.sub};
+    props.isDarkTheme
+      ? props.theme.black.text.sub
+      : props.theme.white.text.sub};
     font-size: 14px;
     line-height: 20px;
     padding: 0;
     margin: 0;
     font-weight: ${(props) =>
-      props.isDarkTheme ? '400' : '500'};
+    props.isDarkTheme ? '400' : '500'};
   }
 
   @media (max-width: 876px) {
@@ -258,9 +257,9 @@ const LinkS = styled(Link)`
 
   &:hover {
     background-color: ${(props) =>
-      props.isDarkTheme
-        ? props.theme.black.button.hover.background
-        : props.theme.white.button.hover.background};
+    props.isDarkTheme
+      ? props.theme.black.button.hover.background
+      : props.theme.white.button.hover.background};
   }
 
   &:focus-visible {

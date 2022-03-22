@@ -109,16 +109,14 @@ const IndexPage = ({ data }) => {
               isDarkTheme={isDarkTheme}
               data={data.datoCmsBenefit}
             />
-            <div id='oferta'>
-              <Offer
-                isDarkTheme={isDarkTheme}
-                data={data.datoCmsOffer}
-              />
-              <Price
-                isDarkTheme={isDarkTheme}
-                data={data.datoCmsPrice}
-              />
-            </div>
+            <Offer
+              isDarkTheme={isDarkTheme}
+              data={data.datoCmsOffer}
+            />
+            <Price
+              isDarkTheme={isDarkTheme}
+              data={data.datoCmsPrice}
+            />
             <Faq
               isDarkTheme={isDarkTheme}
               data={data.datoCmsFaq}

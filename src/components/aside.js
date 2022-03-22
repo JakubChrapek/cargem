@@ -102,6 +102,22 @@ const Aside = ({ data, isDarkTheme, setMenuState }) => {
             <ListItem
               isDarkTheme={isDarkTheme}
               className='navItem'
+              id='cennikNav'>
+              <Link
+                href='#'
+                tabIndex='0'
+                activeClass='active'
+                spy={true}
+                smooth={'easeOutCubic'}
+                onClick={setMenuState}
+                to='cennik'>
+                <Price />
+                Cennik
+              </Link>
+            </ListItem>
+            <ListItem
+              isDarkTheme={isDarkTheme}
+              className='navItem'
               id='faqNav'>
               <Link
                 href='#'
@@ -227,7 +243,7 @@ const Logo = styled.img`
 `
 
 const Nav = styled.nav`
-  padding-top: clamp(30px, 9.3vw, 180px);
+  padding-top: clamp(30px, 7.3vw, 180px);
 `
 
 const List = styled.ul`

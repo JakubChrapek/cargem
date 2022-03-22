@@ -8,7 +8,7 @@ const Price = ({ data, isDarkTheme }) => {
   const [chosenIndex, setChooseIndex] = useState(0)
 
   return (
-    <Wrapper>
+    <Wrapper id='cennik'>
       <StructuredText data={data.title} />
       <TextBox isDarkTheme={isDarkTheme}>
         <StructuredText data={data.leftText} />
@@ -47,6 +47,7 @@ export default Price
 const Wrapper = styled.section`
   padding-left: clamp(55px, 8.6vw, 167px);
   padding-right: clamp(55px, 8.6vw, 167px);
+  padding-top: clamp(55px, 9.31vw, 180px);
 
   h2 {
     margin-top: 0;

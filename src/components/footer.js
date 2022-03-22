@@ -72,7 +72,7 @@ const Footer = ({ data, isDarkTheme }) => {
       <Map
         aria-label='link do mapy google'
         isDarkTheme={isDarkTheme}
-        href='https://www.google.com/maps/place/Rososz+145,+08-500+Rososz/data=!4m2!3m1!1s0x4718a1cc984f288b:0xa0ba4d0e46b74ea4?sa=X&ved=2ahUKEwjhpa3s5uH1AhWvAxAIHdbPDK0Q8gF6BAgWEAE'
+        href='https://www.google.com/maps/place/cargem.eu/@51.6687729,21.982153,15z/data=!4m5!3m4!1s0x0:0xe5275eb73a5fb27b!8m2!3d51.6686866!4d21.9821494'
         bg={isDarkTheme ? data.map.url : data.mapWhite.url}
       />
       <FormBox className='mobile'>
