@@ -3,6 +3,7 @@ import { StructuredText } from 'react-datocms'
 import styled from 'styled-components'
 
 const PriceContent = ({
+  key,
   isDarkTheme,
   index,
   items,
@@ -20,6 +21,7 @@ const PriceContent = ({
 
   return (
     <Grid
+      key={key}
       isDarkTheme={isDarkTheme}
       id={'tabContent' + index}
       className={`${
