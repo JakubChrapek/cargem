@@ -6,11 +6,11 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: "GTM-THP8784",
-        enableWebVitalsTracking: true,
-      },
+        id: 'GTM-THP8784',
+        enableWebVitalsTracking: true
+      }
     },
 
     {
@@ -22,14 +22,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Cargem Serwis Naprawy Aut`,
+        name: `Cargem warsztat samochodowy`,
         icon: `src/images/logo.svg`,
         short_name: `Cargem`,
         start_url: `/`,
         background_color: `#f3f3f3f3`,
         theme_color: `#f3f3f3`,
-        display: `standalone`,
-      },
+        display: `standalone`
+      }
     },
     {
       resolve: `gatsby-plugin-offline`,
@@ -40,7 +40,6 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-image',
-
+    'gatsby-plugin-image'
   ]
 }
