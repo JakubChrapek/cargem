@@ -143,8 +143,9 @@ const Car = styled(GatsbyImage)`
   bottom: 0;
   right: 0;
   width: clamp(20%, 30vw, 42%);
+  max-width: 550px;
 
-  @media (max-width: 1800px) {
+  @media (max-width: 1600px) {
     bottom: 10%;
   }
   @media (max-width: 1400px) {
